@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Login | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="doctor-login.html" class="portal-btn">Doctor Portal</a>
+            <a href="../index.html" class="back-home">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Medical Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-header">
+                <p class="small-title">PHARMACY PORTAL</p>
+                <h1>Pharmacy & Medical Login</h1>
+                <p>Authorized access for empanelled chemists, pharmacies and medicine stores.</p>
+            </div>
+
+            <!-- Demo Helper -->
+            <div style="background: var(--primary-light); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 12px 16px; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+                <div style="font-size: 13px; color: var(--primary-dark);">
+                    💊 <strong>Demo Chemist:</strong> <code>MED-303</code> / Any Password
+                </div>
+                <button type="button" id="quickFillMed" class="secondary-btn" style="padding: 4px 12px; font-size: 12px; border-color: var(--primary);">
+                    Quick Fill
+                </button>
+            </div>
+
+            <div class="medical-login-box" style="padding: 0; background: transparent; border: none; box-shadow: none;">
+                <div class="form-group">
+                    <label for="medicalUsername">Chemist License / Username</label>
+                    <input type="text" id="medicalUsername" placeholder="e.g. MED-303 or City Care Pharmacy" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="medicalPassword">Password</label>
+                    <input type="password" id="medicalPassword" placeholder="Enter pharmacy password" required>
+                </div>
+
+                <button type="button" class="primary-btn login-submit" onclick="medicalLogin()">
+                    Login to Pharmacy Portal →
+                </button>
+
+                <div id="loginMessage" style="margin-top: 15px; font-weight: 600; text-align: center; color: var(--danger);"></div>
+            </div>
+
+            <div class="register-link">
+                <a href="../index.html">← Back to Homepage</a>
+            </div>
+
+            <div style="margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--slate-200); display: flex; justify-content: center; gap: 16px; font-size: 13px; color: var(--slate-500);">
+                <span>Other Portals:</span>
+                <a href="patient-login.html">Patient</a> •
+                <a href="doctor-login.html">Doctor</a> •
+                <a href="pathology-login.html">Pathology</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("quickFillMed")?.addEventListener("click", function() {
+            document.getElementById("medicalUsername").value = "MED-303";
+            document.getElementById("medicalPassword").value = "medpass123";
+        });
+    });
+
+    function medicalLogin() {
+        const u = document.getElementById("medicalUsername").value.trim();
+        const p = document.getElementById("medicalPassword").value.trim();
+        const msg = document.getElementById("loginMessage");
+
+        if (!u || !p) {
+            if (msg) msg.innerText = "Please enter Username and Password.";
+            return;
+        }
+
+        window.PatientCareDB.setSession('medical', { username: u, name: 'City Care Pharmacy' });
+        window.showToast("Chemist authenticated successfully!", "success");
+        setTimeout(() => {
+            window.location.href = "medical-dashboard.html";
+        }, 600);
+    }
+    </script>
+</body>
+</html>

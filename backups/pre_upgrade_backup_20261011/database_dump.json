@@ -1,0 +1,3054 @@
+[
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$GKy9PtQBHWOescGpyBtDiA$XSuPuLHHhpBcPlg1hdt7Bm8KzdWJZGhhup4U78tfN4g=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@patientcare.org",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-07T17:56:06.562Z",
+    "role": "ADMIN",
+    "mobile": null,
+    "is_verified": true,
+    "created_at": "2026-10-07T17:56:06.563Z",
+    "updated_at": "2026-10-07T17:56:33.826Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$4YoqVnmf12thVIKhD7V54h$LmZ/Ct3AceQuGjXho7HyimPe5mSYVtxzjLIrJjluliU=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "govt_officer",
+    "first_name": "",
+    "last_name": "",
+    "email": "officer@health.gov.in",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-07T17:56:06.875Z",
+    "role": "GOVERNMENT",
+    "mobile": "9811002233",
+    "is_verified": true,
+    "created_at": "2026-10-07T17:56:06.875Z",
+    "updated_at": "2026-10-07T17:56:34.126Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$lzhlpefjkoiIIEgflNPz5B$wuq3Z3Ko2t7RIV7aaL78FCvbfTTCEDZmTGl7IZoSm5Y=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dr_kadam",
+    "first_name": "",
+    "last_name": "",
+    "email": "dr.kadam@apexmed.org",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-07T17:56:07.192Z",
+    "role": "DOCTOR",
+    "mobile": "9822114455",
+    "is_verified": true,
+    "created_at": "2026-10-07T17:56:07.192Z",
+    "updated_at": "2026-10-07T17:56:34.426Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$xhQHGSuzcFwjWMWl74iYVn$DFOGDpdYjS2INN3AKZGrQbbtzijw54SwwHKPIbeQevc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "city_pathology",
+    "first_name": "",
+    "last_name": "",
+    "email": "reports@citydiagnostics.org",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-07T17:56:07.509Z",
+    "role": "PATHOLOGY",
+    "mobile": "9833225566",
+    "is_verified": true,
+    "created_at": "2026-10-07T17:56:07.509Z",
+    "updated_at": "2026-10-07T17:56:34.726Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$rFwccazFtroAaMF1bZjY18$v929Spu0F16+tvabRbKXyx97mfdIgQgL66O+caIpfrw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "apex_pharmacy",
+    "first_name": "",
+    "last_name": "",
+    "email": "pharmacy@apexcare.org",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-07T17:56:07.825Z",
+    "role": "PHARMACY",
+    "mobile": "9844336677",
+    "is_verified": true,
+    "created_at": "2026-10-07T17:56:07.825Z",
+    "updated_at": "2026-10-07T17:56:35.101Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$vevBZua6kQiU45TkoApeGm$mSmzTfpgAuvZExVzz/8BuQuKgfQuqek26VK14kYlTxE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "sahil",
+    "first_name": "",
+    "last_name": "",
+    "email": "sahilwaghmare1872004@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-07T18:20:34.648Z",
+    "role": "PATIENT",
+    "mobile": "9891774597",
+    "is_verified": true,
+    "created_at": "2026-10-07T18:20:34.649Z",
+    "updated_at": "2026-10-07T18:20:35.380Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$sGosLAKfKlE4KFBM343yY6$vwGv4xZ5E6YlhUwsFTMwu9RczVq/XBZGQP0Dvhrrx0o=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Manoj",
+    "first_name": "",
+    "last_name": "",
+    "email": "manojwagh342@gamil.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-07T18:42:01.105Z",
+    "role": "PATIENT",
+    "mobile": "9764625439",
+    "is_verified": true,
+    "created_at": "2026-10-07T18:42:01.106Z",
+    "updated_at": "2026-10-07T18:42:01.761Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dr_mehta",
+    "first_name": "",
+    "last_name": "",
+    "email": "dr_mehta@hospital.org",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T16:25:26.600Z",
+    "role": "DOCTOR",
+    "mobile": null,
+    "is_verified": true,
+    "created_at": "2026-10-09T16:25:26.600Z",
+    "updated_at": "2026-10-09T16:25:26.600Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dr_patil",
+    "first_name": "",
+    "last_name": "",
+    "email": "dr_patil@hospital.org",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T16:25:26.687Z",
+    "role": "DOCTOR",
+    "mobile": null,
+    "is_verified": true,
+    "created_at": "2026-10-09T16:25:26.687Z",
+    "updated_at": "2026-10-09T16:25:26.687Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5Ba4mjIYFt9YXnrh1YRHn2$D6CkCNfqr7zTxwJy+aWIiSqp/YmpDFO/YCRvUQ2iJ0Q=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_ABCDE1234F",
+    "first_name": "",
+    "last_name": "",
+    "email": "amit.sharma@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T16:56:04.193Z",
+    "role": "PATIENT",
+    "mobile": "9823456789",
+    "is_verified": true,
+    "created_at": "2026-10-09T16:56:04.194Z",
+    "updated_at": "2026-10-09T16:56:04.473Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$iWYIRMxxW3LwsVs05yCMRc$cLhFKmI8HPhN0E8FX26GCM8HgAD5xOustYjyJTS/dlY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user_PPPPP1234P",
+    "first_name": "",
+    "last_name": "",
+    "email": "pooja.patil@example.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T16:56:37.263Z",
+    "role": "PATIENT",
+    "mobile": "9822113355",
+    "is_verified": true,
+    "created_at": "2026-10-09T16:56:37.263Z",
+    "updated_at": "2026-10-09T16:56:37.638Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$dgOhhBt6Brt2Z6itV9sqiA$l//3o4ilJrwgvCgoCXC72iT7docXj24lfUG3O+W+sPo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ramesh_552",
+    "first_name": "",
+    "last_name": "",
+    "email": "ramesh.patil@test.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T17:02:17.477Z",
+    "role": "PATIENT",
+    "mobile": "9822001122",
+    "is_verified": true,
+    "created_at": "2026-10-09T17:02:17.477Z",
+    "updated_at": "2026-10-09T17:02:17.778Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FQkWO2XTGsZhx0dosfLNnu$XF3NdU3ZcKoZP3CK7zfZiVOvmczGM380BF6tfrO71rY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Rohan",
+    "first_name": "",
+    "last_name": "",
+    "email": "xyz@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T17:24:56.106Z",
+    "role": "PATIENT",
+    "mobile": "8180032454",
+    "is_verified": true,
+    "created_at": "2026-10-09T17:24:56.106Z",
+    "updated_at": "2026-10-09T17:24:57.073Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$LbgWivwhonFqRcSw34NRuX$zLwE/26A85cQWCwJmTQ1wMgCx3FMm1e/abIyGcTa5eY=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Dr.Wagh",
+    "first_name": "",
+    "last_name": "",
+    "email": "xyz@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T17:31:46.726Z",
+    "role": "DOCTOR",
+    "mobile": "7894525846",
+    "is_verified": false,
+    "created_at": "2026-10-09T17:31:46.726Z",
+    "updated_at": "2026-10-09T17:31:47.037Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FpVpl19Y7J35kZanYFU28H$pWXJ5Wtr2O9zCaxdb4pkIGfhOAYdpFksdpznjxglgUI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "dr_alex_382",
+    "first_name": "",
+    "last_name": "",
+    "email": "dr.alex.382@hospital.org",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T17:35:25.977Z",
+    "role": "DOCTOR",
+    "mobile": "55784562",
+    "is_verified": false,
+    "created_at": "2026-10-09T17:35:25.978Z",
+    "updated_at": "2026-10-09T17:35:26.864Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$WkNp8u3qPQC6eXOQiXYuBb$TdCKwqW+3F+BlwqgpsSzXyyo3QmyYfURGyyFAQpIwyw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Tejas",
+    "first_name": "",
+    "last_name": "",
+    "email": "tejas21@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T18:04:03.054Z",
+    "role": "PHARMACY",
+    "mobile": "5213554766",
+    "is_verified": false,
+    "created_at": "2026-10-09T18:04:03.055Z",
+    "updated_at": "2026-10-09T18:04:03.811Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$zZiLlbOjfZ9qviEb8fKqSh$ctdr8cROBAQcvkV+BRD2gSM/yi6Rsv0UmnQFI20Qk3U=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Tejas_1427",
+    "first_name": "",
+    "last_name": "",
+    "email": "xyz@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-09T18:26:43.773Z",
+    "role": "PATIENT",
+    "mobile": "8087521345",
+    "is_verified": true,
+    "created_at": "2026-10-09T18:26:43.778Z",
+    "updated_at": "2026-10-09T18:26:44.171Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.doctorprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "dr_kadam"
+    ],
+    "doctor_id": "DOC-2026-0001",
+    "full_name": "Dr. S. Kadam, MD",
+    "qualification": "MBBS, MD (Internal Medicine)",
+    "specialization": "General Medicine & Cardiology",
+    "registration_number": "MCI-REG-98124",
+    "experience_years": 14,
+    "hospital_name": "Apex Multi-Speciality Hospital",
+    "contact_number": "9822114455",
+    "email": "dr.kadam@apexmed.org",
+    "address": "402 Health Towers, Shivajinagar, Pune",
+    "is_approved": true,
+    "created_at": "2026-10-07T17:56:07.499Z"
+  }
+},
+{
+  "model": "accounts.doctorprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "dr_mehta"
+    ],
+    "doctor_id": "DOC-2026-0002",
+    "full_name": "Dr. Ananya Mehta, DM (Neurology)",
+    "qualification": "MBBS, MD, DM Neurology (AIIMS)",
+    "specialization": "Neurology",
+    "registration_number": "MCI-NEURO-4512",
+    "experience_years": 12,
+    "hospital_name": "Apex Brain & Spine Institute",
+    "contact_number": "9811223344",
+    "email": "dr_mehta@hospital.org",
+    "address": "Pune, Maharashtra",
+    "is_approved": true,
+    "created_at": "2026-10-09T16:25:26.616Z"
+  }
+},
+{
+  "model": "accounts.doctorprofile",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "dr_patil"
+    ],
+    "doctor_id": "DOC-2026-0003",
+    "full_name": "Dr. Vikram Patil, MS (Ortho)",
+    "qualification": "MBBS, MS Orthopedics (KEM)",
+    "specialization": "Orthopedics",
+    "registration_number": "MCI-ORTHO-8891",
+    "experience_years": 15,
+    "hospital_name": "Apex Bone & Joint Hospital",
+    "contact_number": "9822334455",
+    "email": "dr_patil@hospital.org",
+    "address": "Mumbai, Maharashtra",
+    "is_approved": true,
+    "created_at": "2026-10-09T16:25:26.696Z"
+  }
+},
+{
+  "model": "accounts.doctorprofile",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "Dr.Wagh"
+    ],
+    "doctor_id": "DOC-2026-0004",
+    "full_name": "Sahil Santosh Wagh",
+    "qualification": "MBBS, MD",
+    "specialization": "Internal Medical",
+    "registration_number": "REG-1223",
+    "experience_years": 5,
+    "hospital_name": "Sahil clinic",
+    "contact_number": "7894525846",
+    "email": "xyz@gmail.com",
+    "address": "Medical Council Avenue",
+    "is_approved": true,
+    "created_at": "2026-10-09T17:31:47.047Z"
+  }
+},
+{
+  "model": "accounts.doctorprofile",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "doctor_id": "DOC-2026-0005",
+    "full_name": "Dr. Sahil Santosh Wagh",
+    "qualification": "MBBS, MD (Internal Medicine)",
+    "specialization": "Internal Medicine",
+    "registration_number": "MCI-382-MH",
+    "experience_years": 5,
+    "hospital_name": "Sahil Healthcare Clinic",
+    "contact_number": "55784562",
+    "email": "dr.alex.382@hospital.org",
+    "address": "Plot 12, Shivaji Nagar, Pune",
+    "is_approved": true,
+    "created_at": "2026-10-09T17:35:26.876Z"
+  }
+},
+{
+  "model": "accounts.pathologyprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "city_pathology"
+    ],
+    "lab_id": "LAB-2026-0001",
+    "lab_name": "City Care Diagnostics & Imaging",
+    "license_number": "NABL-LIC-2026-44",
+    "registration_number": "REG-LAB-8812",
+    "owner_name": "Dr. Meena Swaminathan",
+    "contact_number": "9833225566",
+    "email": "reports@citydiagnostics.org",
+    "address": "Plot 12, Diagnostic Hub, Deccan, Pune",
+    "services_offered": "Hematology, Clinical Biochemistry, Serology, Microbiology, Ultrasound",
+    "is_approved": true,
+    "created_at": "2026-10-07T17:56:07.815Z"
+  }
+},
+{
+  "model": "accounts.pharmacyprofile",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "apex_pharmacy"
+    ],
+    "pharmacy_id": "PHARM-2026-0001",
+    "pharmacy_name": "Apex Healthcare Chemists & Druggists",
+    "license_number": "FDA-20B-21B-9981",
+    "pharmacist_name": "Rajesh Verma, B.Pharm",
+    "contact_number": "9844336677",
+    "email": "pharmacy@apexcare.org",
+    "address": "Shop 4, Hospital Arcade, Pune",
+    "is_approved": true,
+    "created_at": "2026-10-07T17:56:08.126Z"
+  }
+},
+{
+  "model": "accounts.pharmacyprofile",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "pharmacy_id": "PHARM-2026-0002",
+    "pharmacy_name": "Tejas Medical",
+    "license_number": "LIC-PHARM-0002",
+    "pharmacist_name": "Tejas jadhav B.Pharma",
+    "contact_number": "5213554766",
+    "email": "tejas21@gmail.com",
+    "address": "Pharmacy Market Street",
+    "is_approved": true,
+    "created_at": "2026-10-09T18:04:03.825Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "User logged in: rahul_patient",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:12:49.390Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 2,
+  "fields": {
+    "user": null,
+    "role": "PROVIDER",
+    "action": "Searched patient: PAT-2026-000001",
+    "patient_id": "PAT-2026-000001",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:18:08.754Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 3,
+  "fields": {
+    "user": null,
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000001",
+    "patient_id": "PAT-2026-000001",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:18:11.311Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 4,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "User logged in: rahul_patient",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:18:52.062Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:20:35.391Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:21:16.436Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:22:05.923Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:22:25.688Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:23:34.071Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 10,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:24:49.850Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:25:56.486Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "govt_officer"
+    ],
+    "role": "GOVERNMENT",
+    "action": "User logged in: govt_officer",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:26:45.066Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "govt_officer"
+    ],
+    "role": "INSURANCE",
+    "action": "Submitted insurance claim: CLM-2026-0001 for PAT-2026-000003 (Requested: ₹15000)",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:27:46.568Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "apex_pharmacy"
+    ],
+    "role": "PHARMACY",
+    "action": "User logged in: apex_pharmacy",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:28:21.326Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "apex_pharmacy"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:28:28.671Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 16,
+  "fields": {
+    "user": [
+      "apex_pharmacy"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:28:31.449Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 17,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "User logged in: rahul_patient",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:29:20.850Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 18,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "Existing PAN lookup: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:32:35.255Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 19,
+  "fields": {
+    "user": [
+      "Manoj"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000004",
+    "patient_id": "PAT-2026-000004",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:42:01.766Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 20,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:44:11.351Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 21,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "Updated Fund Allocation Rules: Doctor=10.00%, Pathology=10.00%, Pharmacy=5.00%, Gov=5.00%, Benefit=70.00%",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:44:32.991Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 22,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000001",
+    "patient_id": "PAT-2026-000001",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:44:42.129Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 23,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000004",
+    "patient_id": "PAT-2026-000004",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T18:44:59.044Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 24,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "PATIENT",
+    "action": "Existing PAN lookup: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T19:08:56.418Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 25,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T19:09:11.870Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 26,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-07T19:11:30.084Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 27,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:26:41.804Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 28,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:26:53.765Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 29,
+  "fields": {
+    "user": [
+      "dr_kadam"
+    ],
+    "role": "DOCTOR",
+    "action": "User logged in: dr_kadam",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:27:36.088Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 30,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:29:47.245Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 31,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:30:02.100Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 32,
+  "fields": {
+    "user": [
+      "govt_officer"
+    ],
+    "role": "GOVERNMENT",
+    "action": "User logged in: govt_officer",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:30:02.448Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 33,
+  "fields": {
+    "user": [
+      "dr_kadam"
+    ],
+    "role": "DOCTOR",
+    "action": "User logged in: dr_kadam",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:30:02.764Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 34,
+  "fields": {
+    "user": [
+      "city_pathology"
+    ],
+    "role": "PATHOLOGY",
+    "action": "User logged in: city_pathology",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:30:03.144Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 35,
+  "fields": {
+    "user": [
+      "apex_pharmacy"
+    ],
+    "role": "PHARMACY",
+    "action": "User logged in: apex_pharmacy",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-08T06:30:03.507Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 36,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-08T06:31:11.728Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 37,
+  "fields": {
+    "user": null,
+    "role": "PROVIDER",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-08T06:32:33.200Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 38,
+  "fields": {
+    "user": null,
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-08T06:32:37.202Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 39,
+  "fields": {
+    "user": [
+      "user_ABCDE1234F"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000005",
+    "patient_id": "PAT-2026-000005",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T16:56:04.476Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 40,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "Existing PAN lookup: PAT-2026-000005",
+    "patient_id": "PAT-2026-000005",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T16:56:20.307Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 41,
+  "fields": {
+    "user": [
+      "user_PPPPP1234P"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000006",
+    "patient_id": "PAT-2026-000006",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T16:56:37.651Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 42,
+  "fields": {
+    "user": [
+      "ramesh_552"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000007",
+    "patient_id": "PAT-2026-000007",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:02:17.781Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 43,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "Existing PAN lookup: PAT-2026-000007",
+    "patient_id": "PAT-2026-000007",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:02:42.788Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 44,
+  "fields": {
+    "user": [
+      "ramesh_552"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: ramesh_552",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:03:42.364Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 45,
+  "fields": {
+    "user": [
+      "Rohan"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000008",
+    "patient_id": "PAT-2026-000008",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:24:57.083Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 46,
+  "fields": {
+    "user": [
+      "Dr.Wagh"
+    ],
+    "role": "DOCTOR",
+    "action": "Registered new account: Dr.Wagh",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:31:47.055Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 47,
+  "fields": {
+    "user": [
+      "Dr.Wagh"
+    ],
+    "role": "DOCTOR",
+    "action": "User logged in: Dr.Wagh",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:32:27.551Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 48,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "DOCTOR",
+    "action": "Registered new account: dr_alex_382",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:35:26.889Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 49,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "DOCTOR",
+    "action": "User logged in: dr_alex_382",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:35:33.220Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 50,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:38:17.375Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 51,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "DOCTOR",
+    "action": "User logged in: dr_alex_382",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:39:34.469Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 52,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "DOCTOR",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:39:42.129Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 53,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "DOCTOR",
+    "action": "Created clinical consultation: CON-2026-0001 for PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:41:40.287Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 54,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "FINANCE",
+    "action": "Reserve credit of 540.00 for PAT-2026-000003 — Doctor Consultation ref:CON-2026-0001",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:41:40.363Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 55,
+  "fields": {
+    "user": [
+      "dr_alex_382"
+    ],
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T17:42:11.001Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 56,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:00:24.379Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 57,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Registered new account: Tejas",
+    "patient_id": "",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:04:03.841Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 58,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "User logged in: Tejas",
+    "patient_id": "",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:04:36.599Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 59,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:05:39.920Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 60,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T18:06:04.409Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 61,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:06:26.309Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 62,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:06:32.458Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 63,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:2d9a:116b:57c0:1fad",
+    "details": "",
+    "created_at": "2026-10-09T18:06:51.403Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 64,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "User logged in: Tejas",
+    "patient_id": "",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T18:07:15.335Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 65,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T18:07:25.284Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 66,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T18:07:40.405Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 67,
+  "fields": {
+    "user": [
+      "Tejas"
+    ],
+    "role": "PHARMACY",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T18:07:51.407Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 68,
+  "fields": {
+    "user": null,
+    "role": "PATIENT",
+    "action": "Existing PAN lookup: PAT-2026-000005",
+    "patient_id": "PAT-2026-000005",
+    "ip_address": "2409:4081:1814:68d6:18b2:25b7:2c12:1ade",
+    "details": "",
+    "created_at": "2026-10-09T18:10:07.375Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 69,
+  "fields": {
+    "user": null,
+    "role": "PROVIDER",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "127.0.0.1",
+    "details": "",
+    "created_at": "2026-10-09T18:17:23.495Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 70,
+  "fields": {
+    "user": null,
+    "role": "PROVIDER",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:10e5:3b5d:f65:e675",
+    "details": "",
+    "created_at": "2026-10-09T18:22:15.563Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 71,
+  "fields": {
+    "user": null,
+    "role": "PHARMACY",
+    "action": "Dispensed medicines invoice: MED-2026-0001 for PAT-2026-000003 (Total: ₹283.50)",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:10e5:3b5d:f65:e675",
+    "details": "",
+    "created_at": "2026-10-09T18:22:48.933Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 72,
+  "fields": {
+    "user": null,
+    "role": "FINANCE",
+    "action": "Reserve credit of 255.15 for PAT-2026-000003 — Pharmacy Dispensation ref:MED-2026-0001",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:10e5:3b5d:f65:e675",
+    "details": "",
+    "created_at": "2026-10-09T18:22:49.139Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 73,
+  "fields": {
+    "user": [
+      "Tejas_1427"
+    ],
+    "role": "PATIENT",
+    "action": "Created new Patient record: PAT-2026-000009",
+    "patient_id": "PAT-2026-000009",
+    "ip_address": "2409:40c2:5413:aae1:10e5:3b5d:f65:e675",
+    "details": "",
+    "created_at": "2026-10-09T18:26:44.183Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 74,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "2409:40c2:5413:aae1:ec93:9f8d:4bfe:4dde",
+    "details": "",
+    "created_at": "2026-10-09T18:57:57.931Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 75,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "2409:40c2:5413:aae1:ec93:9f8d:4bfe:4dde",
+    "details": "",
+    "created_at": "2026-10-09T18:59:21.193Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 76,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000009",
+    "patient_id": "PAT-2026-000009",
+    "ip_address": "2409:40c2:5413:aae1:ec93:9f8d:4bfe:4dde",
+    "details": "",
+    "created_at": "2026-10-09T19:00:25.960Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 77,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "2409:40c2:5413:aae1:ec93:9f8d:4bfe:4dde",
+    "details": "",
+    "created_at": "2026-10-09T19:00:37.482Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 78,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T05:11:11.778Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 79,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "Appointment APT-20261010-0001 booked for PAT-2026-000003 with DOC-2026-0004. Token #1.",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T05:12:29.112Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 80,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "Appointment APT-20261010-0002 booked for PAT-2026-000003 with DOC-2026-0004. Token #2.",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T05:12:49.553Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 81,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T05:51:26.684Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 82,
+  "fields": {
+    "user": null,
+    "role": "PROVIDER",
+    "action": "Searched patient: PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T05:51:48.294Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 83,
+  "fields": {
+    "user": null,
+    "role": "REPORT",
+    "action": "Generated Centralized Healthcare Report for PAT-2026-000003",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T05:52:02.233Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 84,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T07:34:12.276Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 85,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "Appointment APT-20261010-0003 booked for PAT-2026-000003 with DOC-2026-0001. Token #1.",
+    "patient_id": "PAT-2026-000003",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T07:35:15.907Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 86,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T09:56:47.130Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 87,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "role": "PATIENT",
+    "action": "User logged in: sahil",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T09:58:58.541Z"
+  }
+},
+{
+  "model": "accounts.auditlog",
+  "pk": 88,
+  "fields": {
+    "user": [
+      "admin"
+    ],
+    "role": "ADMIN",
+    "action": "User logged in: admin",
+    "patient_id": "",
+    "ip_address": "103.159.152.130",
+    "details": "",
+    "created_at": "2026-10-10T10:02:44.327Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "sahil"
+    ],
+    "patient_id": "PAT-2026-000003",
+    "full_name": "Sahil Waghmare",
+    "dob": "1998-07-15",
+    "gender": "Male",
+    "mobile": "9891774597",
+    "email": "sahilwaghmare1872004@gmail.com",
+    "address": "At-Post Shendre Tal-Dist Satara",
+    "city": "Satara",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "pincode": "415519",
+    "pan_number": "ABCDE1756F",
+    "aadhaar_number": "987654321756",
+    "government_scheme_id": null,
+    "blood_group": "B+",
+    "allergies": "None",
+    "existing_conditions": "None",
+    "illness_description": "",
+    "presenting_symptoms": "",
+    "symptom_duration": "",
+    "symptom_severity": "",
+    "current_medicines": "",
+    "consent_data_processing": false,
+    "consent_timestamp": null,
+    "emergency_contact_name": "Kavita Deshmukh (Spouse)",
+    "emergency_contact_phone": "9822334455",
+    "hac_number": "HAC-91-4430-3071-2026",
+    "is_active": true,
+    "created_at": "2026-10-07T18:20:35.390Z",
+    "updated_at": "2026-10-07T18:20:35.390Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "Manoj"
+    ],
+    "patient_id": "PAT-2026-000004",
+    "full_name": "Manoj Wagh",
+    "dob": "2026-10-07",
+    "gender": "Male",
+    "mobile": "9764625439",
+    "email": "manojwagh342@gamil.com",
+    "address": "At-Post Shendre Tal-Dist Satara",
+    "city": "Satara",
+    "district": "satara",
+    "state": "Maharashtra",
+    "pincode": "415519",
+    "pan_number": "FAGEI2345W",
+    "aadhaar_number": "818003245478",
+    "government_scheme_id": null,
+    "blood_group": "A-",
+    "allergies": "None",
+    "existing_conditions": "Diabitis",
+    "illness_description": "",
+    "presenting_symptoms": "",
+    "symptom_duration": "",
+    "symptom_severity": "",
+    "current_medicines": "",
+    "consent_data_processing": false,
+    "consent_timestamp": null,
+    "emergency_contact_name": "Soham",
+    "emergency_contact_phone": "7775848495",
+    "hac_number": "HAC-91-7525-5801-2026",
+    "is_active": true,
+    "created_at": "2026-10-07T18:42:01.763Z",
+    "updated_at": "2026-10-07T18:42:01.763Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "user_ABCDE1234F"
+    ],
+    "patient_id": "PAT-2026-000005",
+    "full_name": "Amit Sharma",
+    "dob": "1992-06-15",
+    "gender": "Male",
+    "mobile": "9823456789",
+    "email": "amit.sharma@example.com",
+    "address": "12 MG Road",
+    "city": "Pune",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "pincode": "411001",
+    "pan_number": "ABCDE1234F",
+    "aadhaar_number": null,
+    "government_scheme_id": null,
+    "blood_group": "B+",
+    "allergies": "",
+    "existing_conditions": "",
+    "illness_description": "",
+    "presenting_symptoms": "",
+    "symptom_duration": "",
+    "symptom_severity": "",
+    "current_medicines": "",
+    "consent_data_processing": true,
+    "consent_timestamp": "2026-10-09T16:56:04.475Z",
+    "emergency_contact_name": "Ramesh Sharma",
+    "emergency_contact_phone": "9823456780",
+    "hac_number": "HAC-91-4929-3398-2026",
+    "is_active": true,
+    "created_at": "2026-10-09T16:56:04.476Z",
+    "updated_at": "2026-10-09T16:56:04.476Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "user_PPPPP1234P"
+    ],
+    "patient_id": "PAT-2026-000006",
+    "full_name": "Pooja Patil",
+    "dob": "1996-09-24",
+    "gender": "Female",
+    "mobile": "9822113355",
+    "email": "pooja.patil@example.com",
+    "address": "45 Deccan Gymkhana",
+    "city": "Pune",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "pincode": "411004",
+    "pan_number": "PPPPP1234P",
+    "aadhaar_number": "987654321098",
+    "government_scheme_id": null,
+    "blood_group": "O+",
+    "allergies": "None",
+    "existing_conditions": "None",
+    "illness_description": "Mild fever",
+    "presenting_symptoms": "Fever and headache",
+    "symptom_duration": "2 days",
+    "symptom_severity": "Mild",
+    "current_medicines": "None",
+    "consent_data_processing": true,
+    "consent_timestamp": "2026-10-09T16:56:37.650Z",
+    "emergency_contact_name": "Suresh Patil",
+    "emergency_contact_phone": "9822113300",
+    "hac_number": "HAC-91-5065-2463-2026",
+    "is_active": true,
+    "created_at": "2026-10-09T16:56:37.651Z",
+    "updated_at": "2026-10-09T16:56:37.651Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "ramesh_552"
+    ],
+    "patient_id": "PAT-2026-000007",
+    "full_name": "Ramesh Kumar Patil",
+    "dob": "1985-06-15",
+    "gender": "Male",
+    "mobile": "9822001122",
+    "email": "ramesh.patil@test.com",
+    "address": "Plot 42, Shivaji Nagar",
+    "city": "Pune",
+    "district": "Pune",
+    "state": "Maharashtra",
+    "pincode": "411005",
+    "pan_number": "XYZAB3307K",
+    "aadhaar_number": "987654321098",
+    "government_scheme_id": null,
+    "blood_group": "B+",
+    "allergies": "Penicillin",
+    "existing_conditions": "Hypertension",
+    "illness_description": "Severe persistent headache with neck stiffness",
+    "presenting_symptoms": "Headache, sensitivity to light, mild fever",
+    "symptom_duration": "4 days",
+    "symptom_severity": "Moderate",
+    "current_medicines": "Amlodipine 5mg OD",
+    "consent_data_processing": true,
+    "consent_timestamp": "2026-10-09T17:02:17.780Z",
+    "emergency_contact_name": "Sunita Patil",
+    "emergency_contact_phone": "9822001123",
+    "hac_number": "HAC-91-2323-1773-2026",
+    "is_active": true,
+    "created_at": "2026-10-09T17:02:17.780Z",
+    "updated_at": "2026-10-09T17:02:17.780Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "Rohan"
+    ],
+    "patient_id": "PAT-2026-000008",
+    "full_name": "Rohan Kadam",
+    "dob": "2004-11-09",
+    "gender": "Male",
+    "mobile": "8180032454",
+    "email": "xyz@gmail.com",
+    "address": "Shendre, Satara",
+    "city": "punde",
+    "district": "pune",
+    "state": "Maharashtra",
+    "pincode": "415502",
+    "pan_number": "ABCDS1287F",
+    "aadhaar_number": "123456789021",
+    "government_scheme_id": null,
+    "blood_group": "A+",
+    "allergies": "None",
+    "existing_conditions": "Diabetis",
+    "illness_description": "suger level high",
+    "presenting_symptoms": "body ache",
+    "symptom_duration": "3 days",
+    "symptom_severity": "Moderate",
+    "current_medicines": "None",
+    "consent_data_processing": true,
+    "consent_timestamp": "2026-10-09T17:24:57.080Z",
+    "emergency_contact_name": "Rohan Kadam",
+    "emergency_contact_phone": "7775848495",
+    "hac_number": "HAC-91-5948-8699-2026",
+    "is_active": true,
+    "created_at": "2026-10-09T17:24:57.081Z",
+    "updated_at": "2026-10-09T17:24:57.081Z"
+  }
+},
+{
+  "model": "patients.patient",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "Tejas_1427"
+    ],
+    "patient_id": "PAT-2026-000009",
+    "full_name": "tejas mane",
+    "dob": "2005-07-31",
+    "gender": "Male",
+    "mobile": "8087521345",
+    "email": "xyz@gmail.com",
+    "address": "Shendre, Satara",
+    "city": "pune",
+    "district": "pune",
+    "state": "pune",
+    "pincode": "943809",
+    "pan_number": "SFUEX4594U",
+    "aadhaar_number": "123456789021",
+    "government_scheme_id": null,
+    "blood_group": "A+",
+    "allergies": "None",
+    "existing_conditions": "Diabetis",
+    "illness_description": "migrane with light",
+    "presenting_symptoms": "None",
+    "symptom_duration": "3 days",
+    "symptom_severity": "Moderate",
+    "current_medicines": "None",
+    "consent_data_processing": true,
+    "consent_timestamp": "2026-10-09T18:26:44.181Z",
+    "emergency_contact_name": "Rohan Kadam",
+    "emergency_contact_phone": "7775848495",
+    "hac_number": "HAC-91-7886-3499-2026",
+    "is_active": true,
+    "created_at": "2026-10-09T18:26:44.182Z",
+    "updated_at": "2026-10-09T18:26:44.182Z"
+  }
+},
+{
+  "model": "doctors.appointment",
+  "pk": 1,
+  "fields": {
+    "appointment_id": "APT-20261010-0001",
+    "patient": 3,
+    "doctor": 4,
+    "appointment_date": "2026-10-10",
+    "time_slot": "09:00 AM - 09:30 AM",
+    "symptoms": "",
+    "status": "Scheduled",
+    "created_at": "2026-10-10T05:12:29.097Z"
+  }
+},
+{
+  "model": "doctors.appointment",
+  "pk": 2,
+  "fields": {
+    "appointment_id": "APT-20261010-0002",
+    "patient": 3,
+    "doctor": 4,
+    "appointment_date": "2026-10-10",
+    "time_slot": "09:00 AM - 09:30 AM",
+    "symptoms": "zdsfz",
+    "status": "Scheduled",
+    "created_at": "2026-10-10T05:12:49.543Z"
+  }
+},
+{
+  "model": "doctors.appointment",
+  "pk": 3,
+  "fields": {
+    "appointment_id": "APT-20261010-0003",
+    "patient": 3,
+    "doctor": 1,
+    "appointment_date": "2026-10-10",
+    "time_slot": "09:00 AM - 09:30 AM",
+    "symptoms": "ghfhg",
+    "status": "Scheduled",
+    "created_at": "2026-10-10T07:35:15.896Z"
+  }
+},
+{
+  "model": "doctors.consultation",
+  "pk": 2,
+  "fields": {
+    "consultation_id": "CON-2026-0001",
+    "patient": 3,
+    "doctor": 5,
+    "visit_date": "2026-10-07",
+    "symptoms": "fever",
+    "diagnosis": "None",
+    "doctor_notes": "None",
+    "treatment_plan": "3 Days antiboitic",
+    "operation_recommended": false,
+    "operation_details": "",
+    "pathology_referral": true,
+    "pathology_tests_recommended": "None",
+    "pharmacy_referral": true,
+    "consultation_fee": "600.00",
+    "status": "Completed",
+    "created_at": "2026-10-09T17:41:40.250Z"
+  }
+},
+{
+  "model": "doctors.prescription",
+  "pk": 2,
+  "fields": {
+    "prescription_id": "RX-2026-0001",
+    "consultation": 2,
+    "patient": 3,
+    "doctor": 5,
+    "medicines": "paracitamol 500 mg",
+    "instructions": "None",
+    "date_prescribed": "2026-10-07",
+    "is_dispensed": true,
+    "created_at": "2026-10-09T17:41:40.267Z"
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 1,
+  "fields": {
+    "doctor": 1,
+    "day_of_week": "Monday",
+    "start_time": "09:00:00",
+    "end_time": "14:00:00",
+    "max_appointments": 25,
+    "consultation_fee": "600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 2,
+  "fields": {
+    "doctor": 1,
+    "day_of_week": "Tuesday",
+    "start_time": "09:00:00",
+    "end_time": "14:00:00",
+    "max_appointments": 25,
+    "consultation_fee": "600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 3,
+  "fields": {
+    "doctor": 1,
+    "day_of_week": "Wednesday",
+    "start_time": "09:00:00",
+    "end_time": "14:00:00",
+    "max_appointments": 25,
+    "consultation_fee": "600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 4,
+  "fields": {
+    "doctor": 1,
+    "day_of_week": "Thursday",
+    "start_time": "09:00:00",
+    "end_time": "14:00:00",
+    "max_appointments": 25,
+    "consultation_fee": "600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 5,
+  "fields": {
+    "doctor": 1,
+    "day_of_week": "Friday",
+    "start_time": "09:00:00",
+    "end_time": "14:00:00",
+    "max_appointments": 25,
+    "consultation_fee": "600.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 6,
+  "fields": {
+    "doctor": 2,
+    "day_of_week": "Monday",
+    "start_time": "10:00:00",
+    "end_time": "16:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "1000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 7,
+  "fields": {
+    "doctor": 2,
+    "day_of_week": "Wednesday",
+    "start_time": "10:00:00",
+    "end_time": "16:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "1000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 8,
+  "fields": {
+    "doctor": 2,
+    "day_of_week": "Friday",
+    "start_time": "10:00:00",
+    "end_time": "16:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "1000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 9,
+  "fields": {
+    "doctor": 2,
+    "day_of_week": "Saturday",
+    "start_time": "10:00:00",
+    "end_time": "16:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "1000.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 10,
+  "fields": {
+    "doctor": 3,
+    "day_of_week": "Tuesday",
+    "start_time": "11:00:00",
+    "end_time": "17:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "800.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 11,
+  "fields": {
+    "doctor": 3,
+    "day_of_week": "Thursday",
+    "start_time": "11:00:00",
+    "end_time": "17:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "800.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.doctoravailability",
+  "pk": 12,
+  "fields": {
+    "doctor": 3,
+    "day_of_week": "Saturday",
+    "start_time": "11:00:00",
+    "end_time": "17:00:00",
+    "max_appointments": 20,
+    "consultation_fee": "800.00",
+    "is_active": true
+  }
+},
+{
+  "model": "doctors.appointmenttoken",
+  "pk": 1,
+  "fields": {
+    "token_number": 1,
+    "appointment": 1,
+    "doctor": 4,
+    "session_date": "2026-10-10",
+    "status": "Waiting",
+    "called_at": null,
+    "completed_at": null,
+    "created_at": "2026-10-10T05:12:29.103Z",
+    "idempotency_key": "appt-PAT-2026-000003-DOC-2026-0004-2026-10-10-1791609149033"
+  }
+},
+{
+  "model": "doctors.appointmenttoken",
+  "pk": 2,
+  "fields": {
+    "token_number": 2,
+    "appointment": 2,
+    "doctor": 4,
+    "session_date": "2026-10-10",
+    "status": "Waiting",
+    "called_at": null,
+    "completed_at": null,
+    "created_at": "2026-10-10T05:12:49.547Z",
+    "idempotency_key": "appt-PAT-2026-000003-DOC-2026-0004-2026-10-10-1791609169496"
+  }
+},
+{
+  "model": "doctors.appointmenttoken",
+  "pk": 3,
+  "fields": {
+    "token_number": 1,
+    "appointment": 3,
+    "doctor": 1,
+    "session_date": "2026-10-10",
+    "status": "Waiting",
+    "called_at": null,
+    "completed_at": null,
+    "created_at": "2026-10-10T07:35:15.903Z",
+    "idempotency_key": "appt-PAT-2026-000003-DOC-2026-0001-2026-10-10-1791617715851"
+  }
+},
+{
+  "model": "pathology.pathologytest",
+  "pk": 1,
+  "fields": {
+    "test_code": "CBC-01",
+    "test_name": "Complete Blood Count (CBC) with Platelet Count",
+    "category": "Hematology",
+    "standard_price": "800.00",
+    "normal_range": "Hb: 13-17 g/dL, TLC: 4,000-11,000 /mcL, Platelets: 1.5-4.5 Lakhs",
+    "description": ""
+  }
+},
+{
+  "model": "pathology.pathologytest",
+  "pk": 2,
+  "fields": {
+    "test_code": "LIPID-02",
+    "test_name": "Comprehensive Lipid Profile Panel",
+    "category": "Biochemistry",
+    "standard_price": "1200.00",
+    "normal_range": "Total Cholesterol: <200 mg/dL, HDL: >40 mg/dL, LDL: <100 mg/dL",
+    "description": ""
+  }
+},
+{
+  "model": "pathology.pathologytest",
+  "pk": 3,
+  "fields": {
+    "test_code": "LFT-03",
+    "test_name": "Liver Function Test (LFT) with Enzymes",
+    "category": "Biochemistry",
+    "standard_price": "950.00",
+    "normal_range": "Bilirubin Total: 0.2-1.2 mg/dL, SGOT/AST: <40 U/L, SGPT/ALT: <45 U/L",
+    "description": ""
+  }
+},
+{
+  "model": "pathology.pathologytest",
+  "pk": 4,
+  "fields": {
+    "test_code": "HBA1C-04",
+    "test_name": "Glycated Hemoglobin (HbA1c) Fasting",
+    "category": "Biochemistry",
+    "standard_price": "650.00",
+    "normal_range": "Normal: <5.7%, Prediabetes: 5.7-6.4%, Diabetes: >=6.5%",
+    "description": ""
+  }
+},
+{
+  "model": "pathology.pathologytest",
+  "pk": 5,
+  "fields": {
+    "test_code": "XRAY-05",
+    "test_name": "Digital Chest Radiography (PA View)",
+    "category": "Radiology",
+    "standard_price": "750.00",
+    "normal_range": "Both lung fields clear. Heart size normal. No active focal lesion.",
+    "description": ""
+  }
+},
+{
+  "model": "pharmacy.medicine",
+  "pk": 1,
+  "fields": {
+    "medicine_name": "Paracetamol 650mg",
+    "generic_name": "Paracetamol",
+    "category": "Analgesic & Antipyretic",
+    "unit_price": "35.00",
+    "stock_quantity": 1000,
+    "dosage_form": "Tablet"
+  }
+},
+{
+  "model": "pharmacy.medicine",
+  "pk": 2,
+  "fields": {
+    "medicine_name": "Azithromycin 500mg",
+    "generic_name": "Azithromycin",
+    "category": "Antibiotic (Macrolide)",
+    "unit_price": "120.00",
+    "stock_quantity": 500,
+    "dosage_form": "Tablet"
+  }
+},
+{
+  "model": "pharmacy.medicine",
+  "pk": 3,
+  "fields": {
+    "medicine_name": "Amoxicillin 500mg",
+    "generic_name": "Amoxicillin Trihydrate",
+    "category": "Antibiotic (Penicillin)",
+    "unit_price": "85.00",
+    "stock_quantity": 600,
+    "dosage_form": "Capsule"
+  }
+},
+{
+  "model": "pharmacy.medicine",
+  "pk": 4,
+  "fields": {
+    "medicine_name": "Pantoprazole 40mg",
+    "generic_name": "Pantoprazole Sodium",
+    "category": "Proton Pump Inhibitor",
+    "unit_price": "65.00",
+    "stock_quantity": 800,
+    "dosage_form": "Tablet"
+  }
+},
+{
+  "model": "pharmacy.medicine",
+  "pk": 5,
+  "fields": {
+    "medicine_name": "Cetirizine 10mg",
+    "generic_name": "Cetirizine Hydrochloride",
+    "category": "Antihistamine",
+    "unit_price": "40.00",
+    "stock_quantity": 750,
+    "dosage_form": "Tablet"
+  }
+},
+{
+  "model": "pharmacy.medicine",
+  "pk": 6,
+  "fields": {
+    "medicine_name": "Vitamin C 500mg & Zinc",
+    "generic_name": "Ascorbic Acid + Zinc",
+    "category": "Nutritional Supplement",
+    "unit_price": "50.00",
+    "stock_quantity": 900,
+    "dosage_form": "Chewable Tablet"
+  }
+},
+{
+  "model": "pharmacy.pharmacytransaction",
+  "pk": 2,
+  "fields": {
+    "invoice_number": "MED-2026-0001",
+    "patient": 3,
+    "pharmacy": 1,
+    "prescription": 2,
+    "doctor": 5,
+    "medicines_dispensed": "paracitamol",
+    "subtotal_amount": "270.00",
+    "gst_amount": "13.50",
+    "total_amount": "283.50",
+    "payment_status": "Paid",
+    "reimbursement_status": "Not Claimed",
+    "dispensed_at": "2026-10-09T18:22:48.917Z"
+  }
+},
+{
+  "model": "government.governmentscheme",
+  "pk": 1,
+  "fields": {
+    "scheme_code": "PM-JAY-01",
+    "scheme_name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)",
+    "description": "Universal secondary and tertiary cashless hospitalization cover providing up to ₹5 Lakhs per family per year.",
+    "eligibility": "Economically vulnerable families identified by SECC deprivation criteria, BPL cardholders, and low-income citizens.",
+    "maximum_fund": "500000.00",
+    "coverage_percentage": "100.00",
+    "start_date": "2024-01-01",
+    "end_date": "2030-12-31",
+    "status": "Active",
+    "terms_and_conditions": "Valid at all empanelled public and private healthcare networks with permanent Patient ID.",
+    "created_at": "2026-10-07T17:56:08.148Z",
+    "updated_at": "2026-10-07T17:56:08.148Z"
+  }
+},
+{
+  "model": "government.governmentscheme",
+  "pk": 2,
+  "fields": {
+    "scheme_code": "PMSBY-02",
+    "scheme_name": "Pradhan Mantri Suraksha Bima Yojana (PMSBY)",
+    "description": "Accident and trauma protection insurance policy providing hospital expense coverage up to ₹2 Lakhs.",
+    "eligibility": "Indian citizens aged 18 to 70 with an active bank account and universal health identifier.",
+    "maximum_fund": "200000.00",
+    "coverage_percentage": "90.00",
+    "start_date": "2024-01-01",
+    "end_date": "2030-12-31",
+    "status": "Active",
+    "terms_and_conditions": "Direct settlement against medical emergency bills.",
+    "created_at": "2026-10-07T17:56:08.159Z",
+    "updated_at": "2026-10-07T17:56:08.159Z"
+  }
+},
+{
+  "model": "government.governmentscheme",
+  "pk": 3,
+  "fields": {
+    "scheme_code": "MJPJAY-MH-01",
+    "scheme_name": "Mahatma Jyotirao Phule Jan Arogya Yojana (MJPJAY) - Maharashtra",
+    "description": "Flagship state health insurance scheme of Maharashtra providing cashless quality medical care for identified specialty and surgical treatments through empanelled network hospitals.",
+    "eligibility": "Ration card holders (Yellow, Orange, Antyodaya, Annapurna) from Maharashtra, farmers in suicide-prone districts with 7/12 extract, child welfare home inmates, and senior home residents.",
+    "maximum_fund": "500000.00",
+    "coverage_percentage": "100.00",
+    "start_date": "2020-04-01",
+    "end_date": "2030-03-31",
+    "status": "Active",
+    "terms_and_conditions": "Cashless hospitalization for 1,356 secondary and tertiary procedures. Covers pre-existing conditions from Day 1. Official portal: https://www.jeevandayee.gov.in",
+    "created_at": "2026-10-09T16:28:52.990Z",
+    "updated_at": "2026-10-09T16:28:52.990Z"
+  }
+},
+{
+  "model": "government.governmentscheme",
+  "pk": 4,
+  "fields": {
+    "scheme_code": "RAN-GOI-03",
+    "scheme_name": "Rashtriya Arogya Nidhi (RAN) - Central Govt",
+    "description": "Central government financial assistance scheme for patients living below poverty line suffering from major life-threatening diseases receiving treatment at super-specialty government hospitals.",
+    "eligibility": "Patients below the poverty line (BPL) being treated at identified Central Government Hospitals / Institutes of National Importance (AIIMS, Tata Memorial, etc.).",
+    "maximum_fund": "1500000.00",
+    "coverage_percentage": "100.00",
+    "start_date": "2021-01-01",
+    "end_date": "2030-12-31",
+    "status": "Active",
+    "terms_and_conditions": "One-time grant for treatment of life-threatening illnesses like cancer, cardiology, organ transplant. Official portal: https://main.mohfw.gov.in/major-programmes/poor-patients-financial-assistance/rashtriya-arogya-nidhi",
+    "created_at": "2026-10-09T16:28:53.008Z",
+    "updated_at": "2026-10-09T16:28:53.008Z"
+  }
+},
+{
+  "model": "government.governmentscheme",
+  "pk": 5,
+  "fields": {
+    "scheme_code": "HMDG-GOI-04",
+    "scheme_name": "Health Minister's Discretionary Grant (HMDG)",
+    "description": "Discretionary grant provided by the Union Health Minister to indigent patients for treatment of life-threatening diseases in government hospitals.",
+    "eligibility": "Indigent citizens having annual family income up to Rs 1,25,000 who are not eligible for assistance under other government schemes.",
+    "maximum_fund": "125000.00",
+    "coverage_percentage": "100.00",
+    "start_date": "2021-01-01",
+    "end_date": "2030-12-31",
+    "status": "Active",
+    "terms_and_conditions": "Financial assistance for hospital expenses up to Rs 1.25 Lakh. Official portal: https://main.mohfw.gov.in",
+    "created_at": "2026-10-09T16:28:53.026Z",
+    "updated_at": "2026-10-09T16:28:53.026Z"
+  }
+},
+{
+  "model": "government.schemeapplication",
+  "pk": 1,
+  "fields": {
+    "application_id": "SCHAPP-2026-00001",
+    "patient": 3,
+    "scheme": 3,
+    "hospital_name": "Sassoon General Hospital, Pune",
+    "treatment_description": "Emergency Cardiology Angiography & Stent",
+    "estimated_cost": "125000.00",
+    "requested_amount": "125000.00",
+    "approved_amount": "125000.00",
+    "documents": [],
+    "status": "Pre-Authorized",
+    "officer_remarks": "Pre-authorized under MJPJAY Category A",
+    "submitted_at": "2026-10-09T18:55:21.710Z",
+    "approved_at": null,
+    "created_at": "2026-10-09T18:55:21.717Z",
+    "updated_at": "2026-10-09T18:55:43.753Z"
+  }
+},
+{
+  "model": "insurance.insurancecompany",
+  "pk": 1,
+  "fields": {
+    "company_name": "National Health Assurance Corporation",
+    "contact_email": "support@nationalassurance.org",
+    "contact_phone": "1800-22-9900",
+    "license_number": "IRDA-LIC-2026-004",
+    "address": "Tower C, Financial Plaza, Mumbai",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insurancepolicy",
+  "pk": 2,
+  "fields": {
+    "patient": 3,
+    "company": 1,
+    "policy_number": "POL-2026-0003",
+    "coverage_limit": "500000.00",
+    "start_date": "2026-10-07",
+    "end_date": "2027-10-07",
+    "is_active": true
+  }
+},
+{
+  "model": "insurance.insuranceclaim",
+  "pk": 1,
+  "fields": {
+    "claim_id": "CLM-2026-0001",
+    "patient": 3,
+    "policy": 2,
+    "insurance_company": "National Health Assurance Corporation",
+    "treatment_cost": "50000.00",
+    "requested_amount": "15000.00",
+    "approved_amount": "0.00",
+    "rejected_amount": "0.00",
+    "status": "Pending",
+    "documents": "",
+    "submission_date": "2026-10-07",
+    "approval_date": null,
+    "remarks": ""
+  }
+},
+{
+  "model": "funds.allocationconfiguration",
+  "pk": 1,
+  "fields": {
+    "name": "National Healthcare Standard Fund Distribution Policy",
+    "doctor_percentage": "10.00",
+    "pathology_percentage": "10.00",
+    "pharmacy_percentage": "5.00",
+    "government_percentage": "5.00",
+    "patient_benefit_percentage": "70.00",
+    "is_active": true,
+    "updated_at": "2026-10-07T18:44:32.970Z",
+    "updated_by": [
+      "admin"
+    ]
+  }
+},
+{
+  "model": "funds.healthcarereserveaccount",
+  "pk": 1,
+  "fields": {
+    "account_number": "HCRA-PAT-2026-000007",
+    "patient": 7,
+    "reserve_percentage": "90.00",
+    "available_balance": "0.00",
+    "reserved_balance": "0.00",
+    "utilized_balance": "0.00",
+    "total_credited": "0.00",
+    "total_debited": "0.00",
+    "is_active": true,
+    "created_at": "2026-10-09T17:04:46.336Z",
+    "updated_at": "2026-10-09T17:04:46.336Z"
+  }
+},
+{
+  "model": "funds.healthcarereserveaccount",
+  "pk": 2,
+  "fields": {
+    "account_number": "HCRA-PAT-2026-000008",
+    "patient": 8,
+    "reserve_percentage": "90.00",
+    "available_balance": "0.00",
+    "reserved_balance": "0.00",
+    "utilized_balance": "0.00",
+    "total_credited": "0.00",
+    "total_debited": "0.00",
+    "is_active": true,
+    "created_at": "2026-10-09T17:25:04.244Z",
+    "updated_at": "2026-10-09T17:25:04.244Z"
+  }
+},
+{
+  "model": "funds.healthcarereserveaccount",
+  "pk": 3,
+  "fields": {
+    "account_number": "HCRA-PAT-2026-000003",
+    "patient": 3,
+    "reserve_percentage": "90.00",
+    "available_balance": "795.15",
+    "reserved_balance": "0.00",
+    "utilized_balance": "0.00",
+    "total_credited": "795.15",
+    "total_debited": "0.00",
+    "is_active": true,
+    "created_at": "2026-10-09T17:38:18.625Z",
+    "updated_at": "2026-10-09T18:22:49.136Z"
+  }
+},
+{
+  "model": "funds.healthcarereserveaccount",
+  "pk": 4,
+  "fields": {
+    "account_number": "HCRA-PAT-2026-000009",
+    "patient": 9,
+    "reserve_percentage": "90.00",
+    "available_balance": "0.00",
+    "reserved_balance": "0.00",
+    "utilized_balance": "0.00",
+    "total_credited": "0.00",
+    "total_debited": "0.00",
+    "is_active": true,
+    "created_at": "2026-10-09T18:26:56.525Z",
+    "updated_at": "2026-10-09T18:26:56.525Z"
+  }
+},
+{
+  "model": "funds.reserveledgerentry",
+  "pk": 1,
+  "fields": {
+    "idempotency_key": "28dbd2fc-07b9-4aa7-9ee6-d1bb8428d6be",
+    "account": 3,
+    "entry_type": "CREDIT",
+    "original_invoice_amount": "600.00",
+    "eligible_amount": "600.00",
+    "reserve_percentage": "90.00",
+    "credit_amount": "540.00",
+    "funding_source": "Simulation — Pending Contractual Approval",
+    "service_type": "Doctor Consultation",
+    "reference_id": "CON-2026-0001",
+    "description": "Doctor Consultation service reserve credit at 90.00%",
+    "balance_before": "0.00",
+    "balance_after": "540.00",
+    "status": "COMPLETED",
+    "is_simulated": true,
+    "created_at": "2026-10-09T17:41:40.361Z",
+    "created_by": [
+      "dr_alex_382"
+    ]
+  }
+},
+{
+  "model": "funds.reserveledgerentry",
+  "pk": 2,
+  "fields": {
+    "idempotency_key": "181a180a-e03e-48be-a410-bc223034dc01",
+    "account": 3,
+    "entry_type": "CREDIT",
+    "original_invoice_amount": "283.50",
+    "eligible_amount": "283.50",
+    "reserve_percentage": "90.00",
+    "credit_amount": "255.15",
+    "funding_source": "Simulation — Pending Contractual Approval",
+    "service_type": "Pharmacy Dispensation",
+    "reference_id": "MED-2026-0001",
+    "description": "Pharmacy Dispensation service reserve credit at 90.00%",
+    "balance_before": "540.00",
+    "balance_after": "795.15",
+    "status": "COMPLETED",
+    "is_simulated": true,
+    "created_at": "2026-10-09T18:22:49.138Z",
+    "created_by": null
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 2,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000003 and HAC Card is HAC-91-4430-3071-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-07T18:20:35.392Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 3,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "Insurance Claim Submitted",
+    "message": "Insurance claim CLM-2026-0001 for ₹15000 submitted successfully.",
+    "notification_type": "INSURANCE",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-07T18:27:46.580Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 4,
+  "fields": {
+    "recipient": [
+      "Manoj"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000004 and HAC Card is HAC-91-7525-5801-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-07T18:42:01.767Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 5,
+  "fields": {
+    "recipient": [
+      "user_ABCDE1234F"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000005 and HAC Card is HAC-91-4929-3398-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T16:56:04.477Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 6,
+  "fields": {
+    "recipient": [
+      "user_PPPPP1234P"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000006 and HAC Card is HAC-91-5065-2463-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T16:56:37.652Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 7,
+  "fields": {
+    "recipient": [
+      "ramesh_552"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000007 and HAC Card is HAC-91-2323-1773-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T17:02:17.781Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 8,
+  "fields": {
+    "recipient": [
+      "Rohan"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000008 and HAC Card is HAC-91-5948-8699-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T17:24:57.084Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 9,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "New Doctor Consultation Recorded",
+    "message": "Dr. Dr. Sahil Santosh Wagh recorded a consultation with diagnosis: 'None'.",
+    "notification_type": "CONSULTATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T17:41:40.302Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 10,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "Medicines Dispensed",
+    "message": "Prescription dispensed at Apex Healthcare Chemists & Druggists. Tax invoice: MED-2026-0001 (₹283.50).",
+    "notification_type": "PHARMACY",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T18:22:48.950Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 11,
+  "fields": {
+    "recipient": [
+      "Tejas_1427"
+    ],
+    "title": "Health ID Created",
+    "message": "Welcome to PatientCare! Your permanent Patient ID is PAT-2026-000009 and HAC Card is HAC-91-7886-3499-2026.",
+    "notification_type": "REGISTRATION",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-09T18:26:44.184Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 12,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "Appointment Confirmed",
+    "message": "Your appointment with Dr. Sahil Santosh Wagh (Internal Medical) is confirmed for 2026-10-10. Token #1.",
+    "notification_type": "APPOINTMENT",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-10T05:12:29.107Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 13,
+  "fields": {
+    "recipient": [
+      "Dr.Wagh"
+    ],
+    "title": "New Appointment Booked",
+    "message": "Patient Sahil Waghmare booked for 2026-10-10 (Token #1).",
+    "notification_type": "APPOINTMENT",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-10T05:12:29.111Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 14,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "Appointment Confirmed",
+    "message": "Your appointment with Dr. Sahil Santosh Wagh (Internal Medical) is confirmed for 2026-10-10. Token #2.",
+    "notification_type": "APPOINTMENT",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-10T05:12:49.549Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 15,
+  "fields": {
+    "recipient": [
+      "Dr.Wagh"
+    ],
+    "title": "New Appointment Booked",
+    "message": "Patient Sahil Waghmare booked for 2026-10-10 (Token #2).",
+    "notification_type": "APPOINTMENT",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-10T05:12:49.553Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 16,
+  "fields": {
+    "recipient": [
+      "sahil"
+    ],
+    "title": "Appointment Confirmed",
+    "message": "Your appointment with Dr. Dr. S. Kadam, MD (General Medicine & Cardiology) is confirmed for 2026-10-10. Token #1.",
+    "notification_type": "APPOINTMENT",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-10T07:35:15.906Z"
+  }
+},
+{
+  "model": "notifications.notification",
+  "pk": 17,
+  "fields": {
+    "recipient": [
+      "dr_kadam"
+    ],
+    "title": "New Appointment Booked",
+    "message": "Patient Sahil Waghmare booked for 2026-10-10 (Token #1).",
+    "notification_type": "APPOINTMENT",
+    "is_read": false,
+    "link_url": "",
+    "created_at": "2026-10-10T07:35:15.907Z"
+  }
+}
+]

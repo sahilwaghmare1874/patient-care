@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">PATIENT PROFILE</p>
+                <h1>Personal & Healthcare Identification</h1>
+                <p>Your verified digital health profile and connected Healthcare Assurance Card (HAC) details.</p>
+            </div>
+            <button type="button" class="primary-btn" onclick="window.print()">
+                🖨 Print Digital Health Card
+            </button>
+        </section>
+
+        <!-- Digital ID Card Visual -->
+        <section class="patient-id-card" style="margin-bottom: 25px;">
+            <div>
+                <p>PATIENT IDENTIFICATION</p>
+                <h2 id="patientId">PC-2026-0001</h2>
+                <div style="margin-top: 10px; font-size: 14px; color: rgba(255,255,255,0.9);">
+                    👤 <span id="fullNameTop">Rahul Sharma</span>
+                </div>
+            </div>
+            <div>
+                <p>HAC NUMBER</p>
+                <h3 id="hacNumber">HAC-91-4582-9901-2026</h3>
+                <div style="margin-top: 10px; font-size: 13px; color: #34d399; font-weight: 700;">
+                    ● 100% Verified Profile
+                </div>
+            </div>
+            <!-- Mock QR Code Box -->
+            <div style="background: white; padding: 10px; border-radius: 8px; width: 80px; height: 80px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: black; font-size: 10px; font-weight: bold; text-align: center; border: 2px solid #38bdf8;">
+                <span style="font-size: 28px;">🔲</span>
+                SCAN HAC
+            </div>
+        </section>
+
+        <!-- Profile Details Grid -->
+        <section class="profile-card">
+            <div class="profile-title">
+                <h2>Registered Patient Details</h2>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <span>Patient ID</span>
+                    <strong id="displayPatientId">PC-2026-0001</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>HAC Number</span>
+                    <strong id="displayHac">HAC-91-4582-9901-2026</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Full Legal Name</span>
+                    <strong id="fullName">Rahul Sharma</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Date of Birth</span>
+                    <strong id="dob">1996-05-14</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Gender</span>
+                    <strong id="gender">Male</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Mobile Number</span>
+                    <strong id="mobile">9876543210</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Email Address</span>
+                    <strong id="email">rahul.sharma@example.com</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Personal ID (PAN / Aadhaar)</span>
+                    <strong id="personalId">ABCDE1234F</strong>
+                </div>
+
+                <div class="profile-item profile-address">
+                    <span>Residential Address</span>
+                    <strong id="address">42 Green Avenue, Model Town, Pune 411001</strong>
+                </div>
+            </div>
+        </section>
+
+        <!-- Actions -->
+        <div class="pathology-actions">
+            <a href="patient-dashboard.html" class="primary-btn">
+                ← Back to Patient Dashboard
+            </a>
+            <a href="smart-payment.html" class="secondary-btn">
+                Go to Smart Payments →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sync top card name if available
+        const name = document.getElementById("fullName")?.innerText;
+        const nameTop = document.getElementById("fullNameTop");
+        if (name && nameTop) nameTop.innerText = name;
+    });
+    </script>
+</body>
+</html>

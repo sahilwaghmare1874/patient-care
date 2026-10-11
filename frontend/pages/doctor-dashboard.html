@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Consultation Portal | PatientCare</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand" href="../index.html">
+                Patient<span>Care</span>
+            </a>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-info-subtle text-info py-2 px-3 fw-bold">
+                    👨‍⚕️ Doctor Consultation Portal
+                </span>
+                <button class="btn btn-outline-secondary btn-sm" onclick="API.authAPI.logout()">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container-fluid px-lg-5">
+            <!-- Header Bar -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold mb-1">Doctor Consultation Dashboard</h2>
+                    <p class="text-muted small mb-0">Empanelled Practitioner: <strong>Dr. S. Kadam, MD</strong> | Apex Multi-Speciality Hospital</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <a href="reports.html" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-file-earmark-medical me-1"></i> Patient Reports Directory
+                    </a>
+                </div>
+            </div>
+
+            <!-- Stats Row -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-people-fill"></i></div>
+                        <div class="stat-value" id="docTotalPatients">0</div>
+                        <div class="stat-label">Total Connected Patients</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-info-subtle text-info"><i class="bi bi-calendar-check"></i></div>
+                        <div class="stat-value" id="docTodayAppointments">0</div>
+                        <div class="stat-label">Consultations Today</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success-subtle text-success"><i class="bi bi-clipboard2-check"></i></div>
+                        <div class="stat-value" id="docTotalConsultations">0</div>
+                        <div class="stat-label">Total Consultations Completed</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-warning-subtle text-warning"><i class="bi bi-prescription2"></i></div>
+                        <div class="stat-value" id="docTotalPrescriptions">0</div>
+                        <div class="stat-label">Active Prescriptions Issued</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 4: Doctor Token Queue & Live Patient Calling Controls -->
+            <div class="card p-4 border shadow-sm mb-4 bg-white">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <div>
+                        <h5 class="fw-bold text-dark mb-0">
+                            <i class="bi bi-clock-history text-primary me-2"></i> Live Token Queue &amp; Patient Calling
+                        </h5>
+                        <small class="text-muted">Atomic queue token system &bull; Real-time in-app notifications on call</small>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <label class="small text-muted mb-0">Session Date:</label>
+                        <input type="date" class="form-control form-control-sm" id="queueDateFilter" style="width: 160px;">
+                        <button type="button" class="btn btn-outline-secondary btn-sm" onclick="loadDoctorTokenQueue()">
+                            <i class="bi bi-arrow-clockwise"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Queue Action Status Bar -->
+                <div class="row g-3 mb-3">
+                    <div class="col-md-4">
+                        <div class="card border-primary bg-primary-subtle p-3 h-100">
+                            <small class="text-primary fw-bold text-uppercase">Now In Consultation</small>
+                            <div class="d-flex align-items-baseline gap-2 mt-1">
+                                <span class="display-6 fw-bold text-primary" id="curTokenNumber">--</span>
+                                <span class="fs-6 fw-semibold text-dark" id="curTokenPatient">No active consultation</span>
+                            </div>
+                            <small class="text-muted" id="curTokenDetails">Waiting to call next patient</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-warning bg-warning-subtle p-3 h-100">
+                            <small class="text-warning-emphasis fw-bold text-uppercase">Next Patient in Queue</small>
+                            <div class="d-flex align-items-baseline gap-2 mt-1">
+                                <span class="display-6 fw-bold text-warning-emphasis" id="nextTokenNumber">--</span>
+                                <span class="fs-6 fw-semibold text-dark" id="nextTokenPatient">No patients waiting</span>
+                            </div>
+                            <small class="text-muted" id="nextTokenDetails">Total waiting: <span id="waitingCount">0</span></small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card border-0 bg-light p-3 h-100 d-flex justify-content-center">
+                            <small class="text-muted fw-bold text-uppercase mb-2">Doctor Controls</small>
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-primary btn-sm fw-bold" id="callNextBtn" onclick="handleCallNextToken('call')">
+                                    <i class="bi bi-megaphone-fill me-1"></i> Call Next Patient Token
+                                </button>
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn btn-success btn-sm w-50" onclick="handleCallNextToken('complete')">
+                                        <i class="bi bi-check-circle me-1"></i> Complete
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger btn-sm w-50" onclick="handleCallNextToken('no_show')">
+                                        <i class="bi bi-person-x me-1"></i> No-Show
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Queue List Table -->
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th style="width: 80px;">Token #</th>
+                                <th>Patient Name &amp; ID</th>
+                                <th>Time Slot</th>
+                                <th>Symptoms / Notes</th>
+                                <th>Status</th>
+                                <th class="text-end">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="doctorQueueTableBody">
+                            <tr><td colspan="6" class="text-center text-muted py-3">Loading queue...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Patient Search Card -->
+            <div class="card p-4 border shadow-sm mb-4 bg-white">
+                <h5 class="fw-bold text-dark mb-2"><i class="bi bi-search text-primary me-2"></i> Patient Healthcare Lookup</h5>
+                <p class="text-muted small mb-3">Enter universal Patient ID or verified PAN to access authorized clinical records:</p>
+
+                <form id="doctorPatientSearchForm" class="row g-2">
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="searchPatientInput" placeholder="Enter Patient ID (e.g. PAT-2026-XXXXXX) or PAN Number" required>
+                    </div>
+                    <div class="col-md-3 d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-search me-1"></i> Search Patient
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Active Patient Info Card (Shown on Search) -->
+            <div id="doctorPatientDetailsCard" class="card p-4 border-primary border shadow-sm mb-4 bg-white" style="display: none;">
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+                    <h5 class="fw-bold text-primary mb-0"><i class="bi bi-person-check-fill me-1"></i> Verified Patient Profile</h5>
+                    <span class="badge bg-success">Authorized Access</span>
+                </div>
+
+                <div class="row g-3 mb-3 bg-light p-3 rounded">
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">PATIENT FULL NAME</small>
+                        <strong id="dpFullName">-</strong>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">PATIENT ID</small>
+                        <span class="badge bg-dark" id="dpPatientId">-</span>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">HAC CARD NUMBER</small>
+                        <strong class="font-monospace" id="dpHacNumber">-</strong>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">MASKED PAN</small>
+                        <code id="dpMaskedPan">-</code>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">DOB & GENDER</small>
+                        <span id="dpAgeGender">-</span>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">BLOOD GROUP</small>
+                        <span class="badge bg-danger" id="dpBlood">-</span>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">ALLERGIES</small>
+                        <span class="text-danger fw-bold small" id="dpAllergies">-</span>
+                    </div>
+                    <div class="col-md-3">
+                        <small class="text-muted d-block">CHRONIC CONDITIONS</small>
+                        <span class="small" id="dpConditions">-</span>
+                    </div>
+                </div>
+
+                <div class="row g-4 mt-1">
+                    <!-- Prior Clinical History Column -->
+                    <div class="col-lg-5">
+                        <h6 class="fw-bold text-dark mb-3"><i class="bi bi-clock-history me-1"></i> Prior Medical Consultations</h6>
+                        <div id="patientHistoryTimeline" style="max-height: 480px; overflow-y: auto;">
+                            <p class="text-muted small">No prior consultations loaded.</p>
+                        </div>
+                    </div>
+
+                    <!-- New Consultation & Prescription Form Column -->
+                    <div class="col-lg-7">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold text-primary mb-0"><i class="bi bi-plus-circle me-1"></i> Record New Consultation & Prescription</h6>
+                        </div>
+
+                        <form id="newConsultationForm">
+                            <div class="row g-2 mb-2">
+                                <div class="col-md-6">
+                                    <label class="form-label small">Consultation Date</label>
+                                    <input type="date" class="form-control form-control-sm" id="cVisitDate" required value="2026-10-07">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small">Consultation Fee (₹)</label>
+                                    <input type="number" class="form-control form-control-sm" id="cFee" value="600" required>
+                                </div>
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">Presenting Symptoms *</label>
+                                <textarea class="form-control form-control-sm" id="cSymptoms" rows="2" required placeholder="Patient reported symptoms..."></textarea>
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">Clinical Diagnosis *</label>
+                                <input type="text" class="form-control form-control-sm" id="cDiagnosis" required placeholder="e.g. Acute Pharyngitis">
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">Doctor Clinical Notes</label>
+                                <textarea class="form-control form-control-sm" id="cNotes" rows="2" placeholder="Examination vitals, observations..."></textarea>
+                            </div>
+
+                            <div class="mb-2">
+                                <label class="form-label small">Treatment Plan</label>
+                                <input type="text" class="form-control form-control-sm" id="cTreatment" placeholder="e.g. 5-day antibiotic therapy with follow up">
+                            </div>
+
+                            <!-- Referrals & Surgery Toggles -->
+                            <div class="row g-2 mb-2 bg-light p-2 rounded">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cPathologyReferral" checked>
+                                        <label class="form-check-label small fw-bold" for="cPathologyReferral">Refer to Pathology Lab</label>
+                                    </div>
+                                    <input type="text" class="form-control form-control-sm mt-1" id="cPathologyTests" placeholder="Tests recommended e.g. CBC, Lipid Profile">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="cPharmacyReferral" checked>
+                                        <label class="form-check-label small fw-bold" for="cPharmacyReferral">Issue Pharmacy Prescription</label>
+                                    </div>
+                                    <div class="form-check mt-1">
+                                        <input class="form-check-input" type="checkbox" id="cOperationRecommended">
+                                        <label class="form-check-label small text-danger fw-bold" for="cOperationRecommended">Operation / Surgery Recommended</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-bold">Electronic Prescription (Medicines, Dosage, Instructions) *</label>
+                                <textarea class="form-control form-control-sm font-monospace" id="cMedicines" rows="3" required placeholder="e.g. 1. Paracetamol 650mg TDS x 4 days&#10;2. Azithromycin 500mg OD x 3 days"></textarea>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-check2-circle me-1"></i> Save Consultation & Issue Prescription
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core API & Doctor Script -->
+    <script src="../js/api.js"></script>
+    <script src="../js/doctor.js"></script>
+    <!-- Multilingual AI Healthcare Chatbot -->
+    <script src="../js/ai-chat.js"></script>
+</body>
+</html>

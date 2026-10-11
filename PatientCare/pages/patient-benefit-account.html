@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefit Account Ledger | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">LEDGER & TRANSACTIONS</p>
+                <h1>Patient Assurance Account Ledger</h1>
+                <p>Audited contributions credited from consultations, diagnostic labs and pharmacies.</p>
+            </div>
+            <button type="button" class="secondary-btn" onclick="window.print()">
+                🖨 Print Benefit Statement
+            </button>
+        </section>
+
+        <section class="profile-card">
+            <div class="profile-title">
+                <h2>Contribution Source Breakdown</h2>
+                <span class="status" style="font-size: 14px;"><span class="status-dot"></span> Verified Beneficiary</span>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <span>Patient ID</span>
+                    <strong id="ledgerPatientId">PC-2026-0001</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Doctor Consultations (10%)</span>
+                    <strong id="doctorContrib" style="color: var(--primary);">₹80.00</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Pathology Investigations (10%)</span>
+                    <strong id="labContrib" style="color: var(--accent);">₹95.00</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Pharmacy Dispensations (5%)</span>
+                    <strong id="medContrib" style="color: #6366f1;">₹32.00</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Welcome Bonus Credited</span>
+                    <strong style="color: var(--success);">₹500.00</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Net Balance Available</span>
+                    <strong id="netLedgerBenefit" style="color: var(--success); font-size: 20px;">₹4,250.00</strong>
+                </div>
+            </div>
+        </section>
+
+        <div class="pathology-actions">
+            <a href="patient-dashboard.html" class="primary-btn">
+                ← Back to Dashboard
+            </a>
+            <a href="smart-payment.html" class="secondary-btn">
+                Redeem in Smart Payments →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const session = window.PatientCareDB.getSession();
+        const patient = session && session.user ? session.user : window.PatientCareDB.getPatientById("PC-2026-0001");
+        if (patient) {
+            document.getElementById("ledgerPatientId").innerText = patient.patientId;
+            document.getElementById("netLedgerBenefit").innerText = "₹" + (patient.totalBenefitAmount || 4250).toLocaleString("en-IN") + ".00";
+
+            const visits = window.PatientCareDB.getDoctorVisits(patient.patientId);
+            const totalDoc = visits.reduce((acc, v) => acc + (v.patientBenefitContribution || 0), 0);
+            document.getElementById("doctorContrib").innerText = "₹" + totalDoc.toFixed(2);
+
+            const labs = window.PatientCareDB.getPathologyReports(patient.patientId);
+            const totalLab = labs.reduce((acc, l) => acc + (l.patientBenefitContribution || 0), 0);
+            document.getElementById("labContrib").innerText = "₹" + totalLab.toFixed(2);
+
+            const meds = window.PatientCareDB.getMedicalBills(patient.patientId);
+            const totalMed = meds.reduce((acc, m) => acc + (m.patientBenefitContribution || 0), 0);
+            document.getElementById("medContrib").innerText = "₹" + totalMed.toFixed(2);
+        }
+    });
+    </script>
+</body>
+</html>

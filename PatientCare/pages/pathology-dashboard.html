@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathology Dashboard | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Pathology Dashboard Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <div class="dashboard-user">
+            <span class="user-badge" style="background: #ccfbf1; color: #0f766e;">
+                🔬 Lab: <strong>City Care Diagnostics</strong>
+            </span>
+            <a href="pathology-login.html" class="secondary-btn" style="padding: 6px 14px; font-size: 13px;">
+                Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pathology-dashboard">
+        <section class="pathology-header">
+            <div>
+                <p class="small-title">DIAGNOSTIC DASHBOARD</p>
+                <h1>Laboratory & Investigation Portal</h1>
+                <p>Lookup patient health records, upload certified pathology test results, and credit healthcare assurance benefits.</p>
+            </div>
+            <a href="../index.html" class="secondary-btn">
+                ← Home
+            </a>
+        </section>
+
+        <!-- Patient Search Card -->
+        <section class="patient-search-card">
+            <h2>Search Patient Diagnostic Profile</h2>
+            <p>
+                Enter the universal Patient ID to view past diagnostic reports or add new verified laboratory investigation findings.
+            </p>
+
+            <form id="patientSearchForm" class="patient-search-form">
+                <input
+                    type="text"
+                    id="patientId"
+                    placeholder="Enter Patient ID e.g. PC-2026-0001"
+                    value="PC-2026-0001"
+                    required
+                >
+                <button type="submit" class="primary-btn">
+                    Search Diagnostic Records →
+                </button>
+            </form>
+
+            <div id="searchMessage" class="search-message" style="margin-top: 14px; font-weight: 600;"></div>
+        </section>
+
+        <!-- Dynamic Pathology Information Grid -->
+        <section id="pathologyInfo" class="pathology-info" style="display:none; margin-bottom: 30px;">
+            <div class="dashboard-card stat-card">
+                <span>Patient Name</span>
+                <strong id="patientName">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Patient ID</span>
+                <strong id="displayPatientId" style="color: var(--primary);">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Diagnostic Centre</span>
+                <strong id="labName">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Test Name</span>
+                <strong id="testName">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Investigation Date</span>
+                <strong id="testDate">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Test Category / Status</span>
+                <strong id="testPurpose">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Test Bill Amount</span>
+                <strong id="testAmount" style="color: var(--slate-900);">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Benefit Credited (10%)</span>
+                <strong id="benefitAmount" style="color: var(--success);">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card full-card">
+                <span>Diagnostic Report Details & Normal Ranges</span>
+                <div class="text-box" id="reportDetails">-</div>
+            </div>
+        </section>
+
+        <div class="pathology-actions">
+            <a href="../index.html" class="secondary-btn">
+                ← Return to Home
+            </a>
+            <a href="doctor-login.html" class="portal-btn">
+                Go to Doctor Portal →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Auto search default demo patient for instant visual demonstration
+        setTimeout(() => {
+            const form = document.getElementById("patientSearchForm");
+            if (form) form.dispatchEvent(new Event("submit"));
+        }, 150);
+    });
+    </script>
+</body>
+</html>

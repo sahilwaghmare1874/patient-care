@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical & Pharmacy Records | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">PHARMACY ARCHIVE</p>
+                <h1>Medicine Purchase History & Bills</h1>
+                <p>Complete history of prescribed medicines dispensed at empanelled pharmacies with assurance benefit contribution.</p>
+            </div>
+            <button type="button" class="secondary-btn" onclick="window.print()">
+                🖨 Print Medicine History
+            </button>
+        </section>
+
+        <!-- Dynamic Container for Medical Bills -->
+        <div id="medicalBillsContainer"></div>
+
+        <div class="doctor-actions">
+            <a href="patient-dashboard.html" class="primary-btn">
+                ← Back to Dashboard
+            </a>
+            <a href="patient-benefits.html" class="secondary-btn">
+                View Assurance Benefit Wallet →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const session = window.PatientCareDB.getSession();
+        const patient = session && session.user ? session.user : window.PatientCareDB.getPatientById("PC-2026-0001");
+        const patientId = patient ? patient.patientId : "PC-2026-0001";
+
+        const bills = window.PatientCareDB.getMedicalBills(patientId);
+        const container = document.getElementById("medicalBillsContainer");
+
+        if (!bills || bills.length === 0) {
+            container.innerHTML = `
+                <div class="profile-card" style="text-align: center; padding: 40px;">
+                    <p style="font-size: 18px; color: var(--slate-500);">No pharmacy purchase records found for Patient ID: <strong>${patientId}</strong></p>
+                    <p style="color: var(--slate-400); margin-top: 8px;">Medicines dispensed by empanelled pharmacies will appear here automatically.</p>
+                </div>
+            `;
+            return;
+        }
+
+        let html = '';
+        bills.forEach((bill, index) => {
+            html += `
+                <div class="record-card" style="background: white; border: 1px solid var(--slate-200); border-radius: 16px; padding: 25px; margin-bottom: 20px; box-shadow: var(--shadow-sm);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--slate-200); padding-bottom: 14px; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <h3 style="color: var(--slate-900); font-size: 20px; margin-bottom: 4px;">💊 ${bill.medicineName}</h3>
+                            <p style="font-size: 13px; color: var(--slate-500); margin: 0;">Chemist: <strong>${bill.medicalName || 'City Care Pharmacy'}</strong> • Date: <strong>${bill.purchaseDate}</strong></p>
+                        </div>
+                        <span class="status" style="font-size: 13px;">● Verified Pharmacy Bill</span>
+                    </div>
+
+                    <div class="profile-grid">
+                        <div class="info-card">
+                            <span>Quantity Purchased</span>
+                            <strong style="color: var(--slate-900);">${bill.quantity || 1} Unit(s)</strong>
+                        </div>
+                        <div class="info-card">
+                            <span>Medicine Bill Total</span>
+                            <strong style="color: var(--slate-900); font-size: 18px;">₹${bill.medicineAmount}</strong>
+                        </div>
+                        <div class="info-card">
+                            <span>Assurance Benefit Credited</span>
+                            <strong style="color: var(--success); font-size: 18px;">₹${bill.patientBenefitContribution || 0}</strong>
+                        </div>
+                        <div class="info-card">
+                            <span>GST Invoiced</span>
+                            <strong style="color: var(--slate-600);">₹${bill.gst || 16} (Included)</strong>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    });
+    </script>
+</body>
+</html>

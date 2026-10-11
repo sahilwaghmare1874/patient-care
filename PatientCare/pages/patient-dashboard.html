@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Dashboard Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <div class="dashboard-user">
+            <span class="user-badge">
+                👤 Welcome, <strong id="navUserName">Rahul Sharma</strong>
+            </span>
+            <button id="logoutBtn" class="secondary-btn" style="padding: 6px 14px; font-size: 13px;">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">PATIENT DASHBOARD</p>
+                <h1>Your Connected Healthcare Journey</h1>
+                <p>All clinical visits, lab reports, pharmacy bills and assurance benefits unified under your Patient ID.</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button type="button" class="secondary-btn" onclick="window.print()">
+                    🖨 Print Digital Card
+                </button>
+            </div>
+        </section>
+
+        <!-- Patient ID Health Pass Card -->
+        <section class="patient-id-card">
+            <div>
+                <p>PATIENT ID</p>
+                <h2 id="patientId">PC-2026-0001</h2>
+            </div>
+
+            <div>
+                <p>HAC NUMBER</p>
+                <h3 id="displayHacNumber">HAC-91-4582-9901-2026</h3>
+            </div>
+
+            <div>
+                <p>STATUS</p>
+                <div class="status" style="color: white; font-size: 16px; font-weight: 700;">
+                    <span class="status-dot"></span> Active Beneficiary
+                </div>
+            </div>
+        </section>
+
+        <!-- Connected Services Grid -->
+        <section class="dashboard-grid">
+            <!-- 01 Patient Profile -->
+            <div class="dashboard-card" onclick="window.location.href='patient-profile.html'">
+                <span>01</span>
+                <h3>Patient Profile</h3>
+                <p>View personal demographic information, linked PAN/Aadhaar and official HAC card.</p>
+            </div>
+
+            <!-- 02 Doctor Consultations -->
+            <div class="dashboard-card" onclick="window.location.href='doctor.html'">
+                <span>02</span>
+                <h3>Doctor Consultations</h3>
+                <p>Access consultation history, diagnosis notes and active digital prescriptions.</p>
+            </div>
+
+            <!-- 03 Pathology Lab Reports -->
+            <div class="dashboard-card" onclick="window.location.href='pathology.html'">
+                <span>03</span>
+                <h3>Pathology Reports</h3>
+                <p>Review blood tests, biochemical assays, diagnostic findings and verification status.</p>
+            </div>
+
+            <!-- 04 Pharmacy Orders -->
+            <div class="dashboard-card" onclick="window.location.href='medical.html'">
+                <span>04</span>
+                <h3>Medical & Pharmacy</h3>
+                <p>Track medicine dispensations, purchase receipts, chemist details and tax invoices.</p>
+            </div>
+
+            <!-- 05 Assurance Benefits -->
+            <div class="dashboard-card" onclick="window.location.href='patient-benefits.html'">
+                <span>05</span>
+                <h3>Assurance Benefits</h3>
+                <p>Monitor your accumulated cashback and subsidies earned across healthcare services.</p>
+            </div>
+
+            <!-- 06 Government Schemes -->
+            <div class="dashboard-card" onclick="window.location.href='government.html'">
+                <span>06</span>
+                <h3>Government Schemes</h3>
+                <p>Explore Ayushman Bharat (PM-JAY), check eligibility and apply for state healthcare subsidies.</p>
+            </div>
+
+            <!-- 07 Smart Payments -->
+            <div class="dashboard-card" onclick="window.location.href='smart-payment.html'">
+                <span>07</span>
+                <h3>Smart Payments</h3>
+                <p>Pay medical bills, apply insurance benefits directly and download official digital receipts.</p>
+            </div>
+
+            <!-- 08 Healthcare Records -->
+            <div class="dashboard-card" onclick="window.location.href='healthcare-record.html'">
+                <span>08</span>
+                <h3>Consolidated Health Record</h3>
+                <p>Comprehensive overview of your complete lifetime medical journey in one place.</p>
+            </div>
+        </section>
+
+        <!-- Accumulated Benefit Summary Banner -->
+        <section class="benefit-summary">
+            <div>
+                <p>HEALTHCARE ASSURANCE BENEFIT ACCOUNT</p>
+                <h2>₹4,250.00</h2>
+                <span>Total accumulated healthcare benefit balance available for cashless adjustment.</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="patient-login.html" class="portal-btn">Patient Portal</a>
+            <a href="../index.html" class="back-home">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Doctor Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="doctor-login-header">
+                <p class="small-title">CLINICAL PORTAL</p>
+                <h1>Doctor Login</h1>
+                <p>Authorized access for empanelled medical practitioners and hospital consultants.</p>
+            </div>
+
+            <!-- Demo Helper -->
+            <div style="background: var(--primary-light); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 12px 16px; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+                <div style="font-size: 13px; color: var(--primary-dark);">
+                    👨‍⚕️ <strong>Demo Doctor:</strong> <code>DOC-101</code> / Any Password
+                </div>
+                <button type="button" id="quickFillDoctor" class="secondary-btn" style="padding: 4px 12px; font-size: 12px; border-color: var(--primary);">
+                    Quick Fill
+                </button>
+            </div>
+
+            <form id="doctorLoginForm">
+                <div class="form-group">
+                    <label for="doctorId">Doctor Registration ID / Username</label>
+                    <input type="text" id="doctorId" placeholder="e.g. DOC-101 or Dr. Kadam" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="doctorPassword">Password</label>
+                    <input type="password" id="doctorPassword" placeholder="Enter secure password" required>
+                </div>
+
+                <button type="submit" class="primary-btn doctor-login-btn">
+                    Login to Doctor Portal →
+                </button>
+            </form>
+
+            <div id="doctorLoginMessage" style="margin-top: 15px; font-weight: 600; text-align: center;"></div>
+
+            <div class="doctor-back">
+                <a href="../index.html">← Back to Homepage</a>
+            </div>
+
+            <div style="margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--slate-200); display: flex; justify-content: center; gap: 16px; font-size: 13px; color: var(--slate-500);">
+                <span>Other Portals:</span>
+                <a href="patient-login.html">Patient</a> •
+                <a href="pathology-login.html">Pathology</a> •
+                <a href="medical-login.html">Pharmacy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("quickFillDoctor")?.addEventListener("click", function() {
+            document.getElementById("doctorId").value = "DOC-101";
+            document.getElementById("doctorPassword").value = "doctor123";
+        });
+    });
+    </script>
+</body>
+</html>

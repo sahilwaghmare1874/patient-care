@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Feedback | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Professional Navbar -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="government-schemes.html">Govt Schemes</a>
+            <a href="contact.html" class="active-link">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="patient-login.html" class="login-btn portal-btn patient-portal">Patient Login</a>
+            <a href="doctor-login.html" class="login-btn">Doctor</a>
+            <a href="pathology-login.html" class="login-btn">Pathology</a>
+            <a href="medical-login.html" class="login-btn">Medical</a>
+        </div>
+    </header>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <p class="small-title">24/7 PATIENT SUPPORT</p>
+            <h1>
+                We're here to help<br>
+                your healthcare journey.
+            </h1>
+            <p>
+                Have a question regarding your Patient ID, empanelled doctors, pathology tests, or government assurance scheme benefits? Our dedicated support team is available 24/7.
+            </p>
+        </div>
+
+        <div class="contact-status-card">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                <span class="status-dot"></span>
+                <strong style="color: white; font-size: 16px;">Live Healthcare Helpdesk</strong>
+            </div>
+            <p style="color: #94a3b8; font-size: 14px; margin-bottom: 12px;">
+                Average response time: &lt; 15 minutes.
+            </p>
+            <div class="mini-flow">
+                📞 Toll-Free: 1800-102-CARE (2273)
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Details Section -->
+    <section class="contact-section">
+        <div class="feature-container" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+            <!-- Left: Contact Details -->
+            <div class="profile-card" style="margin: 0;">
+                <div class="profile-title">
+                    <h2>Get in Touch</h2>
+                </div>
+                <p style="margin-bottom: 25px; color: var(--slate-600);">
+                    Reach out directly to our state healthcare coordinators or district empanelled help centres:
+                </p>
+
+                <div class="profile-grid" style="grid-template-columns: 1fr;">
+                    <div class="profile-item">
+                        <span>Central Helpline</span>
+                        <strong>1800-102-CARE (2273) / 020-4100-2026</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Official Support Email</span>
+                        <strong>support@patientcare-assurance.gov.in</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Headquarters</span>
+                        <strong>Healthcare Assurance Bhavan, Central Avenue, Pune 411001</strong>
+                    </div>
+
+                    <div class="profile-item">
+                        <span>Operating Hours</span>
+                        <strong>Emergency Support: 24/7 • Desk Hours: 8:00 AM - 8:00 PM</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="login-container" style="max-width: 100%; margin: 0; box-shadow: var(--shadow-sm);">
+                <div class="login-header" style="text-align: left; margin-bottom: 20px;">
+                    <p class="small-title">SEND AN INQUIRY</p>
+                    <h2 style="font-size: 24px;">Support Request</h2>
+                </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="contactEmail">Your Email Address</label>
+                        <input type="email" id="contactEmail" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactSubject">Subject</label>
+                        <input type="text" id="contactSubject" placeholder="e.g. Inquiry regarding Ayushman Bharat benefit" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactMessage">Your Message</label>
+                        <textarea id="contactMessage" rows="4" placeholder="Describe your query or hospital experience..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="primary-btn login-submit">
+                        Send Support Message →
+                    </button>
+                </form>
+
+                <div id="contactSuccess" class="contact-success" style="display:none; margin-top: 15px; color: var(--success); font-weight: 600; text-align: center;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Review & Experience Section -->
+    <section class="review-section">
+        <div class="review-header">
+            <p class="small-title">SHARE YOUR HEALTHCARE EXPERIENCE</p>
+            <h2>How was your hospital or doctor consultation?</h2>
+            <p>Your feedback helps us continuously elevate the standard of empanelled healthcare providers.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-rating">
+                <label>Select Rating:</label>
+                <div class="stars">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="reviewMessage">Your Written Review</label>
+                <textarea id="reviewMessage" rows="4" placeholder="Write about your doctor consultation, test experience, or pharmacy service..."></textarea>
+            </div>
+
+            <button type="button" class="primary-btn review-submit-btn">
+                Submit Hospital Feedback →
+            </button>
+        </div>
+
+        <!-- Dynamic Reviews Rendered via script.js -->
+        <div id="communityReviewsList" class="reviews-list"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <a href="../index.html" class="logo">
+                Healthcare Insurance<span>Assurance</span>
+            </a>
+
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="government-schemes.html">Government Schemes</a>
+                <a href="contact.html">Contact</a>
+                <a href="patient-login.html">Patient Login</a>
+            </div>
+        </div>
+
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

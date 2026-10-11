@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient &amp; Provider Registration | PatientCare</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css?v=2.2.0">
+    <link rel="stylesheet" href="../css/responsive.css?v=2.2.0">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="../index.html">
+                <span class="d-inline-flex align-items-center justify-content-center bg-primary text-white rounded-3 p-2" style="width: 38px; height: 38px;">
+                    <i class="bi bi-heart-pulse-fill fs-5"></i>
+                </span>
+                <span>Patient<span>Care</span></span>
+            </a>
+            <div class="d-flex align-items-center gap-2">
+                <a href="login.html" class="btn btn-outline-primary btn-sm px-3 fw-bold rounded-pill">
+                    <i class="bi bi-box-arrow-in-right me-1"></i> Existing User Login
+                </a>
+                <a href="../index.html" class="btn btn-light btn-sm px-3 text-secondary rounded-pill border">
+                    <i class="bi bi-house me-1"></i> Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-5" style="background: radial-gradient(circle at 50% 10%, rgba(2, 132, 199, 0.05) 0%, rgba(248, 250, 252, 0.9) 100%);">
+        <div class="container registration-container">
+            <!-- Page Header -->
+            <div class="text-center mb-4">
+                <div class="reg-page-badge mb-2">
+                    <i class="bi bi-shield-check text-primary"></i> Verified Health Identity Enrollment
+                </div>
+                <h1 class="reg-page-title">Digital Healthcare Registration</h1>
+                <p class="reg-page-subtitle">
+                    Enroll for your permanent lifetime Patient ID, HAC Health Card, and cashless empanelled healthcare network.
+                </p>
+            </div>
+
+            <!-- Segmented Registration Tabs -->
+            <ul class="nav reg-segmented-tabs" id="regTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="patient-tab" data-bs-toggle="tab" data-bs-target="#patientPane" type="button" role="tab">
+                        <i class="bi bi-person-bounding-box fs-5"></i>
+                        <span>Patient Enrollment</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="provider-tab" data-bs-toggle="tab" data-bs-target="#providerPane" type="button" role="tab">
+                        <i class="bi bi-hospital fs-5"></i>
+                        <span>Healthcare Provider Enrollment</span>
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="regTabContent">
+                <!-- ========================================================= -->
+                <!-- 1. Patient Registration Tab Pane                          -->
+                <!-- ========================================================= -->
+                <div class="tab-pane fade show active" id="patientPane" role="tabpanel">
+                    <div class="card form-card">
+                        <!-- Quick Fill Demo Banner -->
+                        <div class="quick-fill-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-primary text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                    <i class="bi bi-lightning-charge-fill fs-5"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-slate-800 d-flex align-items-center">
+                                        <span class="quick-fill-badge">Demo Mode</span> Quick-Fill Patient Profile
+                                    </div>
+                                    <div class="text-muted small">Auto-populates all personal, clinical history &amp; consent fields with valid demo information.</div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary btn-sm px-3 fw-bold rounded-pill text-nowrap" onclick="quickFillDemoPatient()">
+                                <i class="bi bi-magic me-1"></i> Auto-Fill Demo
+                            </button>
+                        </div>
+
+                        <form id="patientRegistrationForm">
+                            <!-- Section 1: Personal Info -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number">1</div>
+                                <h5 class="section-header-title">Personal Information</h5>
+                                <span class="section-header-sub"><i class="bi bi-person-vcard me-1"></i>Legal Identity</span>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="pFullName">Full Legal Name <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pFullName" required placeholder="e.g. Sahil Santosh Waghmare">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="pDob">Date of Birth <span class="req">*</span></label>
+                                    <input type="date" class="form-control" id="pDob" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="pGender">Gender <span class="req">*</span></label>
+                                    <select class="form-select" id="pGender" required>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="pMobile">Mobile Number (10 Digits) <span class="req">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 text-muted">+91</span>
+                                        <input type="tel" class="form-control border-start-0" id="pMobile" maxlength="15" required placeholder="9876543210">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="pEmail">Email Address <span class="req">*</span></label>
+                                    <input type="email" class="form-control" id="pEmail" required placeholder="patient@example.com">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="pAddress">Residential Address <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pAddress" required placeholder="Flat / House No., Society, Landmark">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="pCity">City <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pCity" required placeholder="City">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="pDistrict">District <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pDistrict" required placeholder="District">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="pState">State <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pState" required placeholder="State">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="form-label" for="pPincode">Pincode <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pPincode" maxlength="6" required placeholder="411001">
+                                </div>
+                            </div>
+
+                            <!-- Section 2: Identity & PAN Card -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number">2</div>
+                                <h5 class="section-header-title">Unique Identification &amp; PAN Card</h5>
+                                <span class="section-header-sub"><i class="bi bi-fingerprint me-1"></i>Permanent Reference</span>
+                            </div>
+                            <div class="identity-box mb-3">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <label class="form-label mb-0" for="pPan">PAN Card Number <span class="req">*</span></label>
+                                            <button type="button" class="btn btn-sm btn-link p-0 text-decoration-none fw-semibold" onclick="generateDemoPan()">
+                                                <i class="bi bi-arrow-repeat me-1"></i>Generate Test PAN
+                                            </button>
+                                        </div>
+                                        <input type="text" class="form-control pan-input-field" id="pPan" maxlength="10" required placeholder="ABCDE1234F">
+                                        <div id="panHelperText" class="form-text small mt-1 text-muted">
+                                            <i class="bi bi-info-circle me-1"></i>Must be 5 letters, 4 digits, 1 letter (e.g. ABCDE1234F).
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="pAadhaar">Aadhaar Card Number <span class="text-muted fw-normal">(Optional)</span></label>
+                                        <input type="text" class="form-control pan-input-field" id="pAadhaar" maxlength="12" placeholder="123456789012">
+                                        <div class="form-text small mt-1 text-muted">Masked securely across health records.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 3: Healthcare Demographics & Emergency -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number">3</div>
+                                <h5 class="section-header-title">Emergency Contact &amp; Clinical Demographics</h5>
+                                <span class="section-header-sub"><i class="bi bi-clipboard2-pulse me-1"></i>Vital Records</span>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-4">
+                                    <label class="form-label" for="pBlood">Blood Group <span class="req">*</span></label>
+                                    <select class="form-select" id="pBlood" required>
+                                        <option value="A+">A+</option>
+                                        <option value="A-">A-</option>
+                                        <option value="B+">B+</option>
+                                        <option value="B-">B-</option>
+                                        <option value="O+">O+</option>
+                                        <option value="O-">O-</option>
+                                        <option value="AB+">AB+</option>
+                                        <option value="AB-">AB-</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label" for="pAllergies">Known Drug/Food Allergies</label>
+                                    <input type="text" class="form-control" id="pAllergies" placeholder="e.g. Penicillin, Sulfa, None">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label" for="pConditions">Chronic Conditions</label>
+                                    <input type="text" class="form-control" id="pConditions" placeholder="e.g. Diabetes, Hypertension, None">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="pEmergName">Emergency Contact Name <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pEmergName" required placeholder="e.g. Relative Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="pEmergPhone">Emergency Contact Phone <span class="req">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 text-muted">+91</span>
+                                        <input type="tel" class="form-control border-start-0" id="pEmergPhone" maxlength="15" required placeholder="9822334455">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section 3b: Find the Right Doctor for Your Health Needs -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number clinical">3b</div>
+                                <h5 class="section-header-title text-danger">Find the Right Doctor for Your Health Needs</h5>
+                                <span class="section-header-sub text-danger"><i class="bi bi-robot me-1"></i>AI-Assisted Specialist Matching</span>
+                            </div>
+                            <div class="clinical-box mb-4">
+                                <div class="alert alert-info py-2 px-3 small border-0 mb-3 rounded-3 d-flex align-items-center gap-2" style="background: rgba(2, 132, 199, 0.08); color: #0369a1;">
+                                    <i class="bi bi-info-circle-fill fs-5"></i>
+                                    <div>Tell us about your health concerns so our AI engine can recommend verified specialist doctors tailored to your needs. This is optional and straightforward.</div>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="pIllness">Main Health Concern</label>
+                                        <input type="text" class="form-control" id="pIllness" placeholder="e.g. Chronic back pain, Persistent headache, High blood pressure">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="pSymptoms">Symptoms</label>
+                                        <input type="text" class="form-control" id="pSymptoms" placeholder="e.g. Throbbing pain, dizziness, fatigue, nausea">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="pSymptomDuration">Symptom Duration</label>
+                                        <input type="text" class="form-control" id="pSymptomDuration" placeholder="e.g. 3 days, 2 weeks, 1 month">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="pPreferredSpecialty">Preferred Specialty <small class="text-muted">(Optional)</small></label>
+                                        <select class="form-select" id="pPreferredSpecialty">
+                                            <option value="">-- Auto-Match by AI --</option>
+                                            <option value="General Medicine">General Medicine / Physician</option>
+                                            <option value="Cardiology">Cardiology (Heart)</option>
+                                            <option value="Neurology">Neurology (Brain & Nerves)</option>
+                                            <option value="Orthopedics">Orthopedics (Bones & Joints)</option>
+                                            <option value="Dermatology">Dermatology (Skin)</option>
+                                            <option value="Pediatrics">Pediatrics (Children)</option>
+                                            <option value="Gastroenterology">Gastroenterology (Digestive)</option>
+                                            <option value="Psychiatry">Psychiatry (Mental Health)</option>
+                                            <option value="Ophthalmology">Ophthalmology (Eyes)</option>
+                                            <option value="ENT">ENT (Ear, Nose & Throat)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="pConsultationType">Preferred Consultation Mode</label>
+                                        <select class="form-select" id="pConsultationType">
+                                            <option value="In-person">In-person Clinic Visit</option>
+                                            <option value="Online">Online Video Consultation</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="pPreferredLanguage">Preferred Language <small class="text-muted">(Optional)</small></label>
+                                        <select class="form-select" id="pPreferredLanguage">
+                                            <option value="en">English</option>
+                                            <option value="hi">Hindi (हिंदी)</option>
+                                            <option value="mr">Marathi (मराठी)</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="pPreferredDate">Preferred Appointment Date <small class="text-muted">(Optional)</small></label>
+                                        <input type="date" class="form-control" id="pPreferredDate">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label class="form-label" for="pPreferredLocation">Preferred City / Hospital Location <small class="text-muted">(Optional)</small></label>
+                                        <input type="text" class="form-control" id="pPreferredLocation" placeholder="e.g. Pune, Apex Hospital">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="d-flex gap-2 align-items-center flex-wrap">
+                                            <button type="button" class="btn btn-ai-spark" id="aiRecommendBtn" onclick="requestAIRecommendation()">
+                                                <i class="bi bi-robot me-1"></i> Find Recommended Doctors Now
+                                            </button>
+                                            <small class="text-muted"><i class="bi bi-shield-check text-success me-1"></i>Verified empanelled doctors with real availability</small>
+                                        </div>
+                                        <div id="aiRecommendResult" class="mt-3"></div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label" for="pCurrentMedicines">Current Medicines / Ongoing Treatment <small class="text-muted">(Optional)</small></label>
+                                        <input type="text" class="form-control" id="pCurrentMedicines" placeholder="e.g. Metformin 500mg, Amlodipine 5mg, or 'None'">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Consent for Medical Data Processing -->
+                            <div class="consent-panel mb-4">
+                                <div class="form-check d-flex align-items-start gap-2">
+                                    <input class="form-check-input mt-1" type="checkbox" id="pConsent" required>
+                                    <label class="form-check-label" for="pConsent">
+                                        <strong>Consent for Medical Data Processing &amp; Health ID Generation:</strong><br>
+                                        <span class="text-muted small">
+                                            I voluntarily consent to the collection, secure storage, and authorized processing of my medical and identity information on this platform. I understand this data will be utilized for healthcare coordination, doctor appointments, government scheme eligibility checks, and 90% healthcare insurance reserve calculations under strict digital health privacy standards. <span class="req">*</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Section 4: Portal Security Account -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number">4</div>
+                                <h5 class="section-header-title">Portal Security Account</h5>
+                                <span class="section-header-sub"><i class="bi bi-shield-lock me-1"></i>Protected Access</span>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-4">
+                                    <label class="form-label" for="pUsername">Username <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="pUsername" required placeholder="username">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label" for="pPassword">Password <span class="req">*</span></label>
+                                    <input type="password" class="form-control" id="pPassword" required minlength="6" placeholder="At least 6 characters">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label" for="pConfirmPassword">Confirm Password <span class="req">*</span></label>
+                                    <input type="password" class="form-control" id="pConfirmPassword" required minlength="6" placeholder="Repeat password">
+                                </div>
+                            </div>
+
+                            <!-- Real-time Inline Feedback Alert -->
+                            <div id="patientRegAlert" class="alert d-none my-3" role="alert"></div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-register-hero" id="submitPatientBtn">
+                                    <i class="bi bi-shield-check fs-5"></i>
+                                    <span>Complete Patient Registration</span>
+                                </button>
+                            </div>
+
+                            <!-- Trust Badges Strip -->
+                            <div class="trust-strip">
+                                <div class="trust-item"><i class="bi bi-shield-fill-check"></i> 256-Bit SSL Encrypted</div>
+                                <div class="trust-item"><i class="bi bi-hospital"></i> Empanelled Hospital Network</div>
+                                <div class="trust-item"><i class="bi bi-card-checklist"></i> ABDM / ISO 27001 Certified</div>
+                                <div class="trust-item"><i class="bi bi-lock-fill"></i> Medical Privacy Protected</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ========================================================= -->
+                <!-- 2. Healthcare Provider Registration Tab Pane              -->
+                <!-- ========================================================= -->
+                <div class="tab-pane fade" id="providerPane" role="tabpanel">
+                    <div class="card form-card">
+                        <!-- Quick Fill Helper Banner for Providers -->
+                        <div class="quick-fill-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="bg-primary text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px;">
+                                    <i class="bi bi-hospital fs-5"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-slate-800 d-flex align-items-center">
+                                        <span class="quick-fill-badge">Demo Mode</span> Quick-Fill Doctor Credentials
+                                    </div>
+                                    <div class="text-muted small">Auto-populates sample credentials for a verified medical specialist.</div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-outline-primary btn-sm px-3 fw-bold rounded-pill text-nowrap" onclick="quickFillDemoDoctor()">
+                                <i class="bi bi-magic me-1"></i> Auto-Fill Doctor
+                            </button>
+                        </div>
+
+                        <form id="providerRegisterForm">
+                            <!-- Provider Account Type -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number">1</div>
+                                <h5 class="section-header-title">Provider Role &amp; Credentials</h5>
+                                <span class="section-header-sub"><i class="bi bi-person-badge me-1"></i>Professional Portal</span>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="regRole">Provider Role <span class="req">*</span></label>
+                                    <select class="form-select" id="regRole" required>
+                                        <option value="DOCTOR">Doctor / Medical Practitioner</option>
+                                        <option value="PATHOLOGY">Pathology / Diagnostic Laboratory</option>
+                                        <option value="PHARMACY">Medical Chemist / Pharmacy</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="regUsername">Username / Portal ID <span class="req">*</span></label>
+                                    <input type="text" class="form-control" id="regUsername" required placeholder="e.g. dr_wagh">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="regEmail">Official Email Address <span class="req">*</span></label>
+                                    <input type="email" class="form-control" id="regEmail" required placeholder="doctor@hospital.org">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="regMobile">Official Contact Number <span class="req">*</span></label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-end-0 text-muted">+91</span>
+                                        <input type="tel" class="form-control border-start-0" id="regMobile" required placeholder="9876543210">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Doctor-specific fields -->
+                            <div id="doctorFields">
+                                <div class="form-section-header">
+                                    <div class="section-badge-number">2</div>
+                                    <h5 class="section-header-title">Medical Practice &amp; License Details</h5>
+                                    <span class="section-header-sub"><i class="bi bi-award me-1"></i>MCI / NMC Registration</span>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regFullName">Doctor Full Name &amp; Title <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regFullName" placeholder="Dr. Sahil Santosh Wagh">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regRegNo">Medical Registration Number (MCI/NMC) <span class="req">*</span></label>
+                                        <input type="text" class="form-control font-monospace" id="regRegNo" placeholder="REG-MCI-2026-99">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regQualification">Qualification / Degree <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regQualification" placeholder="e.g. MBBS, MD (Medicine)">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regSpecialization">Specialization <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regSpecialization" placeholder="Cardiology / Internal Medicine">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regHospital">Empanelled Hospital / Clinic <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regHospital" placeholder="Sahil Healthcare Clinic">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regAddress">Clinic / Hospital Address</label>
+                                        <input type="text" class="form-control" id="regAddress" placeholder="e.g. 101 Medical Center, Senapati Bapat Road, Pune">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pathology-specific fields -->
+                            <div id="pathologyFields" style="display: none;">
+                                <div class="form-section-header">
+                                    <div class="section-badge-number">2</div>
+                                    <h5 class="section-header-title">Laboratory &amp; License Details</h5>
+                                    <span class="section-header-sub"><i class="bi bi-virus me-1"></i>Diagnostic Verification</span>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regLabName">Laboratory Name <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regLabName" placeholder="Metropolis Care Diagnostics">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regLicenseNo">NABL / Lab License Number <span class="req">*</span></label>
+                                        <input type="text" class="form-control font-monospace" id="regLicenseNo" placeholder="NABL-LIC-8812">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pharmacy-specific fields -->
+                            <div id="pharmacyFields" style="display: none;">
+                                <div class="form-section-header">
+                                    <div class="section-badge-number">2</div>
+                                    <h5 class="section-header-title">Pharmacy &amp; Chemist License</h5>
+                                    <span class="section-header-sub"><i class="bi bi-capsule me-1"></i>Dispensing License</span>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regPharmacyName">Pharmacy Name <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regPharmacyName" placeholder="Lifeline Healthcare Chemists">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="regPharmacistName">Pharmacist Name <span class="req">*</span></label>
+                                        <input type="text" class="form-control" id="regPharmacistName" placeholder="Manoj Kumar, B.Pharm">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Portal Password -->
+                            <div class="form-section-header">
+                                <div class="section-badge-number">3</div>
+                                <h5 class="section-header-title">Account Security Credentials</h5>
+                                <span class="section-header-sub"><i class="bi bi-lock me-1"></i>Password</span>
+                            </div>
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="regPassword">Password <span class="req">*</span></label>
+                                    <input type="password" class="form-control" id="regPassword" required minlength="6" placeholder="At least 6 characters">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="regConfirmPassword">Confirm Password <span class="req">*</span></label>
+                                    <input type="password" class="form-control" id="regConfirmPassword" required minlength="6" placeholder="Repeat password">
+                                </div>
+                            </div>
+
+                            <!-- Real-time Inline Feedback Alert -->
+                            <div id="providerRegAlert" class="alert d-none my-3" role="alert"></div>
+
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-register-hero" id="submitProviderBtn">
+                                    <i class="bi bi-person-badge-fill fs-5"></i>
+                                    <span>Register Provider Account</span>
+                                </button>
+                            </div>
+
+                            <!-- Trust Badges Strip -->
+                            <div class="trust-strip">
+                                <div class="trust-item"><i class="bi bi-shield-fill-check"></i> Verified Medical Credentials</div>
+                                <div class="trust-item"><i class="bi bi-building-check"></i> Clinic Empanelment Network</div>
+                                <div class="trust-item"><i class="bi bi-file-medical"></i> HIPAA &amp; ABDM Compliant</div>
+                                <div class="trust-item"><i class="bi bi-lock-fill"></i> Data Privacy Protected</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Result Display -->
+    <div class="modal fade" id="patientResultModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="modal-header border-bottom py-3 px-4 bg-light">
+                    <h5 class="modal-title fw-bold" id="modalTitle">Registration Result</h5>
+                </div>
+                <div class="modal-body p-4" id="modalBody"></div>
+                <div class="modal-footer border-top py-3 px-4 bg-light">
+                    <a href="login.html" class="btn btn-primary px-4 fw-bold rounded-pill" id="modalActionBtn">Continue →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core API & Controllers -->
+    <script src="../js/api.js?v=2.2.0"></script>
+    <script src="../js/patient.js?v=2.2.0"></script>
+    <script src="../js/auth.js?v=2.2.0"></script>
+    <!-- Multilingual AI Healthcare Chatbot -->
+    <script src="../js/ai-chat.js?v=2.2.0"></script>
+</body>
+</html>

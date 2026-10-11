@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consolidated Healthcare Records | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">CONSOLIDATED HEALTH ARCHIVE</p>
+                <h1>Complete Healthcare Records</h1>
+                <p>Comprehensive overview of your clinical consultations, diagnostic tests and medicine dispensations in one unified record.</p>
+            </div>
+            <button type="button" class="primary-btn" onclick="window.print()">
+                🖨 Print Consolidated Record
+            </button>
+        </section>
+
+        <!-- Summary Record Grid -->
+        <section class="profile-card">
+            <div class="profile-title">
+                <h2>Connected Medical Summary</h2>
+                <span class="status" style="font-size: 14px;"><span class="status-dot"></span> Synced with Patient ID</span>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <span>Patient ID</span>
+                    <strong id="recordPatientId">PC-2026-0001</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Consulting Doctor</span>
+                    <strong id="recordDoctor">Dr. S. Kadam, MD</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Empanelled Hospital</span>
+                    <strong id="recordHospital">Kadam Multi-Speciality Hospital</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Doctor Consultation Fee</span>
+                    <strong id="recordFee">₹800</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Prescription Status</span>
+                    <strong id="recordRx" style="color: var(--primary);">Active Prescription On File</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Diagnostic Investigation</span>
+                    <strong id="recordLab">CBC Blood Profile (Normal / Verified)</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Dispensed Medicines</span>
+                    <strong id="recordMed">Paracetamol 650mg & Azithromycin 500mg</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Total Assurance Benefit Balance</span>
+                    <strong id="recordBenefit" style="color: var(--success); font-size: 18px;">₹4,250</strong>
+                </div>
+            </div>
+        </section>
+
+        <div class="doctor-actions">
+            <a href="patient-dashboard.html" class="primary-btn">
+                ← Back to Dashboard
+            </a>
+            <a href="doctor.html" class="secondary-btn">
+                View Doctor Notes →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const session = window.PatientCareDB.getSession();
+        const patient = session && session.user ? session.user : window.PatientCareDB.getPatientById("PC-2026-0001");
+        if (patient) {
+            document.getElementById("recordPatientId").innerText = patient.patientId;
+            document.getElementById("recordBenefit").innerText = "₹" + (patient.totalBenefitAmount || 4250).toLocaleString("en-IN");
+
+            const visits = window.PatientCareDB.getDoctorVisits(patient.patientId);
+            if (visits.length > 0) {
+                document.getElementById("recordDoctor").innerText = visits[0].doctorName;
+                document.getElementById("recordHospital").innerText = visits[0].hospitalName;
+                document.getElementById("recordFee").innerText = "₹" + visits[0].consultationFee;
+            }
+
+            const labs = window.PatientCareDB.getPathologyReports(patient.patientId);
+            if (labs.length > 0) {
+                document.getElementById("recordLab").innerText = labs[0].testName + " (" + labs[0].status + ")";
+            }
+
+            const meds = window.PatientCareDB.getMedicalBills(patient.patientId);
+            if (meds.length > 0) {
+                document.getElementById("recordMed").innerText = meds[0].medicineName;
+            }
+        }
+    });
+    </script>
+</body>
+</html>

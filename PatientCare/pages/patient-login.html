@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Login | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="doctor-login.html" class="portal-btn">Doctor Portal</a>
+            <a href="../index.html" class="back-home">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Login Section -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-header">
+                <p class="small-title">PATIENT PORTAL</p>
+                <h1>Welcome Back</h1>
+                <p>Login to access your connected electronic health journey and assurance benefits.</p>
+            </div>
+
+            <!-- Demo Helper Banner -->
+            <div style="background: var(--primary-light); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 12px 16px; margin-bottom: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 10px;">
+                <div style="font-size: 13px; color: var(--primary-dark);">
+                    💡 <strong>Demo Patient:</strong> <code>PC-2026-0001</code> / Any Password
+                </div>
+                <button type="button" id="quickFillDemoPatient" class="secondary-btn" style="padding: 5px 12px; font-size: 12px; border-color: var(--primary);">
+                    Quick Fill
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="loginId">Patient ID or Email Address</label>
+                    <input type="text" id="loginId" placeholder="e.g. PC-2026-0001 or rahul.sharma@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+
+                <!-- OTP Verification (Shown dynamically on submit) -->
+                <div class="otp-section" id="otpSection">
+                    <label for="otp">Enter 6-Digit Verification OTP</label>
+                    <input type="text" id="otp" maxlength="6" placeholder="000000">
+                    <button type="button" id="verifyOtpBtn" class="primary-btn">
+                        Verify OTP & Login →
+                    </button>
+                    <p id="otpMessage"></p>
+                </div>
+
+                <div class="login-options">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+                        <input type="checkbox" checked>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="javascript:void(0)" onclick="alert('For demo access, you can login with Patient ID: PC-2026-0001 and any password.')">
+                        Forgot Password?
+                    </a>
+                </div>
+
+                <button type="submit" class="primary-btn login-submit">
+                    Send Verification OTP →
+                </button>
+            </form>
+
+            <div class="register-link">
+                <p>Don't have a Healthcare Assurance account yet?</p>
+                <a href="patient-register.html">Register New Patient ID →</a>
+            </div>
+
+            <div style="margin-top: 25px; padding-top: 18px; border-top: 1px solid var(--slate-200); display: flex; justify-content: center; gap: 16px; font-size: 13px; color: var(--slate-500);">
+                <span>Other Portals:</span>
+                <a href="doctor-login.html">Doctor</a> •
+                <a href="pathology-login.html">Pathology</a> •
+                <a href="medical-login.html">Pharmacy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("quickFillDemoPatient")?.addEventListener("click", function() {
+            document.getElementById("loginId").value = "PC-2026-0001";
+            document.getElementById("password").value = "password123";
+        });
+    });
+    </script>
+</body>
+</html>

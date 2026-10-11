@@ -1,0 +1,26 @@
+databases:
+  - name: patientcare-db
+    databaseName: patientcare
+    user: patientcare_admin
+    plan: free
+
+services:
+  - type: web
+    name: patientcare-app
+    runtime: python
+    plan: free
+    buildCommand: "pip install -r backend/requirements.txt && python backend/manage.py collectstatic --no-input && python backend/manage.py migrate && python backend/manage.py loaddata backend/initial_data.json"
+    startCommand: "gunicorn --chdir backend config.wsgi:application --bind 0.0.0.0:$PORT"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: patientcare-db
+          property: connectionString
+      - key: DJANGO_DEBUG
+        value: "False"
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_ALLOWED_HOSTS
+        value: "*"
+      - key: PYTHON_VERSION
+        value: "3.12.0"

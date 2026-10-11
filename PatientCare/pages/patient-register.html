@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Registration | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <div style="display: flex; gap: 12px; align-items: center;">
+            <a href="patient-login.html" class="portal-btn">Existing Patient Login</a>
+            <a href="../index.html" class="back-home">← Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="registration">
+        <div class="login-container" style="max-width: 680px; margin: 0 auto;">
+            <div class="registration-header">
+                <p class="small-title">NEW PATIENT ENROLLMENT</p>
+                <h1>Register Healthcare ID</h1>
+                <p>
+                    Create your universal lifetime Patient ID and Healthcare Assurance Card (HAC) for cashless connected medical records.
+                </p>
+            </div>
+
+            <!-- Demo Quick Fill helper -->
+            <div style="background: var(--primary-light); border: 1px solid rgba(2, 132, 199, 0.25); border-radius: 12px; padding: 12px 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap;">
+                <span style="font-size: 13px; color: var(--primary-dark);">
+                    ⚡ Need to test quickly? Click to fill sample patient details:
+                </span>
+                <button type="button" id="quickFillRegister" class="secondary-btn" style="padding: 6px 14px; font-size: 12px; border-color: var(--primary); background: white;">
+                    Sample Fill
+                </button>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="patientForm" class="registration-form" style="padding: 0; border: none; box-shadow: none;">
+                <div class="form-group">
+                    <label for="fullName">Full Legal Name *</label>
+                    <input type="text" id="fullName" placeholder="e.g. Sahil Santosh Waghmare" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth *</label>
+                        <input type="date" id="dob" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender *</label>
+                        <!-- Visual Interactive Gender Pill Selector -->
+                        <div class="gender-selector">
+                            <button type="button" class="gender-btn active" data-gender="Male">
+                                👨 Male
+                            </button>
+                            <button type="button" class="gender-btn" data-gender="Female">
+                                👩 Female
+                            </button>
+                            <button type="button" class="gender-btn" data-gender="Other">
+                                ⚧ Other
+                            </button>
+                        </div>
+                        <!-- Synced Select Element (Defaults to Male) -->
+                        <select id="gender" required style="display: none;">
+                            <option value="Male" selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number (10 digits) *</label>
+                        <input type="tel" id="mobile" placeholder="98XXXXXXXX" maxlength="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" placeholder="patient@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Residential Address *</label>
+                    <textarea id="address" rows="3" placeholder="Enter complete residential address with PIN code" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                        <label for="pan" style="margin: 0;">PAN / Personal Identity ID *</label>
+                        <button type="button" id="generatePanBtn" class="secondary-btn" style="padding: 2px 8px; font-size: 11px; height: auto;">
+                            Generate Demo ID
+                        </button>
+                    </div>
+                    <input type="text" id="pan" placeholder="e.g. ABCDE1234F" maxlength="12" style="text-transform: uppercase;" required>
+                </div>
+
+                <div class="form-group" style="margin-top: 10px;">
+                    <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 14px; font-weight: normal; color: var(--slate-600);">
+                        <input type="checkbox" id="consent" required checked style="width: auto; margin-top: 3px;">
+                        <span>I confirm that the above information is accurate and give consent to create a connected Digital Health ID and Assurance account.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="primary-btn login-submit" style="margin-top: 15px;">
+                    Generate Universal Patient ID →
+                </button>
+            </form>
+
+            <!-- Dynamic Result Card -->
+            <div id="registrationResult" class="registration-result"></div>
+
+            <div class="register-link">
+                <p>Already have a Patient ID?</p>
+                <a href="patient-login.html">Login to Your Account →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Gender Selector Pill Buttons
+        const genderSelect = document.getElementById("gender");
+        const genderBtns = document.querySelectorAll(".gender-btn");
+
+        genderBtns.forEach(btn => {
+            btn.addEventListener("click", function() {
+                genderBtns.forEach(b => b.classList.remove("active"));
+                this.classList.add("active");
+                const selected = this.getAttribute("data-gender");
+                if (genderSelect) {
+                    genderSelect.value = selected;
+                }
+            });
+        });
+
+        // Quick Generate Demo PAN
+        document.getElementById("generatePanBtn")?.addEventListener("click", function() {
+            const rand = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("pan").value = "ABCDE" + rand + "F";
+        });
+
+        // Sample Fill button
+        document.getElementById("quickFillRegister")?.addEventListener("click", function() {
+            const rand = Math.floor(1000 + Math.random() * 9000);
+            document.getElementById("fullName").value = "Sahil Santosh Waghmare";
+            document.getElementById("dob").value = "2004-07-18";
+            document.getElementById("mobile").value = "8180032454";
+            document.getElementById("email").value = "sahilwaghmare1872004@gmail.com";
+            document.getElementById("address").value = "Shivaji Nagar, Pune, Maharashtra 411005";
+            document.getElementById("pan").value = "ABCDE" + rand + "F";
+
+            // Set Male active
+            genderBtns.forEach(b => b.classList.remove("active"));
+            const maleBtn = document.querySelector('.gender-btn[data-gender="Male"]');
+            if (maleBtn) maleBtn.classList.add("active");
+            if (genderSelect) genderSelect.value = "Male";
+        });
+    });
+    </script>
+</body>
+</html>

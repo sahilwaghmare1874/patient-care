@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Responsive Adaptations (responsive.css)
+   ========================================================================== */
+
+@media (max-width: 991.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section {
+        padding: 3.5rem 0 2.5rem;
+    }
+
+    .health-pass-card {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .stat-value {
+        font-size: 1.6rem;
+    }
+
+    .form-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+    }
+
+    .reg-segmented-tabs {
+        flex-direction: column;
+    }
+
+    .reg-page-title {
+        font-size: 1.75rem;
+    }
+
+    .quick-fill-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .timeline-content {
+        margin-left: 1rem;
+        padding: 1rem;
+    }
+
+    .pass-id {
+        font-size: 1.35rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .healthcare-navbar {
+        padding: 0.5rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .form-card {
+        padding: 1.25rem 1rem;
+    }
+
+    .form-section-header {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .section-header-sub {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .trust-strip {
+        gap: 1rem;
+    }
+
+    .timeline-icon-box {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .timeline-step:not(:last-child)::after {
+        left: 17px;
+    }
+}

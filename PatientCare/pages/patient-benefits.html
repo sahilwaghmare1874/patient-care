@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assurance Benefits | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">BENEFIT ACCUMULATION</p>
+                <h1>Healthcare Assurance Benefits</h1>
+                <p>Every medical visit, diagnostic test and medicine order automatically credits cashback savings to your Patient ID.</p>
+            </div>
+            <a href="smart-payment.html" class="primary-btn">
+                Use Benefits in Smart Payments →
+            </a>
+        </section>
+
+        <!-- Benefit Balance Card -->
+        <section class="benefit-summary" style="margin-top: 0; margin-bottom: 30px;">
+            <div>
+                <p>PATIENT BENEFIT WALLET BALANCE</p>
+                <h2 id="totalBenefit">₹4,250.00</h2>
+                <span>Available for direct cashless deduction against future medical bills.</span>
+            </div>
+        </section>
+
+        <!-- Breakdown Grid -->
+        <section class="profile-card">
+            <div class="profile-title">
+                <h2>Benefit Account Summary</h2>
+                <span class="status" style="font-size: 14px;"><span class="status-dot"></span> <strong id="accountStatus">Active Account</strong></span>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <span>Connected Patient ID</span>
+                    <strong id="patientId">PC-2026-0001</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Doctor Consultation Cashback</span>
+                    <strong id="doctorBenefit" style="color: var(--primary);">10% on OPD Fees</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Diagnostic Lab Subsidy</span>
+                    <strong id="labBenefit" style="color: var(--accent);">10% on Pathology Tests</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Pharmacy Cashback</span>
+                    <strong id="medicalBenefit" style="color: #6366f1;">5% on Medicine Orders</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Total Accumulated Savings</span>
+                    <strong id="totalSavings" style="color: var(--success); font-size: 20px;">₹4,250</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Account Tier</span>
+                    <strong style="color: var(--slate-900);">Platinum Healthcare Pass</strong>
+                </div>
+            </div>
+        </section>
+
+        <div class="pathology-actions">
+            <a href="patient-dashboard.html" class="primary-btn">
+                ← Back to Dashboard
+            </a>
+            <a href="patient-benefit-account.html" class="secondary-btn">
+                Detailed Contribution Ledger →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const session = window.PatientCareDB.getSession();
+        const patient = session && session.user ? session.user : window.PatientCareDB.getPatientById("PC-2026-0001");
+        if (patient) {
+            document.getElementById("patientId").innerText = patient.patientId;
+            const bal = "₹" + (patient.totalBenefitAmount || 4250).toLocaleString("en-IN") + ".00";
+            document.getElementById("totalBenefit").innerText = bal;
+            document.getElementById("totalSavings").innerText = "₹" + (patient.totalBenefitAmount || 4250).toLocaleString("en-IN");
+            document.getElementById("accountStatus").innerText = (patient.accountStatus || "Active") + " Account";
+        }
+    });
+    </script>
+</body>
+</html>

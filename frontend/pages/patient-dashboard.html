@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard | PatientCare</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand" href="../index.html">
+                Patient<span>Care</span>
+            </a>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-primary-subtle text-primary py-2 px-3 fw-bold">
+                    <i class="bi bi-person-check-fill me-1"></i> Patient Portal
+                </span>
+                <button class="btn btn-outline-secondary btn-sm" onclick="API.authAPI.logout()">
+                    <i class="bi bi-box-arrow-right"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-4" id="patientDashboardView">
+        <div class="container-fluid px-lg-5">
+            <!-- Header Banner & Digital Health Pass -->
+            <div class="row align-items-center g-4 mb-4">
+                <div class="col-lg-8">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                        <div>
+                            <span class="badge bg-success-subtle text-success fw-bold px-3 py-1 rounded-pill mb-1">
+                                <span class="pass-status-dot"></span> Active Beneficiary
+                            </span>
+                            <h2 class="fw-bold mb-0" id="dashPatientName">Loading Patient...</h2>
+                            <p class="text-muted small mb-0">Universal Lifetime Healthcare Identification Pass</p>
+                        </div>
+                        <div class="d-flex gap-2 mt-2 mt-md-0 no-print">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="window.print()">
+                                <i class="bi bi-printer me-1"></i> Print Pass
+                            </button>
+                            <a id="dashWebReportBtn" href="#" class="btn btn-primary btn-sm">
+                                <i class="bi bi-file-earmark-medical me-1"></i> View Full Report
+                            </a>
+                            <a id="dashPdfReportBtn" href="#" class="btn btn-outline-primary btn-sm" download>
+                                <i class="bi bi-file-earmark-pdf me-1"></i> Download PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Details Pill Grid -->
+                    <div class="row g-2 bg-white p-3 rounded border shadow-sm">
+                        <div class="col-md-3 col-6">
+                            <small class="text-muted d-block">PATIENT ID</small>
+                            <strong class="text-primary fs-6" id="dashPatientId">-</strong>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <small class="text-muted d-block">HAC PASS NUMBER</small>
+                            <span class="font-monospace small fw-bold" id="dashHacNumber">-</span>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <small class="text-muted d-block">PAN (MASKED)</small>
+                            <code id="dashMaskedPan">-</code>
+                        </div>
+                        <div class="col-md-3 col-6">
+                            <small class="text-muted d-block">BLOOD GROUP</small>
+                            <span class="badge bg-danger" id="dashBloodGroup">-</span>
+                        </div>
+                        <div class="col-12 border-top pt-2 mt-2">
+                            <small class="text-muted">Emergency Contact: </small>
+                            <span class="small fw-bold" id="dashEmergency">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Wallet Summary Card -->
+                <div class="col-lg-4">
+                    <div class="card p-3 border-0 bg-primary text-white shadow-sm rounded-4">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="small text-white-50">HEALTH ASSURANCE WALLET</span>
+                            <i class="bi bi-wallet2 fs-5"></i>
+                        </div>
+                        <h3 class="fw-bold mb-1" id="statBenefitWallet">₹0.00</h3>
+                        <p class="small text-white-50 mb-3">Available for cashless bill settlement across all network providers.</p>
+                        <div class="d-flex justify-content-between border-top border-white-50 pt-2 small">
+                            <span>Doctor: 10%</span>
+                            <span>Path: 10%</span>
+                            <span>Med: 5%</span>
+                            <span class="fw-bold text-warning">Benefit: 70%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Stats Row -->
+            <div class="row g-3 mb-4">
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-primary-subtle text-primary"><i class="bi bi-receipt"></i></div>
+                        <div class="stat-value" id="statTotalCost">₹0.00</div>
+                        <div class="stat-label">Total Incurred Treatment Cost</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-success-subtle text-success"><i class="bi bi-bank2"></i></div>
+                        <div class="stat-value text-success" id="statApprovedFund">₹0.00</div>
+                        <div class="stat-label">Approved Government / Insurance Funds</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-info-subtle text-info"><i class="bi bi-hospital"></i></div>
+                        <div class="stat-value" id="statVisitsCount">0</div>
+                        <div class="stat-label">Recorded Clinical Consultations</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Centralized Healthcare Journey Timeline (Requirement 7 & 29) -->
+            <div class="card p-4 border shadow-sm mb-4 bg-white">
+                <h5 class="fw-bold text-dark mb-3">
+                    <i class="bi bi-diagram-3-fill text-primary me-2"></i> Centralized Healthcare Journey Timeline
+                </h5>
+                <div id="dashTimelineContainer"></div>
+            </div>
+
+            <!-- Centralized Clinical Records Tabs -->
+            <div class="card p-4 border shadow-sm bg-white">
+                <ul class="nav nav-tabs mb-4" id="recordTabs" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active fw-bold" data-bs-toggle="tab" data-bs-target="#tabConsultations">
+                            <i class="bi bi-stethoscope me-1 text-primary"></i> Doctor Consultations
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabPathology">
+                            <i class="bi bi-clipboard2-pulse me-1 text-teal"></i> Pathology Reports
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabPharmacy">
+                            <i class="bi bi-capsule me-1 text-warning"></i> Pharmacy Invoices
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabFunds">
+                            <i class="bi bi-bank2 me-1 text-success"></i> Government Funds
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabInsurance">
+                            <i class="bi bi-shield-check me-1 text-info"></i> Insurance Claims
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabPayments">
+                            <i class="bi bi-credit-card me-1 text-dark"></i> Payments & Receipts
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabAppointments" onclick="loadPatientAppointments()">
+                            <i class="bi bi-calendar-check me-1 text-primary"></i> Appointments
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabReserve" onclick="loadReserveAccount()">
+                            <i class="bi bi-piggy-bank me-1 text-success"></i> Reserve Account
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabHealthProtection" onclick="loadHealthProtectionAccount()">
+                            <i class="bi bi-heart-pulse-fill me-1 text-danger"></i> Health Protection Fund
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link fw-bold" data-bs-toggle="tab" data-bs-target="#tabBooking" onclick="loadDoctorListForBooking()">
+                            <i class="bi bi-person-plus me-1 text-info"></i> Book Doctor
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Consultations Tab -->
+                    <div class="tab-pane fade show active" id="tabConsultations">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Consultation ID</th>
+                                        <th>Date</th>
+                                        <th>Doctor & Hospital</th>
+                                        <th>Diagnosis</th>
+                                        <th>Consultation Fee</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="consultationsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pathology Tab -->
+                    <div class="tab-pane fade" id="tabPathology">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Report ID</th>
+                                        <th>Date</th>
+                                        <th>Test Name</th>
+                                        <th>Accredited Lab</th>
+                                        <th>Fee</th>
+                                        <th>Verification Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pathologyTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pharmacy Tab -->
+                    <div class="tab-pane fade" id="tabPharmacy">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Invoice ID</th>
+                                        <th>Date</th>
+                                        <th>Pharmacy Name</th>
+                                        <th>Medicines Dispensed</th>
+                                        <th>Total Paid</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="pharmacyTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Government Funds Tab (Phase 6) -->
+                    <div class="tab-pane fade" id="tabFunds">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0 text-success"><i class="bi bi-bank2 me-2"></i>Government Healthcare Schemes &amp; Pre-Auth Tracking</h6>
+                            <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#schemeApplyModal" onclick="loadSchemesForModal()">
+                                <i class="bi bi-file-earmark-plus me-1"></i> Apply for Scheme Pre-Auth
+                            </button>
+                        </div>
+
+                        <!-- Scheme Applications Tracking -->
+                        <div class="card p-3 border shadow-sm mb-4 bg-white">
+                            <h6 class="fw-bold mb-2 small text-uppercase text-muted"><i class="bi bi-clock-history me-1"></i> My Scheme Applications &amp; Pre-Authorization Status</h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Application ID</th>
+                                            <th>Scheme</th>
+                                            <th>Hospital</th>
+                                            <th>Treatment</th>
+                                            <th>Estimated</th>
+                                            <th>Approved</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="patientSchemeApplicationsTableBody">
+                                        <tr><td colspan="7" class="text-center text-muted small py-2">Loading applications...</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Disbursed Healthcare Allocations -->
+                        <div class="card p-3 border shadow-sm mb-4 bg-white">
+                            <h6 class="fw-bold mb-2 small text-uppercase text-muted"><i class="bi bi-check-circle-fill text-success me-1"></i> Disbursed Multi-Provider Fund Allocations</h6>
+                            <div class="table-responsive">
+                                <table class="table table-hover table-custom mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Allocation ID</th>
+                                            <th>Healthcare Scheme</th>
+                                            <th>Total Approved</th>
+                                            <th>Doctor (10%)</th>
+                                            <th>Pathology (10%)</th>
+                                            <th>Pharmacy (5%)</th>
+                                            <th>Patient Benefit (70%)</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fundsTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Central & State Schemes Overview Cards -->
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="card p-3 border bg-light h-100">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <strong class="text-primary">MJPJAY (Maharashtra)</strong>
+                                        <span class="badge bg-success">₹5,00,000 / Family</span>
+                                    </div>
+                                    <small class="text-muted mb-2">Mahatma Jyotirao Phule Jan Arogya Yojana. Cashless tertiary care for Yellow/Orange ration card holders across Maharashtra.</small>
+                                    <a href="https://www.jeevandayee.gov.in" target="_blank" rel="noopener" class="small text-decoration-none mt-auto">jeevandayee.gov.in →</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card p-3 border bg-light h-100">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <strong class="text-primary">PM-JAY (Ayushman Bharat)</strong>
+                                        <span class="badge bg-success">₹5,00,000 / Year</span>
+                                    </div>
+                                    <small class="text-muted mb-2">National health protection scheme covering secondary and tertiary hospitalization for bottom 40% vulnerable families nationwide.</small>
+                                    <a href="https://pmjay.gov.in" target="_blank" rel="noopener" class="small text-decoration-none mt-auto">pmjay.gov.in →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Insurance Tab -->
+                    <div class="tab-pane fade" id="tabInsurance">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Claim ID</th>
+                                        <th>Policy Number</th>
+                                        <th>Insurance Company</th>
+                                        <th>Requested Amount</th>
+                                        <th>Approved Amount</th>
+                                        <th>Claim Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="insuranceTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Payments Tab -->
+                    <div class="tab-pane fade" id="tabPayments">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-custom">
+                                <thead>
+                                    <tr>
+                                        <th>Transaction ID</th>
+                                        <th>Date</th>
+                                        <th>Payment Type</th>
+                                        <th>Method</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="paymentsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3&4: Appointments Tab -->
+                    <div class="tab-pane fade" id="tabAppointments">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0"><i class="bi bi-calendar-check me-2 text-primary"></i>My Appointments</h6>
+                        </div>
+                        <div id="appointmentsContainer"><p class="text-muted text-center py-3"><span class="spinner-border spinner-border-sm me-1"></span> Loading...</p></div>
+                    </div>
+
+                    <!-- Phase 8: Reserve Account Tab -->
+                    <div class="tab-pane fade" id="tabReserve">
+                        <h6 class="fw-bold mb-3"><i class="bi bi-piggy-bank me-2 text-success"></i>Healthcare Reserve Account (90% Rule)</h6>
+                        <div id="reserveAccountContainer"><p class="text-muted text-center py-3"><span class="spinner-border spinner-border-sm me-1"></span> Loading...</p></div>
+                        <div id="reserveLedgerContainer" class="mt-3"></div>
+                    </div>
+
+                    <!-- Phase 9: Health Protection Fund Tab (10% automatic contribution) -->
+                    <div class="tab-pane fade" id="tabHealthProtection">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0"><i class="bi bi-heart-pulse-fill me-2 text-danger"></i>PatientCare Health Protection Fund <span class="badge bg-danger ms-1">10% Auto-Contribution</span></h6>
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#hpfClaimModal">
+                                <i class="bi bi-file-earmark-medical me-1"></i> Submit Healthcare Claim
+                            </button>
+                        </div>
+                        <div class="alert alert-info py-2 small mb-3">
+                            <i class="bi bi-info-circle-fill me-1"></i>
+                            <strong>10% of every eligible healthcare payment</strong> (Doctor, Pathology, Pharmacy) is automatically credited to your personal Health Protection Fund. Use it for future healthcare expenses.
+                        </div>
+                        <div id="hpfAccountContainer"><p class="text-muted text-center py-3"><span class="spinner-border spinner-border-sm me-1"></span> Loading fund account...</p></div>
+                        <div id="hpfTransactionsContainer" class="mt-3"></div>
+                        <div id="hpfClaimsContainer" class="mt-3"></div>
+                    </div>
+
+                    <!-- Phase 3&4: Book Doctor Tab -->
+                    <div class="tab-pane fade" id="tabBooking">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h6 class="fw-bold mb-0"><i class="bi bi-robot me-2 text-info"></i>AI-Assisted Doctor Booking</h6>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Your Symptoms (for AI specialty recommendation)</label>
+                                <textarea class="form-control" id="bookingSymptomInput" rows="2" placeholder="e.g. headache, fever, chest pain..."></textarea>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Filter by Specialty</label>
+                                <input type="text" class="form-control" id="specialtyFilter" placeholder="e.g. Cardiology">
+                            </div>
+                            <div class="col-md-3 d-flex align-items-end gap-2">
+                                <button class="btn btn-info btn-sm" onclick="getAIAndLoadDoctors()"><i class="bi bi-robot me-1"></i> AI Suggest &amp; Find</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="loadDoctorListForBooking()"><i class="bi bi-search me-1"></i> All Doctors</button>
+                            </div>
+                        </div>
+                        <div id="aiSuggestionResult" class="mb-3"></div>
+                        <div id="doctorListContainer"><p class="text-muted text-center py-3">Click "All Doctors" or enter symptoms for AI suggestions.</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Phase 3: Appointment Booking Modal -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" data-bs-backdrop="static">
+
+    <!-- Phase 9: Health Protection Fund — Claim Submission Modal -->
+    <div class="modal fade" id="hpfClaimModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title"><i class="bi bi-heart-pulse-fill me-2"></i>Submit Healthcare Claim</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info py-2 small mb-3">
+                        <i class="bi bi-info-circle me-1"></i> Claims are reviewed by PatientCare administrators. Approved claims are disbursed from your Health Protection Fund balance.
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Claim Category *</label>
+                        <select class="form-select" id="hpfClaimCategory">
+                            <option value="Doctor Consultation">Doctor Consultation</option>
+                            <option value="Pathology Diagnostic">Pathology / Lab Tests</option>
+                            <option value="Pharmacy Purchase">Pharmacy / Medicines</option>
+                            <option value="Hospital Admission">Hospital Admission</option>
+                            <option value="Emergency Care">Emergency Care</option>
+                            <option value="Other">Other Healthcare Expense</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Claim Amount (₹) *</label>
+                        <input type="number" class="form-control" id="hpfClaimAmount" min="1" step="0.01" placeholder="Enter amount in ₹">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description of Expense *</label>
+                        <textarea class="form-control" id="hpfClaimDescription" rows="3" placeholder="Describe the healthcare expense (e.g., hospitalization for surgery, medicine purchase)"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Service Provider / Hospital Name</label>
+                        <input type="text" class="form-control" id="hpfClaimProvider" placeholder="Doctor name, hospital or pharmacy name">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date of Service</label>
+                        <input type="date" class="form-control" id="hpfClaimDate">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" id="submitHpfClaimBtn" onclick="submitHealthProtectionClaim()">
+                        <i class="bi bi-send me-1"></i> Submit Claim
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title"><i class="bi bi-calendar-check me-2"></i>Book Appointment</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="bookDoctorId">
+                    <div class="mb-3 p-3 bg-light rounded">
+                        <strong id="bookDoctorName"></strong>
+                        <span class="badge bg-primary ms-2" id="bookSpecialization"></span>
+                        <div class="text-success fw-bold mt-1" id="bookFee"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Appointment Date *</label>
+                        <input type="date" class="form-control" id="bookDate" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Preferred Time Slot</label>
+                        <select class="form-select" id="bookTimeSlot">
+                            <option>09:00 AM - 09:30 AM</option>
+                            <option>10:00 AM - 10:30 AM</option>
+                            <option>11:00 AM - 11:30 AM</option>
+                            <option>02:00 PM - 02:30 PM</option>
+                            <option>03:00 PM - 03:30 PM</option>
+                            <option>04:00 PM - 04:30 PM</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Brief Symptoms / Reason for Visit</label>
+                        <textarea class="form-control" id="bookSymptoms" rows="2" placeholder="e.g. headache and fever for 3 days"></textarea>
+                    </div>
+                    <div class="alert alert-info small py-2">
+                        <i class="bi bi-info-circle me-1"></i>
+                        After confirmation, a unique token number will be assigned. You will be notified when it is your turn.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmBookingBtn" onclick="submitAppointmentBooking()">
+                        <i class="bi bi-calendar-check me-1"></i> Confirm Booking
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 6: Government Scheme Pre-Authorization Modal -->
+    <div class="modal fade" id="schemeApplyModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title"><i class="bi bi-file-earmark-plus me-2"></i>Apply for Scheme Pre-Authorization</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Select Healthcare Scheme *</label>
+                        <select class="form-select" id="schemeModalSelect" required>
+                            <option value="">Loading schemes...</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Empaneled Hospital *</label>
+                        <input type="text" class="form-control" id="schemeHospitalName" value="KEM Hospital & Research Centre, Pune" placeholder="Empaneled Hospital Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Treatment / Clinical Procedure *</label>
+                        <textarea class="form-control" id="schemeTreatmentDesc" rows="2" placeholder="e.g. Coronary Artery Bypass Grafting (CABG) or Knee Replacement" required></textarea>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Estimated Cost (₹) *</label>
+                            <input type="number" class="form-control" id="schemeEstimatedCost" placeholder="150000" min="0" step="1000" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Requested Pre-Auth (₹) *</label>
+                            <input type="number" class="form-control" id="schemeRequestedAmount" placeholder="150000" min="0" step="1000" required>
+                        </div>
+                    </div>
+                    <div class="alert alert-light border small py-2 text-muted">
+                        <i class="bi bi-info-circle text-success me-1"></i>
+                        Application is securely submitted to the scheme nodal authority. Cashless authorization is updated in real time.
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="submitSchemeBtn" onclick="submitSchemeApplication()">
+                        <i class="bi bi-send-fill me-1"></i> Submit Pre-Authorization
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core API & Patient Script -->
+    <script src="../js/api.js"></script>
+    <script src="../js/patient.js"></script>
+    <!-- Multilingual AI Healthcare Chatbot -->
+    <script src="../js/ai-chat.js"></script>
+</body>
+</html>

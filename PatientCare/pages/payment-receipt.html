@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Receipts | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">TRANSACTION RECEIPTS</p>
+                <h1>Official Digital Healthcare Receipts</h1>
+                <p>Download and print verified electronic medical receipts, consultation vouchers and payment confirmations.</p>
+            </div>
+            <button type="button" class="primary-btn" onclick="window.print()">
+                🖨 Print Official Receipt
+            </button>
+        </section>
+
+        <!-- Dynamic/Standard Receipt Container -->
+        <section class="profile-card" style="border: 2px dashed var(--primary); background: #f8fafc;">
+            <div class="profile-title" style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>🧾 Official Healthcare Payment Receipt</h2>
+                <span class="status" style="font-size: 14px;"><span class="status-dot"></span> VERIFIED PAYMENT</span>
+            </div>
+
+            <div class="profile-grid">
+                <div class="profile-item">
+                    <span>Transaction ID</span>
+                    <strong id="receiptTxnId">TXN-2026-98124501</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Patient ID</span>
+                    <strong id="receiptPatientId">PC-2026-0001</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Healthcare Service</span>
+                    <strong id="receiptService">OPD Clinical Consultation & Diagnostics</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Amount Paid</span>
+                    <strong style="color: var(--primary); font-size: 20px;" id="receiptAmount">₹800.00</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Payment Mode</span>
+                    <strong>Online UPI / Health Assurance Benefit Card</strong>
+                </div>
+
+                <div class="profile-item">
+                    <span>Payment Timestamp</span>
+                    <strong id="receiptTimestamp">2026-09-27 11:42 AM</strong>
+                </div>
+
+                <div class="profile-item profile-address">
+                    <span>Empanelled Healthcare Provider</span>
+                    <strong>Kadam Multi-Speciality Hospital & Research Centre, Satara</strong>
+                </div>
+            </div>
+        </section>
+
+        <div class="pathology-actions">
+            <a href="smart-payment.html" class="primary-btn">
+                Make Another Payment →
+            </a>
+            <a href="patient-dashboard.html" class="secondary-btn">
+                ← Return to Dashboard
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const session = window.PatientCareDB.getSession();
+        const patient = session && session.user ? session.user : window.PatientCareDB.getPatientById("PC-2026-0001");
+        const patientId = patient ? patient.patientId : "PC-2026-0001";
+        document.getElementById("receiptPatientId").innerText = patientId;
+
+        const payments = window.PatientCareDB.getPayments(patientId);
+        if (payments && payments.length > 0) {
+            const p = payments[payments.length - 1];
+            document.getElementById("receiptTxnId").innerText = p.transactionId;
+            document.getElementById("receiptService").innerText = p.serviceType;
+            document.getElementById("receiptAmount").innerText = "₹" + p.amount + ".00";
+            document.getElementById("receiptTimestamp").innerText = p.timestamp;
+        }
+    });
+    </script>
+</body>
+</html>

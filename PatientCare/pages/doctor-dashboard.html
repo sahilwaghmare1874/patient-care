@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Doctor Dashboard Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <div class="dashboard-user">
+            <span class="user-badge" style="background: #e0f2fe; color: #0369a1;">
+                👨‍⚕️ Logged in: <strong>Dr. S. Kadam, MD</strong>
+            </span>
+            <a href="doctor-login.html" class="secondary-btn" style="padding: 6px 14px; font-size: 13px;">
+                Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="doctor-dashboard">
+        <section class="doctor-header">
+            <div>
+                <p class="small-title">CLINICAL DASHBOARD</p>
+                <h1>Doctor Consultation Portal</h1>
+                <p>Search any patient by ID to review clinical history, record diagnosis and issue electronic prescriptions.</p>
+            </div>
+            <a href="../index.html" class="secondary-btn">
+                ← Home
+            </a>
+        </section>
+
+        <!-- Patient Search Card -->
+        <section class="patient-search-card">
+            <h2>Search Patient Health Profile</h2>
+            <p>
+                Enter the universal Patient ID to access complete consultation records, diagnostic pathology tests and active assurance benefits.
+            </p>
+
+            <form id="patientSearchForm" class="patient-search-form">
+                <input
+                    type="text"
+                    id="patientId"
+                    placeholder="Enter Patient ID e.g. PC-2026-0001"
+                    value="PC-2026-0001"
+                    required
+                >
+                <button type="submit" class="primary-btn">
+                    Search Patient Records →
+                </button>
+            </form>
+
+            <div id="searchMessage" class="search-message" style="margin-top: 14px; font-weight: 600;"></div>
+        </section>
+
+        <!-- Dynamic Patient Information Grid -->
+        <section id="patientInfo" class="dashboard-info" style="display:none; margin-bottom: 30px;">
+            <div class="dashboard-card stat-card">
+                <span>Patient Full Name</span>
+                <strong id="patientName">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Patient ID</span>
+                <strong id="displayPatientId" style="color: var(--primary);">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Last Consultation Visit</span>
+                <strong id="visitDate">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Clinical Diagnosis</span>
+                <strong id="testName">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Active Prescription</span>
+                <strong id="prescription">-</strong>
+            </div>
+
+            <div class="dashboard-card stat-card">
+                <span>Assurance Benefit Balance</span>
+                <strong id="benefitAmount" style="color: var(--success);">-</strong>
+            </div>
+        </section>
+
+        <div class="doctor-actions">
+            <a href="../index.html" class="secondary-btn">
+                ← Return to Home
+            </a>
+            <a href="pathology-login.html" class="portal-btn">
+                Go to Pathology Portal →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Auto-search default demo patient on first load for great UX
+        setTimeout(() => {
+            const form = document.getElementById("patientSearchForm");
+            if (form) form.dispatchEvent(new Event("submit"));
+        }, 150);
+    });
+    </script>
+</body>
+</html>

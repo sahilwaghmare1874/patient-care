@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathology Reports | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+        <a href="patient-dashboard.html" class="secondary-btn">
+            ← Back to Dashboard
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pathology-page">
+        <section class="pathology-intro">
+            <p class="small-title">DIAGNOSTIC ARCHIVE</p>
+            <h1>Pathology Laboratory Investigations</h1>
+            <p>Verified laboratory diagnostic reports, blood investigations and imaging results connected to your Patient ID.</p>
+        </section>
+
+        <!-- Dynamic Container for Lab Reports -->
+        <div id="pathologyReportsContainer"></div>
+
+        <div class="pathology-actions">
+            <a href="patient-dashboard.html" class="primary-btn">
+                ← Back to Dashboard
+            </a>
+            <a href="medical.html" class="secondary-btn">
+                View Pharmacy Bills →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const session = window.PatientCareDB.getSession();
+        const patient = session && session.user ? session.user : window.PatientCareDB.getPatientById("PC-2026-0001");
+        const patientId = patient ? patient.patientId : "PC-2026-0001";
+
+        const reports = window.PatientCareDB.getPathologyReports(patientId);
+        const container = document.getElementById("pathologyReportsContainer");
+
+        if (!reports || reports.length === 0) {
+            container.innerHTML = `
+                <div class="profile-card" style="text-align: center; padding: 40px;">
+                    <p style="font-size: 18px; color: var(--slate-500);">No diagnostic pathology reports found for Patient ID: <strong>${patientId}</strong></p>
+                    <p style="color: var(--slate-400); margin-top: 8px;">Laboratory investigations submitted by diagnostic centres will be listed here.</p>
+                </div>
+            `;
+            return;
+        }
+
+        let html = '';
+        reports.forEach((report, index) => {
+            html += `
+                <div class="pathology-block">
+                    <div class="block-title">
+                        <div class="block-icon">🔬</div>
+                        <div>
+                            <h2>${report.testName}</h2>
+                            <p>${report.labName || 'City Care Diagnostics'} • Test Date: <strong>${report.testDate}</strong></p>
+                        </div>
+                        <span class="status" style="margin-left: auto; font-size: 13px;">● Verified Test Result</span>
+                    </div>
+
+                    <div class="pathology-grid">
+                        <div class="info-card">
+                            <span>Investigation Category</span>
+                            <strong style="color: var(--slate-900);">${report.testCategory || 'General Pathology'}</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <span>Test Bill Amount</span>
+                            <strong style="color: var(--slate-900);">₹${report.testAmount}</strong>
+                        </div>
+
+                        <div class="info-card">
+                            <span>Assurance Benefit Credited (10%)</span>
+                            <strong style="color: var(--success);">₹${report.patientBenefitContribution || 95}</strong>
+                        </div>
+
+                        <div class="info-card full-card">
+                            <span>Diagnostic Report Summary & Reference Ranges</span>
+                            <div class="text-box" style="background: #f8fafc; border-left: 4px solid var(--primary);">
+                                ${report.reportDetails}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+    });
+    </script>
+</body>
+</html>

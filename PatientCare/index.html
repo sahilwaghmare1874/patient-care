@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Insurance Assurance | Connected Digital Healthcare Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Professional Navigation Bar -->
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <nav>
+            <a href="#home" class="active-link">Home</a>
+            <a href="pages/services.html">Services</a>
+            <a href="pages/about.html">About</a>
+            <a href="pages/government-schemes.html">Govt Schemes</a>
+            <a href="pages/contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="pages/patient-login.html" class="login-btn portal-btn patient-portal">
+                Patient Login
+            </a>
+            <a href="pages/doctor-login.html" class="login-btn">
+                👨‍⚕️ Doctor
+            </a>
+            <a href="pages/pathology-login.html" class="login-btn">
+                🔬 Pathology
+            </a>
+            <a href="pages/medical-login.html" class="login-btn">
+                💊 Medical
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="small-title">SMART HEALTHCARE PLATFORM</p>
+            <h1>
+                One Connected<br>
+                Healthcare Journey.
+            </h1>
+            <p class="hero-text">
+                A unified digital health ecosystem connecting patients, doctors, diagnostic pathology labs, pharmacies and government assurance benefits under one permanent Patient ID.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="pages/patient-register.html" class="primary-btn">
+                    ➕ Register New Patient
+                </a>
+                <a href="#services" class="secondary-btn">
+                    Explore Platform Services ↓
+                </a>
+            </div>
+        </div>
+
+        <!-- Interactive Hero Card -->
+        <div class="hero-card" title="Click to view sample Patient Health Card">
+            <div class="card-top">
+                <span>DIGITAL HEALTH CARD</span>
+                <span class="status"><span class="status-dot"></span> Active</span>
+            </div>
+
+            <h2>PC-2026-0001</h2>
+
+            <div class="card-line"></div>
+
+            <div class="card-info">
+                <div>
+                    <small>Patient Name</small>
+                    <p>Rahul Sharma</p>
+                </div>
+                <div>
+                    <small>HAC Card</small>
+                    <p>HAC-91-4582</p>
+                </div>
+                <div>
+                    <small>Assurance Benefit</small>
+                    <p style="color: #34d399;">₹4,250</p>
+                </div>
+            </div>
+
+            <div class="mini-flow">
+                Patient → Doctor (10%) → Lab (10%) → Pharmacy (5%)
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Statistics Counter -->
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>10,000+</h3>
+            <p>Connected Patients</p>
+        </div>
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Empanelled Doctors & Labs</p>
+        </div>
+        <div class="stat-item">
+            <h3>₹2.5 Cr+</h3>
+            <p>Assurance Benefits Distributed</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Secure Digital Health ID</p>
+        </div>
+    </section>
+
+    <!-- Quick Patient ID Verification Widget -->
+    <section style="padding: 35px 7%; background: white; border-bottom: 1px solid var(--slate-200);">
+        <div style="max-width: 850px; margin: 0 auto; text-align: center;">
+            <p class="small-title">QUICK HEALTH ID LOOKUP</p>
+            <h2 style="font-size: 24px; margin-bottom: 12px;">Verify & Access Healthcare History</h2>
+            <p style="font-size: 15px; color: var(--slate-500); margin-bottom: 20px;">
+                Enter a Patient ID below or click quick-fill to test live clinical records:
+            </p>
+            <div class="search-box" style="max-width: 600px; margin: 0 auto;">
+                <input type="text" id="homePatientSearchInput" placeholder="Enter Patient ID e.g. PC-2026-0001" value="PC-2026-0001">
+                <button type="button" class="primary-btn" id="homePatientSearchBtn">
+                    View Health Record →
+                </button>
+            </div>
+            <div id="homeLookupResult" style="margin-top: 20px;"></div>
+        </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section id="services" class="features">
+        <div class="section-heading">
+            <p>ONE UNIFIED PLATFORM</p>
+            <h2>Everything connected to your Patient ID.</h2>
+        </div>
+
+        <div class="feature-container">
+            <!-- 01 Unique ID -->
+            <div class="feature-card" onclick="window.location.href='pages/patient-profile.html'">
+                <div class="icon">🆔</div>
+                <h3>Unique Patient ID</h3>
+                <p>1 Patient → 1 Permanent Lifetime Health ID for lifelong electronic health records.</p>
+                <span>View Patient Profile →</span>
+            </div>
+
+            <!-- 02 Healthcare Records -->
+            <div class="feature-card" onclick="window.location.href='pages/healthcare-record.html'">
+                <div class="icon">📋</div>
+                <h3>Healthcare Records</h3>
+                <p>Keep clinical consultations, diagnosis and hospital history securely organized in one place.</p>
+                <span>Healthcare Records →</span>
+            </div>
+
+            <!-- 03 Smart Payments -->
+            <div class="feature-card" onclick="window.location.href='pages/smart-payment.html'">
+                <div class="icon">💳</div>
+                <h3>Smart Payments</h3>
+                <p>Track OPD, lab test and pharmacy bills with instant digital tax receipts and insurance discounts.</p>
+                <span>Smart Payment Portal →</span>
+            </div>
+
+            <!-- 04 Patient Benefits -->
+            <div class="feature-card" onclick="window.location.href='pages/patient-benefit-account.html'">
+                <div class="icon">🪙</div>
+                <h3>Assurance Benefit Wallet</h3>
+                <p>Automatically earn 5% to 10% benefit contributions on consultations, diagnostic tests and pharmacy purchases.</p>
+                <span>Track Benefits →</span>
+            </div>
+
+            <!-- 05 Government Schemes -->
+            <div class="feature-card" onclick="window.location.href='pages/government-schemes.html'">
+                <div class="icon">🏛</div>
+                <h3>Government Schemes</h3>
+                <p>Seamlessly check eligibility and connect benefits from Ayushman Bharat (PM-JAY) and state healthcare programs.</p>
+                <span>Government Schemes →</span>
+            </div>
+
+            <!-- 06 Doctor Consultations -->
+            <div class="feature-card" onclick="window.location.href='pages/doctor-login.html'">
+                <div class="icon">👨‍⚕️</div>
+                <h3>Doctor Portal</h3>
+                <p>Empanelled healthcare practitioners access patient histories, record diagnosis and issue electronic prescriptions.</p>
+                <span>Doctor Portal Access →</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section id="about" class="about-hero" style="background: white; border-top: 1px solid var(--slate-200); border-bottom: 1px solid var(--slate-200);">
+        <div class="about-hero-content">
+            <p class="small-title">OUR VISION</p>
+            <h2>Healthcare should feel simple, connected and secure.</h2>
+            <p>
+                PatientCare eliminates fragmented medical files and paper receipts. By uniting hospitals, diagnostic pathology laboratories, pharmacies and government healthcare schemes, we ensure quality healthcare is accessible to all.
+            </p>
+            <div style="margin-top: 20px;">
+                <a href="pages/about.html" class="primary-btn">Read Our Story & Principles →</a>
+            </div>
+        </div>
+
+        <div class="about-id-card">
+            <span style="color: #38bdf8;">DIGITAL HEALTH CARD (HAC)</span>
+            <strong style="font-size: 22px; display: block; margin: 10px 0; color: white;">HAC-91-4582-9901-2026</strong>
+            <p style="color: #94a3b8; font-size: 14px;">
+                Universal card valid across all empanelled hospitals, diagnostic centres and pharmacies nationwide.
+            </p>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="review-section">
+        <div class="review-header">
+            <p class="small-title">COMMUNITY REVIEWS</p>
+            <h2>Patient & Doctor Feedback</h2>
+            <p>Real experiences from patients and empanelled practitioners across the platform.</p>
+        </div>
+
+        <div class="review-card">
+            <div class="review-rating">
+                <label>Rate your platform experience:</label>
+                <div class="stars">
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                    <span>★</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="reviewMessage">Your Feedback</label>
+                <textarea id="reviewMessage" rows="4" placeholder="Share your experience with our connected healthcare platform..."></textarea>
+            </div>
+
+            <button type="button" class="review-submit-btn">
+                Submit Verified Feedback
+            </button>
+        </div>
+
+        <div id="communityReviewsList" class="reviews-list"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <a href="index.html" class="logo">
+                Healthcare Insurance<span>Assurance</span>
+            </a>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="pages/services.html">Services</a>
+                <a href="pages/about.html">About</a>
+                <a href="pages/government-schemes.html">Government Schemes</a>
+                <a href="pages/contact.html">Contact Support</a>
+                <a href="pages/patient-login.html">Patient Login</a>
+                <a href="pages/doctor-login.html">Doctor Portal</a>
+            </div>
+        </div>
+
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved. Connecting India's Healthcare Ecosystem.</p>
+    </footer>
+
+    <!-- Core JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Quick Home Lookup Handler -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const btn = document.getElementById("homePatientSearchBtn");
+        const input = document.getElementById("homePatientSearchInput");
+        const result = document.getElementById("homeLookupResult");
+
+        if (btn && input && result) {
+            btn.addEventListener("click", function() {
+                const id = input.value.trim().toUpperCase();
+                const patient = window.PatientCareDB.getPatientById(id);
+
+                if (!patient) {
+                    result.innerHTML = `<p style="color: var(--danger); font-weight: 600;">✕ Patient '${id}' not found. Try demo ID: PC-2026-0001</p>`;
+                    return;
+                }
+
+                result.innerHTML = `
+                    <div style="background: var(--slate-50); border: 1.5px solid var(--primary); border-radius: 12px; padding: 20px; text-align: left; max-width: 600px; margin: 15px auto;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <strong style="font-size: 18px; color: var(--slate-900);">👤 ${patient.fullName}</strong>
+                            <span style="background: var(--success-light); color: var(--success); padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700;">● Active Patient</span>
+                        </div>
+                        <p style="font-size: 14px; color: var(--slate-600); margin: 4px 0;"><strong>Patient ID:</strong> ${patient.patientId} | <strong>HAC:</strong> ${patient.hacNumber}</p>
+                        <p style="font-size: 14px; color: var(--slate-600); margin: 4px 0;"><strong>Accumulated Benefit:</strong> <span style="color: var(--primary); font-weight: 700;">₹${patient.totalBenefitAmount}</span></p>
+                        <div style="margin-top: 15px;">
+                            <a href="pages/patient-login.html" class="primary-btn" style="padding: 8px 16px; font-size: 13px;">Login to View Full Health Records →</a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    });
+    </script>
+</body>
+</html>

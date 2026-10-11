@@ -1,0 +1,886 @@
+/* ==========================================================================
+   Healthcare Insurance Assurance Management System
+   Enterprise CSS Design System (style.css)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root {
+    --primary: #0284c7;
+    --primary-hover: #0369a1;
+    --primary-light: #e0f2fe;
+    --primary-dark: #075985;
+    
+    --accent: #0d9488;
+    --accent-hover: #0f766e;
+    --accent-light: #ccfbf1;
+    
+    --secondary: #6366f1;
+    --secondary-light: #e0e7ff;
+    
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --warning: #f59e0b;
+    --warning-light: #fef3c7;
+    --danger: #ef4444;
+    --danger-light: #fee2e2;
+    
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+    --white: #ffffff;
+
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+    
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+    --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.10);
+    --shadow-xl: 0 20px 35px rgba(15, 23, 42, 0.12);
+    
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--slate-700);
+    background-color: #f4f7fb;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navbar */
+.healthcare-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--slate-200);
+    padding: 0.75rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    letter-spacing: -0.03em;
+}
+
+.navbar-brand span {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: var(--slate-600);
+    padding: 0.5rem 0.9rem !important;
+    transition: var(--transition);
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary) !important;
+}
+
+/* Healthcare Hero */
+.hero-section {
+    padding: 5rem 0 4rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+    border-bottom: 1px solid var(--slate-200);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(2, 132, 199, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-size: 3.25rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--slate-600);
+    max-width: 620px;
+    margin-bottom: 2rem;
+}
+
+/* Digital Health Pass / HAC Card */
+.health-pass-card {
+    background: linear-gradient(135deg, #075985 0%, #0284c7 60%, #0d9488 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.health-pass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 45px rgba(2, 132, 199, 0.25);
+}
+
+.pass-chip {
+    width: 48px;
+    height: 36px;
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+}
+
+.pass-id {
+    font-size: 1.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.pass-hac {
+    font-size: 0.9rem;
+    color: #bae6fd;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+}
+
+.pass-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1rem;
+}
+
+.pass-status-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #34d399;
+    border-radius: 50%;
+    margin-right: 6px;
+    box-shadow: 0 0 10px #34d399;
+}
+
+/* Interactive Timeline Component */
+.healthcare-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-step {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-icon-box {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.timeline-step.completed .timeline-icon-box {
+    background: var(--success);
+    box-shadow: 0 0 0 4px var(--success-light);
+}
+
+.timeline-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 44px;
+    bottom: -32px;
+    width: 2px;
+    background: var(--slate-200);
+    z-index: 1;
+}
+
+.timeline-content {
+    margin-left: 1.5rem;
+    background: white;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--slate-200);
+    box-shadow: var(--shadow-sm);
+    flex: 1;
+}
+
+/* Dashboard Cards */
+.stat-card {
+    background: white;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--slate-500);
+    font-weight: 500;
+}
+
+/* Allocation Badges & Progress Bars */
+.allocation-item {
+    background: white;
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.allocation-badge {
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 9999px;
+}
+
+/* Forms & Inputs */
+.form-card {
+    background: white;
+    border: 1px solid var(--slate-200);
+    border-radius: 20px;
+    padding: 2.75rem 3rem;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.02);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #0284c7 0%, #0d9488 50%, #6366f1 100%);
+}
+
+.form-label {
+    font-weight: 700;
+    color: #334155;
+    font-size: 0.86rem;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-control, .form-select {
+    padding: 0.72rem 1.05rem;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5e1;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: #0f172a;
+    background-color: #f8fafc;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-control:hover, .form-select:hover {
+    background-color: #ffffff;
+    border-color: #94a3b8;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+    font-size: 0.88rem;
+}
+
+/* Enterprise Registration & Form System */
+.registration-container {
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.reg-page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 6px 16px;
+    border-radius: 9999px;
+    border: 1px solid #bae6fd;
+    text-transform: uppercase;
+}
+
+.reg-page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.03em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.reg-page-subtitle {
+    font-size: 1rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reg-segmented-tabs {
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1.75rem;
+}
+
+.reg-segmented-tabs .nav-item {
+    flex: 1;
+}
+
+.reg-segmented-tabs .nav-link {
+    width: 100%;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.85rem 1.25rem;
+    color: #64748b;
+    border: none;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reg-segmented-tabs .nav-link:hover {
+    color: #0284c7;
+    background: #f8fafc;
+}
+
+.reg-segmented-tabs .nav-link.active {
+    background: #0284c7;
+    color: #ffffff !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+.quick-fill-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
+    border: 1.5px dashed #cbd5e1;
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+    transition: var(--transition);
+}
+
+.quick-fill-card:hover {
+    border-color: #0284c7;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+}
+
+.quick-fill-badge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: #0284c7;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    margin-right: 6px;
+}
+
+.form-section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 2.5rem 0 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.form-section-header:first-of-type {
+    margin-top: 0;
+}
+
+.section-badge-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: #e0f2fe;
+    color: #0284c7;
+    font-weight: 800;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15);
+    flex-shrink: 0;
+}
+
+.section-badge-number.clinical {
+    background: #fee2e2;
+    color: #ef4444;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.15);
+}
+
+.section-header-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+.section-header-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-left: auto;
+}
+
+.identity-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+}
+
+.pan-input-field {
+    font-family: var(--font-mono) !important;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+}
+
+.clinical-box {
+    background: #fffafa;
+    border: 1px solid #fed7d7;
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+}
+
+.ai-recommend-widget {
+    background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.btn-ai-spark {
+    background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    transition: var(--transition);
+}
+
+.btn-ai-spark:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+}
+
+.consent-panel {
+    background: #fffbeb;
+    border: 1.5px solid #fde68a;
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    transition: var(--transition);
+}
+
+.consent-panel:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.12);
+}
+
+.btn-register-hero {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    border: none;
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-register-hero:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -5px rgba(2, 132, 199, 0.55);
+}
+
+.btn-register-hero:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+.trust-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1.5rem 0 0;
+    margin-top: 1.75rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.trust-item i {
+    color: #0284c7;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    padding: 0.65rem 1.4rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    padding: 0.65rem 1.4rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    color: white;
+}
+
+/* Tables */
+.table-custom {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--slate-200);
+}
+
+.table-custom thead th {
+    background: var(--slate-50);
+    color: var(--slate-700);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--slate-200);
+}
+
+.table-custom tbody td {
+    padding: 1rem 1.25rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--slate-100);
+}
+
+.table-custom tbody tr:hover {
+    background-color: var(--slate-50);
+}
+
+/* Footer */
+footer {
+    background: var(--slate-900);
+    color: var(--slate-400);
+    padding: 3.5rem 0 2rem;
+    border-top: 1px solid var(--slate-800);
+}
+
+footer a {
+    color: var(--slate-400);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Print Styles */
+@media print {
+    .healthcare-navbar, footer, .btn, .no-print {
+        display: none !important;
+    }
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    .card, .form-card, .table-custom {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+}
+
+/* =========================================================
+   ADVANCED 3D ANIMATED FRONTEND SUITE
+   ========================================================= */
+
+.perspective-viewport {
+    perspective: 1200px;
+    perspective-origin: center center;
+    position: relative;
+}
+
+.card-3d-container {
+    transform-style: preserve-3d;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    will-change: transform;
+}
+
+.health-pass-card-3d {
+    background: linear-gradient(135deg, #0369a1 0%, #0284c7 40%, #0f766e 100%);
+    color: white;
+    padding: 2.25rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 60px -15px rgba(2, 132, 199, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(20px);
+    transition: box-shadow 0.3s ease;
+}
+
+.health-pass-card-3d::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.15) 45%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.15) 55%,
+        transparent 65%
+    );
+    transform: rotate(25deg);
+    animation: hologram-shimmer 6s infinite linear;
+    pointer-events: none;
+}
+
+@keyframes hologram-shimmer {
+    0% { transform: translateY(-100%) rotate(25deg); }
+    100% { transform: translateY(100%) rotate(25deg); }
+}
+
+.floating-badge-3d {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    color: #0f172a;
+    padding: 0.6rem 1rem;
+    border-radius: 9999px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    z-index: 10;
+    transform: translateZ(50px);
+    animation: float-3d-vertical 4s ease-in-out infinite alternate;
+}
+
+.floating-badge-3d.badge-top-right {
+    top: -15px;
+    right: -15px;
+    animation-delay: 0s;
+}
+
+.floating-badge-3d.badge-bottom-left {
+    bottom: -15px;
+    left: -15px;
+    animation-delay: 2s;
+}
+
+@keyframes float-3d-vertical {
+    0% { transform: translateZ(50px) translateY(0px) rotate(0deg); }
+    100% { transform: translateZ(60px) translateY(-10px) rotate(-1deg); }
+}
+
+.ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(50px);
+    opacity: 0.45;
+    z-index: 0;
+    pointer-events: none;
+    animation: pulse-orb 8s ease-in-out infinite alternate;
+}
+
+.ambient-orb-1 {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, #38bdf8 0%, transparent 70%);
+    top: -40px;
+    right: -40px;
+}
+
+.ambient-orb-2 {
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(circle, #2dd4bf 0%, transparent 70%);
+    bottom: -40px;
+    left: -40px;
+}
+
+@keyframes pulse-orb {
+    0% { transform: scale(0.9) translate(0, 0); opacity: 0.35; }
+    100% { transform: scale(1.15) translate(15px, -15px); opacity: 0.55; }
+}
+
+.glass-card-3d {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.07);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card-3d:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 25px 45px -10px rgba(2, 132, 199, 0.2);
+    border-color: rgba(2, 132, 199, 0.3);
+}
+
+.hpf-ribbon-badge {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+}
+

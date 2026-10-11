@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centralized Patient & Fund Distribution Report | PatientCare</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand" href="../index.html">
+                Patient<span>Care</span>
+            </a>
+            <div class="d-flex align-items-center gap-2 no-print">
+                <a href="patient-dashboard.html" class="btn btn-outline-primary btn-sm">Patient Dashboard</a>
+                <a href="../index.html" class="btn btn-outline-secondary btn-sm">← Back to Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container-fluid px-lg-5" style="max-width: 1200px;">
+            <!-- Lookup Bar (hidden on print) -->
+            <div class="card p-3 border shadow-sm mb-4 bg-white no-print">
+                <div class="row g-2 align-items-center">
+                    <div class="col-md-3">
+                        <label class="form-label mb-0 fw-bold small text-muted"><i class="bi bi-search me-1"></i> Search Patient Report:</label>
+                    </div>
+                    <div class="col-md-7">
+                        <input type="text" class="form-control form-control-sm" id="reportPatientSearchInput" placeholder="Enter Patient ID (e.g. PAT-2026-XXXXXX)">
+                    </div>
+                    <div class="col-md-2 d-grid">
+                        <button type="button" class="btn btn-primary btn-sm" id="reportSearchBtn">
+                            Generate Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Centralized Report Container -->
+            <div id="reportContentContainer">
+                <div class="text-center py-5">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 text-muted">Loading Centralized Health & Fund Report...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core API & Reports Script -->
+    <script src="../js/api.js"></script>
+    <script src="../js/reports.js"></script>
+    <!-- Multilingual AI Healthcare Chatbot -->
+    <script src="../js/ai-chat.js"></script>
+</body>
+</html>

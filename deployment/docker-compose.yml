@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: patientcare_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secure_postgres_password_2026
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ../
+      dockerfile: deployment/Dockerfile
+    restart: always
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py seed_data &&
+             gunicorn config.wsgi:application -c ../deployment/gunicorn.conf.py"
+    environment:
+      DB_ENGINE: postgresql
+      POSTGRES_DB: patientcare_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secure_postgres_password_2026
+      POSTGRES_HOST: db
+      POSTGRES_PORT: 5432
+      DJANGO_DEBUG: "False"
+      DJANGO_SECRET_KEY: production_high_entropy_secret_key_2026_xyz
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+volumes:
+  postgres_data:

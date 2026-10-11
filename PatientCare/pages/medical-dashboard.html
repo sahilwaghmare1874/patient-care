@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy Dashboard | Healthcare Insurance Assurance</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <!-- Medical Dashboard Navbar -->
+    <header class="dashboard-navbar">
+        <a href="../index.html" class="logo">
+            Healthcare Insurance<span>Assurance</span>
+        </a>
+
+        <div class="dashboard-user">
+            <span class="user-badge" style="background: #fef3c7; color: #b45309;">
+                💊 Chemist: <strong>City Care Pharmacy</strong>
+            </span>
+            <a href="medical-login.html" class="secondary-btn" style="padding: 6px 14px; font-size: 13px;">
+                Logout
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="patient-dashboard">
+        <section class="dashboard-header">
+            <div>
+                <p class="small-title">PHARMACY DISPENSING PORTAL</p>
+                <h1>Chemist & Medical Order Dashboard</h1>
+                <p>Lookup patient prescription records, dispense medications with dynamic GST calculations, and credit assurance benefits.</p>
+            </div>
+            <a href="../index.html" class="secondary-btn">
+                ← Home
+            </a>
+        </section>
+
+        <!-- Patient Search Card -->
+        <section class="patient-search-card">
+            <h2>Search Patient Prescription & Medicine History</h2>
+            <p>
+                Enter the universal Patient ID to verify doctor prescriptions and record medicine purchase bills:
+            </p>
+
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="patientId"
+                    placeholder="Enter Patient ID e.g. PC-2026-0001"
+                    value="PC-2026-0001"
+                >
+                <button type="button" class="primary-btn search-btn">
+                    Search Patient Records →
+                </button>
+            </div>
+
+            <div id="message" class="message" style="margin-top: 14px; font-weight: 600;"></div>
+        </section>
+
+        <!-- Dynamic Containers -->
+        <div id="patientInfo"></div>
+        <div id="medicalInfo"></div>
+
+        <div class="doctor-actions">
+            <a href="../index.html" class="secondary-btn">
+                ← Return to Home
+            </a>
+            <a href="doctor-login.html" class="portal-btn">
+                Go to Doctor Portal →
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Healthcare Insurance Assurance Platform. All rights reserved.</p>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Automatically search default demo patient for instant demonstration
+        setTimeout(() => {
+            if (window.searchPatient) {
+                window.searchPatient();
+            }
+        }, 150);
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PatientCare | Connected Digital Healthcare Platform</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <!-- Professional Navigation Bar -->
+    <nav class="navbar navbar-expand-lg healthcare-navbar sticky-top">
+        <div class="container-fluid px-lg-5">
+            <a class="navbar-brand" href="index.html">
+                Patient<span>Care</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#fund-distribution">Fund Distribution</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#schemes">Govt Schemes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+
+                <div class="d-flex flex-wrap align-items-center gap-2" id="navAuthLinks">
+                    <a href="pages/register.html" class="btn btn-primary btn-sm">
+                        <i class="bi bi-person-plus-fill me-1"></i> Patient Registration
+                    </a>
+                    <div class="dropdown">
+                        <button class="btn btn-outline-primary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Portal Logins
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li><a class="dropdown-item" href="pages/login.html?role=PATIENT"><i class="bi bi-person me-2 text-primary"></i> Patient Login</a></li>
+                            <li><a class="dropdown-item" href="pages/login.html?role=DOCTOR"><i class="bi bi-stethoscope me-2 text-info"></i> Doctor Login</a></li>
+                            <li><a class="dropdown-item" href="pages/login.html?role=PATHOLOGY"><i class="bi bi-clipboard2-pulse me-2 text-teal"></i> Pathology Login</a></li>
+                            <li><a class="dropdown-item" href="pages/login.html?role=PHARMACY"><i class="bi bi-capsule me-2 text-warning"></i> Pharmacy Login</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="pages/login.html?role=GOVERNMENT"><i class="bi bi-bank me-2 text-success"></i> Government Login</a></li>
+                            <li><a class="dropdown-item" href="pages/login.html?role=ADMIN"><i class="bi bi-shield-lock me-2 text-danger"></i> Admin Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container px-lg-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <div class="hero-badge">
+                            <span class="pass-status-dot"></span> SMART HEALTHCARE & FUND PLATFORM
+                        </div>
+                        <h1 class="hero-title">
+                            One Connected<br>
+                            Healthcare Journey.
+                        </h1>
+                        <p class="hero-subtitle">
+                            Centralized healthcare ecosystem unifying patients, clinical doctors, diagnostic labs, pharmacies, and government funding under one permanent Patient ID.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="pages/register.html" class="btn btn-primary btn-lg shadow-sm">
+                                <i class="bi bi-person-plus-fill me-1"></i> Register as Patient
+                            </a>
+                            <a href="pages/login.html" class="btn btn-outline-primary btn-lg">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Portal Login
+                            </a>
+                            <a href="#how-it-works" class="btn btn-outline-secondary btn-lg">
+                                Learn More ↓
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <!-- 3D Perspective Viewport -->
+                        <div class="perspective-viewport py-4" id="hero3dViewport">
+                            <div class="ambient-orb ambient-orb-1"></div>
+                            <div class="ambient-orb ambient-orb-2"></div>
+
+                            <div class="card-3d-container" id="heroCard3d">
+                                <!-- Floating 3D Badges -->
+                                <div class="floating-badge-3d badge-top-right">
+                                    <i class="bi bi-heart-pulse-fill text-danger fs-6"></i>
+                                    <span>10% Health Protection Fund</span>
+                                </div>
+                                <div class="floating-badge-3d badge-bottom-left">
+                                    <i class="bi bi-robot text-primary fs-6"></i>
+                                    <span>AI Specialist Matching</span>
+                                </div>
+
+                                <!-- Holographic 3D Health Pass Card -->
+                                <div class="health-pass-card-3d" title="Interactive 3D Universal Health Pass">
+                                    <div class="pass-chip"></div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="badge bg-white text-primary fw-bold px-3 py-1 rounded-pill">DIGITAL HEALTH PASS</span>
+                                        <div class="d-flex align-items-center text-white"><span class="pass-status-dot"></span> Active Beneficiary</div>
+                                    </div>
+                                    <div class="pass-id mt-1">PAT-2026-LIVE</div>
+                                    <div class="pass-hac mb-3">HAC-91-ABDM-SECURE-ID</div>
+
+                                    <div class="pass-footer">
+                                        <div>
+                                            <small class="text-white-50">HEALTH IDENTITY</small>
+                                            <div class="fw-bold">Universal Health Card</div>
+                                            <small class="text-white-50">ABDM & PAN VERIFIED</small>
+                                        </div>
+                                        <div class="text-end">
+                                            <small class="text-white-50">HEALTH PROTECTION</small>
+                                            <div class="fw-bold text-warning fs-5">10% Auto-Accrual</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Patient ID Verification Widget -->
+        <section class="py-4 bg-white border-bottom">
+            <div class="container text-center" style="max-width: 780px;">
+                <p class="text-primary fw-bold small mb-1">CENTRALIZED RECORD LOOKUP</p>
+                <h4 class="fw-bold mb-2">Verify Patient Healthcare Records</h4>
+                <p class="text-muted small mb-3">Enter Patient ID, verified PAN, or Mobile to instantly view clinical and fund reports:</p>
+                
+                <div class="input-group input-group-lg shadow-sm">
+                    <input type="text" class="form-control" id="homePatientSearchInput" placeholder="Enter Patient ID (e.g. PAT-2026-XXXXXX) or PAN Number">
+                    <button class="btn btn-primary px-4" id="homePatientSearchBtn" type="button">
+                        <i class="bi bi-search me-1"></i> Search Records
+                    </button>
+                </div>
+
+                <div id="homeLookupResult"></div>
+            </div>
+        </section>
+
+        <!-- How It Works (Exact Flow) -->
+        <section id="how-it-works" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5" style="max-width: 700px; margin: 0 auto;">
+                    <p class="text-primary fw-bold small mb-1">TRANSPARENT SYSTEM WORKFLOW</p>
+                    <h2 class="fw-bold">How The Healthcare System Works</h2>
+                    <p class="text-muted">A seamless pipeline connecting patient registration to doctor consultation, diagnostics, funding, and final benefit reports.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-0 shadow-sm">
+                            <div class="stat-icon bg-primary text-white mb-3"><i class="bi bi-person-badge"></i></div>
+                            <h5 class="fw-bold">1. Registration & Unique Patient ID</h5>
+                            <p class="text-muted small">Patients register with verified Indian PAN card. Existing PAN numbers retrieve historical records; new patients receive a permanent Patient ID (<code>PAT-2026-XXXXXX</code>) and HAC pass.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-0 shadow-sm">
+                            <div class="stat-icon bg-info text-white mb-3"><i class="bi bi-stethoscope"></i></div>
+                            <h5 class="fw-bold">2. Clinical Doctor & Diagnostics</h5>
+                            <p class="text-muted small">Empanelled doctors access longitudinal medical history, record diagnoses, recommend treatments, order accredited pathology investigations, and issue electronic prescriptions.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-0 shadow-sm">
+                            <div class="stat-icon bg-success text-white mb-3"><i class="bi bi-bank2"></i></div>
+                            <h5 class="fw-bold">3. Government Fund & Insurance</h5>
+                            <p class="text-muted small">Eligible treatments receive funding from Ayushman Bharat (PM-JAY) and state programs. If government funding has a deficit, automated secondary insurance claims step in.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-0 shadow-sm">
+                            <div class="stat-icon bg-warning text-dark mb-3"><i class="bi bi-capsule"></i></div>
+                            <h5 class="fw-bold">4. Pharmacy Dispensation</h5>
+                            <p class="text-muted small">Authorized chemists verify electronic prescriptions, dispense medications at concessional GST rates, and issue digital invoices with automatic reimbursement tracking.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-0 shadow-sm">
+                            <div class="stat-icon bg-danger text-white mb-3"><i class="bi bi-pie-chart-fill"></i></div>
+                            <h5 class="fw-bold">5. Configurable Fund Distribution</h5>
+                            <p class="text-muted small">Approved funds are distributed precisely via dynamic business rules: Doctor (10%), Pathology (10%), Pharmacy (5%), Government Admin (5%), and Patient Benefit Savings (70%).</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 border-0 shadow-sm">
+                            <div class="stat-icon bg-secondary text-white mb-3"><i class="bi bi-file-earmark-medical-fill"></i></div>
+                            <h5 class="fw-bold">6. Final Centralized Report</h5>
+                            <p class="text-muted small">Patients, doctors, and authorities access an itemized, downloadable PDF/CSV centralized report summarizing every medical intervention, provider payout, and financial balance.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-5 bg-white">
+            <div class="container">
+                <div class="text-center mb-5" style="max-width: 700px; margin: 0 auto;">
+                    <p class="text-primary fw-bold small mb-1">HEALTHCARE SERVICES ECOSYSTEM</p>
+                    <h2 class="fw-bold">Empanelled Department Portals</h2>
+                    <p class="text-muted">Dedicated operational modules for all healthcare stakeholders.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card p-4 h-100 border text-center shadow-sm">
+                            <div class="display-6 text-primary mb-3"><i class="bi bi-heart-pulse"></i></div>
+                            <h5 class="fw-bold">Doctor Consultations</h5>
+                            <p class="text-muted small">Comprehensive outpatient consultations, electronic medical records, and digital prescriptions.</p>
+                            <a href="pages/login.html?role=DOCTOR" class="btn btn-outline-primary btn-sm mt-auto">Doctor Portal →</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card p-4 h-100 border text-center shadow-sm">
+                            <div class="display-6 text-teal mb-3"><i class="bi bi-clipboard2-pulse"></i></div>
+                            <h5 class="fw-bold">Pathology Labs</h5>
+                            <p class="text-muted small">Accredited diagnostic investigations, digital report uploads, and clinical verification.</p>
+                            <a href="pages/login.html?role=PATHOLOGY" class="btn btn-outline-primary btn-sm mt-auto">Pathology Portal →</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card p-4 h-100 border text-center shadow-sm">
+                            <div class="display-6 text-warning mb-3"><i class="bi bi-capsule"></i></div>
+                            <h5 class="fw-bold">Medical / Pharmacy</h5>
+                            <p class="text-muted small">Direct prescription dispensation, GST-compliant pharmaceutical invoicing, and stock control.</p>
+                            <a href="pages/login.html?role=PHARMACY" class="btn btn-outline-primary btn-sm mt-auto">Pharmacy Portal →</a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card p-4 h-100 border text-center shadow-sm">
+                            <div class="display-6 text-success mb-3"><i class="bi bi-bank2"></i></div>
+                            <h5 class="fw-bold">Government & Schemes</h5>
+                            <p class="text-muted small">Central and state scheme fund allocation, eligibility calculations, and provider payment settlements.</p>
+                            <a href="pages/login.html?role=GOVERNMENT" class="btn btn-outline-primary btn-sm mt-auto">Government Portal →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fund Distribution Section (Requirements 12, 14, 28) -->
+        <section id="fund-distribution" class="py-5 bg-light">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <p class="text-primary fw-bold small mb-1">TRANSPARENT FINANCIAL SETTLEMENT</p>
+                        <h2 class="fw-bold mb-3">Configurable Fund Distribution</h2>
+                        <p class="text-muted">
+                            Every approved healthcare funding allocation is calculated using strictly enforced, database-configured financial rules. Never hardcoded, allocations are auditable and verifiable.
+                        </p>
+
+                        <div class="d-flex flex-column gap-3 mt-4">
+                            <div class="allocation-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-dark">👨‍⚕️ Doctor Consultation Payout</strong>
+                                    <small class="text-muted">Professional clinical fees</small>
+                                </div>
+                                <span class="badge bg-primary fs-6">10.00%</span>
+                            </div>
+
+                            <div class="allocation-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-dark">🔬 Pathology Diagnostic Payout</strong>
+                                    <small class="text-muted">Certified laboratory investigations</small>
+                                </div>
+                                <span class="badge bg-teal fs-6" style="background-color: #0d9488;">10.00%</span>
+                            </div>
+
+                            <div class="allocation-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-dark">💊 Medical & Pharmacy Payout</strong>
+                                    <small class="text-muted">Pharmaceutical dispensations</small>
+                                </div>
+                                <span class="badge bg-indigo fs-6" style="background-color: #6366f1;">5.00%</span>
+                            </div>
+
+                            <div class="allocation-item d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong class="d-block text-dark">🏛 Government Administration Allocation</strong>
+                                    <small class="text-muted">System audit and processing</small>
+                                </div>
+                                <span class="badge bg-warning text-dark fs-6">5.00%</span>
+                            </div>
+
+                            <div class="allocation-item d-flex justify-content-between align-items-center border-success bg-white shadow-sm">
+                                <div>
+                                    <strong class="d-block text-success">🪙 Patient Benefit Wallet Balance</strong>
+                                    <small class="text-muted">Cashback credit for future medical care</small>
+                                </div>
+                                <span class="badge bg-success fs-6">70.00%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card p-4 border-0 shadow-lg bg-white">
+                            <h5 class="fw-bold text-center mb-3">Live Simulation: ₹1,00,000 Treatment Fund</h5>
+                            <table class="table table-bordered mb-0">
+                                <thead>
+                                    <tr class="table-light">
+                                        <th>Component</th>
+                                        <th>Percentage</th>
+                                        <th>Settled Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Doctor Allocation</td>
+                                        <td>10%</td>
+                                        <td class="fw-bold">₹10,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pathology Allocation</td>
+                                        <td>10%</td>
+                                        <td class="fw-bold">₹10,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pharmacy Allocation</td>
+                                        <td>5%</td>
+                                        <td class="fw-bold">₹5,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Government Allocation</td>
+                                        <td>5%</td>
+                                        <td class="fw-bold">₹5,000.00</td>
+                                    </tr>
+                                    <tr class="table-success">
+                                        <td><strong>Patient Benefit Savings</strong></td>
+                                        <td><strong>70%</strong></td>
+                                        <td class="fw-bold text-success">₹70,000.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="text-center mt-3">
+                                <a href="pages/login.html?role=ADMIN" class="btn btn-outline-secondary btn-sm">
+                                    <i class="bi bi-gear-fill me-1"></i> Admin Allocation Settings
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Government Healthcare Schemes Section (Phase 6) -->
+        <section id="schemes" class="py-5 bg-light border-top border-bottom">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="badge bg-success-subtle text-success px-3 py-2 fw-bold text-uppercase mb-2">Phase 6 — Government Health Schemes</span>
+                    <h2 class="fw-bold text-dark">Central &amp; Maharashtra Healthcare Programs</h2>
+                    <p class="text-muted mx-auto" style="max-width: 720px;">
+                        Discover official, verified financial assistance for major surgeries, expensive medical treatments, and hospitalization under Ayushman Bharat and Maharashtra state health initiatives.
+                    </p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Scheme 1: MJPJAY -->
+                    <div class="col-lg-6">
+                        <div class="card h-100 p-4 border-0 shadow-sm bg-white rounded-3">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-warning text-dark mb-1">Maharashtra State Initiative</span>
+                                    <h4 class="fw-bold mb-0 text-dark">Mahatma Jyotirao Phule Jan Arogya Yojana (MJPJAY)</h4>
+                                </div>
+                                <span class="badge bg-success fs-6">₹5,00,000 / Family</span>
+                            </div>
+                            <p class="text-muted small mb-3">
+                                Comprehensive cashless hospitalization and surgical treatment cover for identified secondary and tertiary illnesses across network empanelled hospitals in Maharashtra.
+                            </p>
+                            <div class="bg-light p-3 rounded mb-3 small">
+                                <div><strong><i class="bi bi-check-circle-fill text-success me-1"></i> Eligibility:</strong> Holders of Yellow, Orange, or Antyodaya Anna Yojana (AAY) Ration Cards, Annapurna Card, or white ration card holder farmers from identified distressed districts.</div>
+                                <div class="mt-1"><strong><i class="bi bi-file-earmark-text text-primary me-1"></i> Required Documents:</strong> Valid Ration Card, Aadhaar Card / Voter ID, and doctor's surgical recommendation.</div>
+                                <div class="mt-1"><strong><i class="bi bi-hospital text-danger me-1"></i> Empanelled Facilities:</strong> Government Medical Colleges, District Hospitals, and certified private empanelled hospitals across Maharashtra.</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                                <a href="https://www.jeevandayee.gov.in" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i> Official Portal (jeevandayee.gov.in)
+                                </a>
+                                <a href="pages/register.html" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-card-checklist me-1"></i> Register for Assistance
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme 2: PM-JAY -->
+                    <div class="col-lg-6">
+                        <div class="card h-100 p-4 border-0 shadow-sm bg-white rounded-3">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <div>
+                                    <span class="badge bg-primary text-white mb-1">Central Government Initiative</span>
+                                    <h4 class="fw-bold mb-0 text-dark">Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (PM-JAY)</h4>
+                                </div>
+                                <span class="badge bg-success fs-6">₹5,00,000 / Year</span>
+                            </div>
+                            <p class="text-muted small mb-3">
+                                The world's largest health assurance scheme providing fully cashless inpatient secondary and tertiary care for bottom 40% vulnerable families nationwide.
+                            </p>
+                            <div class="bg-light p-3 rounded mb-3 small">
+                                <div><strong><i class="bi bi-check-circle-fill text-success me-1"></i> Eligibility:</strong> Deprivation and occupational criteria based on Socio-Economic Caste Census (SECC 2011) rural/urban database.</div>
+                                <div class="mt-1"><strong><i class="bi bi-file-earmark-text text-primary me-1"></i> Required Documents:</strong> Ayushman Bharat Golden Card, Aadhaar Card, Mobile Number verification.</div>
+                                <div class="mt-1"><strong><i class="bi bi-hospital text-danger me-1"></i> Coverage:</strong> 1,949+ medical procedures including oncology, cardiology, neurosurgery, and orthopedics nationwide.</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto pt-2 border-top">
+                                <a href="https://pmjay.gov.in" target="_blank" rel="noopener" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-box-arrow-up-right me-1"></i> Official Portal (pmjay.gov.in)
+                                </a>
+                                <a href="pages/login.html?role=GOVERNMENT" class="btn btn-success btn-sm">
+                                    <i class="bi bi-shield-check me-1"></i> Government Portal
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme 3: Rashtriya Arogya Nidhi -->
+                    <div class="col-lg-6">
+                        <div class="card h-100 p-4 border-0 shadow-sm bg-white rounded-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <span class="badge bg-info text-dark mb-1">National Health Fund</span>
+                                    <h5 class="fw-bold mb-0 text-dark">Rashtriya Arogya Nidhi (RAN)</h5>
+                                </div>
+                                <span class="badge bg-success-subtle text-success fw-bold">Up to ₹15 Lakhs</span>
+                            </div>
+                            <p class="text-muted small mb-2">
+                                Financial assistance for patients living below poverty line suffering from major life-threatening diseases receiving treatment at designated Super Speciality Government Hospitals / AIIMS.
+                            </p>
+                            <div class="small text-muted"><strong>Eligibility:</strong> Families below poverty line (BPL). Financial aid released directly to hospital Medical Superintendent.</div>
+                        </div>
+                    </div>
+
+                    <!-- Scheme 4: HMDG -->
+                    <div class="col-lg-6">
+                        <div class="card h-100 p-4 border-0 shadow-sm bg-white rounded-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <span class="badge bg-secondary text-white mb-1">Discretionary Grant</span>
+                                    <h5 class="fw-bold mb-0 text-dark">Health Minister's Discretionary Grant (HMDG)</h5>
+                                </div>
+                                <span class="badge bg-success-subtle text-success fw-bold">Up to ₹1,25,000</span>
+                            </div>
+                            <p class="text-muted small mb-2">
+                                Emergency financial assistance to poor patients with annual family income up to ₹1,25,000 for hospitalization in government hospitals when no other scheme applies.
+                            </p>
+                            <div class="small text-muted"><strong>Eligibility:</strong> Verified annual family income &lt; ₹1.25 Lakh. Direct payment to treating government facility.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-5 bg-white">
+            <div class="container" style="max-width: 900px;">
+                <div class="text-center mb-4">
+                    <p class="text-primary fw-bold small mb-1">OUR PURPOSE</p>
+                    <h2 class="fw-bold">Centralized Healthcare Transparency</h2>
+                </div>
+                <p class="lead text-center text-muted">
+                    PatientCare eliminates fragmented medical paper receipts and disjointed claims. By connecting patients with empanelled healthcare providers and state schemes under one verified Patient ID, we make medical treatment predictable, cashless, and patient-centered.
+                </p>
+                <div class="row g-4 mt-3 text-center">
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded bg-light">
+                            <h3 class="text-primary fw-bold mb-1">10,000+</h3>
+                            <span class="text-muted small">Registered Patients</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded bg-light">
+                            <h3 class="text-success fw-bold mb-1">₹2.5 Cr+</h3>
+                            <span class="text-muted small">Benefits Distributed</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 border rounded bg-light">
+                            <h3 class="text-info fw-bold mb-1">100%</h3>
+                            <span class="text-muted small">Audit Trail Verified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="py-5 bg-light">
+            <div class="container" style="max-width: 750px;">
+                <div class="text-center mb-4">
+                    <p class="text-primary fw-bold small mb-1">SUPPORT & GRIEVANCES</p>
+                    <h2 class="fw-bold">Contact PatientCare Support</h2>
+                    <p class="text-muted small">Have inquiries about your Healthcare Assurance Card, schemes, or provider empanelment?</p>
+                </div>
+
+                <div class="card p-4 border-0 shadow-sm bg-white">
+                    <form onsubmit="event.preventDefault(); API.UI.showToast('Thank you! Your inquiry has been logged. We will contact you shortly.', 'success', 'Inquiry Sent'); this.reset();">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" required placeholder="Your name">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" required placeholder="name@example.com">
+                            </div>
+                            <div class="col-md-6">
+                                 <label class="form-label">Patient ID / Reference (Optional)</label>
+                                 <input type="text" class="form-control" placeholder="Enter Patient ID (e.g. PAT-2026-XXXXXX)">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Category</label>
+                                <select class="form-select">
+                                    <option>Patient Benefit Inquiry</option>
+                                    <option>Government Scheme Support</option>
+                                    <option>Doctor Empanelment</option>
+                                    <option>Diagnostic Lab Inquiry</option>
+                                    <option>Pharmacy Reimbursement</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Message / Description</label>
+                                <textarea class="form-control" rows="3" required placeholder="Describe your question or issue..."></textarea>
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-primary px-4">
+                                    <i class="bi bi-send-fill me-1"></i> Submit Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <div class="col-lg-4">
+                    <h5 class="text-white fw-bold mb-2">Patient<span>Care</span></h5>
+                    <p class="text-muted small">Universal Centralized Healthcare Record & Fund Distribution Management System. Connecting Patients, Doctors, Diagnostic Labs, Pharmacies, and Government Schemes.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="text-white fw-bold mb-3">Portals</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="pages/login.html?role=PATIENT">Patient Portal</a></li>
+                        <li><a href="pages/login.html?role=DOCTOR">Doctor Portal</a></li>
+                        <li><a href="pages/login.html?role=PATHOLOGY">Pathology Portal</a></li>
+                        <li><a href="pages/login.html?role=PHARMACY">Pharmacy Portal</a></li>
+                        <li><a href="pages/login.html?role=GOVERNMENT">Government Portal</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <h6 class="text-white fw-bold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="pages/register.html">Register New Patient</a></li>
+                        <li><a href="pages/reports.html">Centralized Healthcare Reports</a></li>
+                        <li><a href="#fund-distribution">Fund Distribution Policy</a></li>
+                        <li><a href="#how-it-works">System Workflow</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="text-white fw-bold mb-3">National Helpline</h6>
+                    <p class="small text-muted mb-1"><i class="bi bi-telephone me-2"></i> Toll Free: 1800-11-2026</p>
+                    <p class="small text-muted mb-1"><i class="bi bi-envelope me-2"></i> support@patientcare.gov.in</p>
+                    <p class="small text-muted"><i class="bi bi-shield-check me-2"></i> 256-Bit SSL Encrypted Healthcare Network</p>
+                </div>
+            </div>
+            <div class="border-top border-secondary pt-3 text-center small text-muted">
+                © 2026 PatientCare Healthcare Platform. All Rights Reserved. Compliant with Ayushman Bharat Digital Mission (ABDM).
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5.3 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core API & Main Script -->
+    <script src="js/api.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Multilingual AI Healthcare Chatbot -->
+    <script src="js/ai-chat.js"></script>
+</body>
+</html>

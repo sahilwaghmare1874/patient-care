@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://patientcare-app.onrender.com/api/$1" },
+    { "source": "/admin/(.*)", "destination": "https://patientcare-app.onrender.com/admin/$1" },
+    { "source": "/media/(.*)", "destination": "https://patientcare-app.onrender.com/media/$1" },
+    { "source": "/", "destination": "/frontend/index.html" },
+    { "source": "/pages/(.*)", "destination": "/frontend/pages/$1" },
+    { "source": "/css/(.*)", "destination": "/frontend/css/$1" },
+    { "source": "/js/(.*)", "destination": "/frontend/js/$1" },
+    { "source": "/images/(.*)", "destination": "/frontend/images/$1" },
+    { "source": "/assets/(.*)", "destination": "/frontend/assets/$1" },
+    { "source": "/(.*)", "destination": "/frontend/$1" }
+  ]
+}
