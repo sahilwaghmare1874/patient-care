@@ -72,10 +72,26 @@ async function apiFetch(endpoint, options = {}) {
                 if (data.error) errorMsg = data.error;
                 else if (data.message) errorMsg = data.message;
                 else if (data.detail) errorMsg = data.detail;
-                else if (data.non_field_errors) errorMsg = data.non_field_errors.join(' ');
+                else if (data.non_field_errors) errorMsg = Array.isArray(data.non_field_errors) ? data.non_field_errors.join(' ') : data.non_field_errors;
                 else {
-                    const firstKey = Object.keys(data)[0];
-                    errorMsg = Array.isArray(data[firstKey]) ? `${firstKey}: ${data[firstKey][0]}` : `${firstKey}: ${data[firstKey]}`;
+                    const keys = Object.keys(data);
+                    if (keys.length > 0) {
+                        const messages = keys.map(k => {
+                            const val = data[k];
+                            const msg = Array.isArray(val) ? val.join(' ') : String(val);
+                            const label = k.replace(/_/g, ' ');
+                            return `${label.charAt(0).toUpperCase() + label.slice(1)}: ${msg}`;
+                        });
+                        errorMsg = messages.join(' | ');
+                    }
+                }
+            } else if (typeof data === 'string' && data.trim()) {
+                if (response.status === 502 || response.status === 503 || response.status === 504) {
+                    errorMsg = `Server gateway or network timeout (${response.status}). Please try again in a moment.`;
+                } else if (!data.includes('<html') && data.length < 200) {
+                    errorMsg = data.trim();
+                } else {
+                    errorMsg = `Server returned error (${response.status}). Please verify your input and try again.`;
                 }
             }
             throw new Error(errorMsg);

@@ -1,0 +1,17 @@
+# PatientCare - Robots.txt
+# Healthcare Patient, Treatment & Fund Allocation Platform
+
+User-agent: *
+Allow: /
+Allow: /frontend/
+Allow: /pages/login.html
+Allow: /pages/register.html
+
+# Disallow private user dashboards & administrative data from indexation
+Disallow: /admin/
+Disallow: /api/
+Disallow: /pages/*-dashboard.html
+Disallow: /pages/reports.html
+
+# Sitemap location
+Sitemap: https://patientcare.org/sitemap.xml

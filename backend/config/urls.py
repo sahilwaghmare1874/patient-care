@@ -32,6 +32,6 @@ urlpatterns = [
     path('api/reports/', include('reports.urls')),
     path('api/notifications/', include('notifications.urls')),
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
-    re_path(r'^(?P<path>(pages/|css/|js/|images/|assets/|index\.html).*)$', serve_frontend, name='frontend_assets'),
+    re_path(r'^(?P<path>(pages/|css/|js/|images/|assets/|index\.html|robots\.txt|sitemap\.xml|favicon\.(svg|ico)).*)$', serve_frontend, name='frontend_assets'),
     path('', serve_frontend, name='frontend_root'),
 ]
