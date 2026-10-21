@@ -210,6 +210,15 @@ class SandboxSimulatePaymentView(views.APIView):
         order_id = request.data.get('order_id', '')
         event = request.data.get('event', 'SUCCESS')
 
+        # Normalize event names: accept dotted format (payment.success) or uppercase (SUCCESS)
+        _event_map = {
+            'payment.success': 'SUCCESS',
+            'payment.failed': 'FAILED',
+            'payment.expired': 'EXPIRED',
+            'payment.cancelled': 'CANCELLED',
+        }
+        event = _event_map.get(event.lower(), event.upper())
+
         order = PaymentOrder.objects.filter(order_id=order_id).first()
         if not order:
             return Response({'error': 'Order not found.'}, status=status.HTTP_404_NOT_FOUND)
