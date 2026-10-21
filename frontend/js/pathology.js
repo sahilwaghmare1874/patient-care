@@ -105,6 +105,23 @@ async function initPathologyDashboard() {
                     console.warn('Reserve credit notice:', resErr);
                 }
 
+                // Phase 9: Auto-credit 10% HPF contribution for Pathology Diagnostic
+                try {
+                    const hpfRes = await API.paymentAPI.create({
+                        patient_id: activePathologyPatient.patient_id,
+                        payment_type: 'Pathology Payment',
+                        service_description: `Pathology Diagnostic - ${res.report ? res.report.report_id : 'REP'}`,
+                        amount: parseFloat(payload.test_cost) || 0,
+                        payment_method: 'Assurance Benefit Wallet'
+                    });
+                    if (hpfRes && hpfRes.health_protection_contribution) {
+                        const contrib = hpfRes.health_protection_contribution;
+                        API.UI.showToast(`✅ 10% Health Protection contribution of ₹${contrib.amount} credited to patient fund.`, 'success', 'Health Protection Fund');
+                    }
+                } catch (hpfErr) {
+                    console.warn('HPF contribution notice (pathology):', hpfErr);
+                }
+
                 loadPathologyStats();
                 loadRecentReports();
                 loadPatientPathologyHistory(activePathologyPatient.patient_id);

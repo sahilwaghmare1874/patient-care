@@ -1541,3 +1541,65 @@ window.loadPatientAppointments = loadPatientAppointments;
 window.submitAppointmentBooking = submitAppointmentBooking;
 window.showBookingForm = showBookingForm;
 
+
+
+// ─── Gateway Payment Orders (Phase 10) ───────────────────────────────────────
+async function loadMyPaymentOrders() {
+    const container = document.getElementById('myOrdersContainer');
+    if (!container) return;
+
+    container.innerHTML = '<p class="text-muted text-center py-3"><span class="spinner-border spinner-border-sm me-1"></span> Loading orders...</p>';
+
+    try {
+        const patientIdEl = document.getElementById('dashPatientId') || document.getElementById('profilePatientId') || document.getElementById('patientId');
+        const patientId = patientIdEl ? patientIdEl.innerText.trim() : (window.activeDashboardPatientId || '');
+
+        const orders = await API.paymentAPI.listOrders(patientId);
+
+        if (!orders || orders.length === 0) {
+            container.innerHTML = '<p class="text-muted text-center py-4"><i class="bi bi-receipt me-2"></i>No payment orders found. Orders appear here after you initiate a gateway payment.</p>';
+            return;
+        }
+
+        const statusBadge = (s) => {
+            const map = { SUCCESS: 'success', ACTIVE: 'primary', PENDING: 'warning', FAILED: 'danger', EXPIRED: 'secondary', CANCELLED: 'secondary' };
+            return `<span class="badge bg-${map[s] || 'secondary'}">${s}</span>`;
+        };
+
+        const rows = orders.map(o => `
+            <tr>
+                <td><small class="font-monospace text-muted">${o.order_id}</small></td>
+                <td><span class="badge bg-light text-dark border">${o.provider_category || o.payment_type || '—'}</span></td>
+                <td>₹${parseFloat(o.amount || 0).toFixed(2)}</td>
+                <td>${statusBadge(o.status)}</td>
+                <td>${o.contribution_amount ? `<span class="text-success fw-bold">₹${parseFloat(o.contribution_amount).toFixed(2)}</span>` : '<span class="text-muted">—</span>'}</td>
+                <td><small class="text-muted">${o.utr || '—'}</small></td>
+                <td><small class="text-muted">${o.created_at ? new Date(o.created_at).toLocaleDateString('en-IN', {day:'2-digit',month:'short',year:'numeric'}) : '—'}</small></td>
+            </tr>
+        `).join('');
+
+        container.innerHTML = `
+            <div class="table-responsive">
+                <table class="table table-hover table-sm table-custom">
+                    <thead>
+                        <tr>
+                            <th>Order Ref</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>HPF Contribution</th>
+                            <th>UTR</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            </div>
+        `;
+    } catch (err) {
+        console.error('Failed to load payment orders:', err);
+        container.innerHTML = `<div class="alert alert-warning py-2 small"><i class="bi bi-exclamation-triangle me-1"></i> Could not load orders: ${err.message || 'Unknown error'}. Please try again.</div>`;
+    }
+}
+
+window.loadMyPaymentOrders = loadMyPaymentOrders;

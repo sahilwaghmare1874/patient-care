@@ -8,6 +8,7 @@ from .views import (
     PaymentRefundView,
     PaymentOrderListView,
     SandboxSimulatePaymentView,
+    WebhookDeliveryListView,
 )
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
 
     # ── Sandbox simulation (disabled in live mode)
     path('sandbox/simulate/', SandboxSimulatePaymentView.as_view(), name='payment-sandbox-simulate'),
+    path('webhook-deliveries/', WebhookDeliveryListView.as_view(), name='webhook-delivery-list'),
 ]

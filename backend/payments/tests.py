@@ -465,3 +465,35 @@ class SandboxSimulateTests(TestCase):
                 content_type='application/json',
             )
         self.assertEqual(resp.status_code, 403)
+
+
+class WebhookDeliveryAdminTests(TestCase):
+    def setUp(self):
+        from accounts.models import User
+        from payments.models import WebhookDelivery
+        self.admin_user = User.objects.create_superuser(username='wh_admin', email='wh_admin@test.org', password='password123')
+        self.normal_user = User.objects.create_user(username='wh_patient', email='wh_patient@test.org', password='password123', role='PATIENT')
+        self.delivery = WebhookDelivery.objects.create(
+            delivery_id='DEL-TEST-001',
+            payload={'orderId': 'ORD-TEST-001'},
+            event_type='SUCCESS',
+            status='PROCESSED',
+            ip_address='127.0.0.1'
+        )
+
+    def test_anonymous_access_denied(self):
+        resp = self.client.get('/api/payments/webhook-deliveries/')
+        self.assertIn(resp.status_code, [401, 403])
+
+    def test_non_admin_access_denied(self):
+        self.client.force_login(self.normal_user)
+        resp = self.client.get('/api/payments/webhook-deliveries/')
+        self.assertEqual(resp.status_code, 403)
+
+    def test_admin_access_allowed(self):
+        self.client.force_login(self.admin_user)
+        resp = self.client.get('/api/payments/webhook-deliveries/')
+        self.assertEqual(resp.status_code, 200)
+        data = resp.json()
+        self.assertEqual(data['total'], 1)
+        self.assertEqual(data['results'][0]['delivery_id'], 'DEL-TEST-001')

@@ -257,21 +257,58 @@ async function loadGatewayOrders() {
 }
 
 async function loadWebhookDeliveries() {
-    const container = document.getElementById('webhookDeliveryContainer');
+    const container = document.getElementById('webhookDeliveryContainer') || document.getElementById('webhookDeliveriesContainer');
     if (!container) return;
-    container.innerHTML = '<p class="text-muted small text-center"><span class="spinner-border spinner-border-sm me-1"></span> Loading webhook log...</p>';
+    container.innerHTML = '<p class="text-muted small text-center"><span class="spinner-border spinner-border-sm me-1"></span> Loading webhook audit log...</p>';
 
     try {
-        // Webhook deliveries require Django Admin access for full audit.
+        const result = await API.apiFetch('/api/payments/webhook-deliveries/?limit=30');
+        const deliveries = result.results || [];
+
+        if (!deliveries.length) {
+            container.innerHTML = '<p class="text-muted text-center py-3"><i class="bi bi-inbox me-2"></i>No webhook deliveries recorded yet.</p>';
+            return;
+        }
+
+        const statusBadge = (s) => {
+            const map = { PROCESSED: 'success', REJECTED: 'danger', DUPLICATE: 'warning', PENDING: 'secondary' };
+            return `<span class="badge bg-${map[s] || 'secondary'}">${s}</span>`;
+        };
+
+        const rows = deliveries.map(d => `
+            <tr>
+                <td><small class="font-monospace text-muted">${d.delivery_id || d.id}</small></td>
+                <td><small class="font-monospace">${d.order_id || '—'}</small></td>
+                <td><span class="badge bg-light text-dark border">${d.event_type}</span></td>
+                <td>${statusBadge(d.status)}</td>
+                <td><small class="text-muted">${d.ip_address || '—'}</small></td>
+                <td><small class="text-muted">${d.error_message || '—'}</small></td>
+                <td><small class="text-muted">${d.received_at ? new Date(d.received_at).toLocaleString('en-IN') : '—'}</small></td>
+            </tr>
+        `).join('');
+
         container.innerHTML = `
-            <div class="alert alert-info py-2 small mb-0">
-                <i class="bi bi-info-circle me-1"></i>
-                Full webhook delivery audit (signatures, replay protection, IP, raw payloads) is available in the
-                <a href="/admin/payments/webhookdelivery/" target="_blank" class="fw-bold">Django Admin Panel → WebhookDelivery</a>.
-                <br>All HMAC-SHA256 verified webhooks are immutably recorded with delivery ID, event type, status, IP address, and raw body.
-            </div>`;
+            <div class="table-responsive">
+                <table class="table table-hover table-sm">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Delivery ID</th>
+                            <th>Order</th>
+                            <th>Event</th>
+                            <th>Status</th>
+                            <th>IP</th>
+                            <th>Error</th>
+                            <th>Received At</th>
+                        </tr>
+                    </thead>
+                    <tbody>${rows}</tbody>
+                </table>
+            </div>
+            <small class="text-muted">Showing ${deliveries.length} of ${result.total} deliveries.</small>
+        `;
     } catch (err) {
-        container.innerHTML = `<p class="text-danger small">Could not load: ${err.message}</p>`;
+        console.error('Failed to load webhook deliveries:', err);
+        container.innerHTML = `<div class="alert alert-warning py-2 small"><i class="bi bi-exclamation-triangle me-1"></i>Could not load webhook log: ${err.message}. Admin access required.</div>`;
     }
 }
 

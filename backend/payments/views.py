@@ -764,3 +764,48 @@ class PaymentOrderListView(views.APIView):
             orders = orders.filter(patient__patient_id__iexact=patient_id)
         serializer = PaymentOrderSerializer(orders[:50], many=True)
         return Response(serializer.data)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WEBHOOK DELIVERY AUDIT LOG (Admin only)
+# ─────────────────────────────────────────────────────────────────────────────
+class WebhookDeliveryListView(views.APIView):
+    """
+    GET /api/payments/webhook-deliveries/
+    Returns paginated webhook delivery audit log. Admin-only.
+    """
+    permission_classes = [permissions.IsAdminUser]
+
+    def get(self, request):
+        from django.db.models import Q
+        limit = min(int(request.query_params.get('limit', 50)), 200)
+        offset = int(request.query_params.get('offset', 0))
+        order_id_filter = request.query_params.get('order_id', '')
+
+        qs = WebhookDelivery.objects.select_related('order').order_by('-created_at')
+        if order_id_filter:
+            qs = qs.filter(Q(order__order_id=order_id_filter) | Q(payload__orderId=order_id_filter))
+
+        total = qs.count()
+        deliveries = qs[offset:offset + limit]
+
+        data = []
+        for d in deliveries:
+            resolved_order_id = d.order.order_id if d.order else (d.payload.get('orderId') if isinstance(d.payload, dict) else None)
+            data.append({
+                'id': d.id,
+                'delivery_id': d.delivery_id,
+                'order_id': resolved_order_id,
+                'event_type': d.event_type,
+                'status': d.status,
+                'error_message': d.error_message,
+                'ip_address': d.ip_address,
+                'received_at': d.created_at.isoformat() if d.created_at else None,
+            })
+
+        return Response({
+            'total': total,
+            'offset': offset,
+            'limit': limit,
+            'results': data,
+        })

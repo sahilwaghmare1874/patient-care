@@ -119,6 +119,23 @@ async function initPharmacyDashboard() {
                     console.warn('Reserve credit notice:', resErr);
                 }
 
+                // Phase 9: Auto-credit 5% HPF contribution for Pharmacy Dispensation
+                try {
+                    const hpfRes = await API.paymentAPI.create({
+                        patient_id: activePharmacyPatient.patient_id,
+                        payment_type: 'Pharmacy Payment',
+                        service_description: `Pharmacy Dispensation - ${res.transaction ? res.transaction.invoice_number : 'INV'}`,
+                        amount: parseFloat(payload.subtotal_amount) || 0,
+                        payment_method: 'Assurance Benefit Wallet'
+                    });
+                    if (hpfRes && hpfRes.health_protection_contribution) {
+                        const contrib = hpfRes.health_protection_contribution;
+                        API.UI.showToast(`✅ 5% Health Protection contribution of ₹${contrib.amount} credited to patient fund.`, 'success', 'Health Protection Fund');
+                    }
+                } catch (hpfErr) {
+                    console.warn('HPF contribution notice (pharmacy):', hpfErr);
+                }
+
                 loadPharmacyStats();
                 loadRecentDispensations();
                 dispenseForm.reset();
