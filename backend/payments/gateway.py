@@ -11,7 +11,10 @@ import json
 import logging
 import urllib.parse
 from decimal import Decimal
-import requests
+try:
+    import requests
+except ImportError:
+    requests = None
 from django.conf import settings
 
 logger = logging.getLogger(__name__)
@@ -83,6 +86,8 @@ class YoupiPaymentGateway(PaymentGatewayAdapter):
             }
         }
 
+        if requests is None:
+            raise GatewayError("The 'requests' package is required for live gateway communication. Please install requests.")
         try:
             logger.info("Initiating YouPI PG payment session for order %s at %s", order.order_id, endpoint)
             resp = requests.post(endpoint, json=payload, headers=headers, timeout=10)
