@@ -178,3 +178,30 @@ AI_TIMEOUT_SECONDS = int(os.environ.get('AI_TIMEOUT_SECONDS', 30))
 
 # Reserve Account Configuration
 RESERVE_CREDIT_PERCENTAGE = float(os.environ.get('RESERVE_CREDIT_PERCENTAGE', 90.0))
+
+# Payment Gateway & YouPI-PG Configuration
+PAYMENT_GATEWAY_MODE = os.environ.get('PAYMENT_GATEWAY_MODE', 'sandbox')  # 'live' or 'sandbox'
+YOUPI_PG_API_URL = os.environ.get('YOUPI_PG_API_URL', 'http://127.0.0.1:6100')
+YOUPI_PG_CHECKOUT_URL = os.environ.get('YOUPI_PG_CHECKOUT_URL', 'http://127.0.0.1:7000')
+YOUPI_PG_MERCHANT_ID = os.environ.get('YOUPI_PG_MERCHANT_ID', 'mer_patientcare_default')
+YOUPI_PG_WEBHOOK_SECRET = os.environ.get('YOUPI_PG_WEBHOOK_SECRET', 'whsec_patientcare_super_secure_secret_2026')
+YOUPI_PG_CURRENCY = 'INR'
+
+# Healthcare Contribution Rules (Configurable: Doctor 10%, Pathology 10%, Pharmacy 5%)
+CONTRIBUTION_RULES = {
+    'DOCTOR': {
+        'rate': 10.00,
+        'category': 'Doctor Consultation',
+        'service_name': 'Doctor Payment',
+    },
+    'PATHOLOGY': {
+        'rate': 10.00,
+        'category': 'Pathology Diagnostic',
+        'service_name': 'Pathology Payment',
+    },
+    'PHARMACY': {
+        'rate': 5.00,
+        'category': 'Pharmacy Purchase',
+        'service_name': 'Pharmacy Payment',
+    },
+}

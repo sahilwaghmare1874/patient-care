@@ -397,6 +397,7 @@ const governmentApplicationAPI = {
 
 
 const paymentAPI = {
+    // ── Legacy direct payment (backward compat)
     async list(patientId = '') {
         return apiFetch(`/payments/${patientId ? `?patient_id=${patientId}` : ''}`);
     },
@@ -408,6 +409,33 @@ const paymentAPI = {
     },
     async getReceipt(transactionId) {
         return apiFetch(`/payments/receipt/${transactionId}/`);
+    },
+
+    // ── YouPI-PG Payment Gateway Integration
+    async createOrder(data) {
+        return apiFetch('/payments/orders/create/', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+    },
+    async listOrders(patientId = '') {
+        return unwrapList(await apiFetch(`/payments/orders/${patientId ? `?patient_id=${patientId}` : ''}`));
+    },
+    async getOrderStatus(orderId) {
+        return apiFetch(`/payments/orders/${orderId}/status/`);
+    },
+    async requestRefund(orderId, data) {
+        return apiFetch(`/payments/orders/${orderId}/refund/`, {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+    },
+    // Sandbox simulation (disabled in live mode)
+    async sandboxSimulate(orderId, event = 'SUCCESS') {
+        return apiFetch('/payments/sandbox/simulate/', {
+            method: 'POST',
+            body: JSON.stringify({ order_id: orderId, event })
+        });
     }
 };
 
@@ -527,6 +555,7 @@ const UI = {
 };
 
 window.API = {
+    apiFetch,
     API_BASE_URL,
     Storage,
     authAPI,

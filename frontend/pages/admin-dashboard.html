@@ -268,6 +268,101 @@
                 </div>
             </div>
 
+            <!-- Phase 10: YouPI-PG Payment Gateway Orders & Webhook Monitoring -->
+            <div class="card p-4 border shadow-sm mb-4 bg-white">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h5 class="fw-bold text-dark mb-0">
+                            <i class="bi bi-qr-code text-primary me-2"></i> Payment Gateway Orders (YouPI-PG)
+                        </h5>
+                        <small class="text-muted">Server-verified payment orders with HMAC-SHA256 webhook cryptographic confirmation</small>
+                    </div>
+                    <button class="btn btn-outline-primary btn-sm" onclick="loadGatewayOrders()">
+                        <i class="bi bi-arrow-clockwise me-1"></i> Refresh Orders
+                    </button>
+                </div>
+
+                <!-- Contribution Rate Summary -->
+                <div class="row g-2 mb-3">
+                    <div class="col-md-4">
+                        <div class="p-2 bg-primary-subtle border border-primary rounded text-center">
+                            <div class="fw-bold text-primary">10%</div>
+                            <small class="text-muted">Doctor Consultation Rate</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-2 bg-info-subtle border border-info rounded text-center">
+                            <div class="fw-bold text-info">10%</div>
+                            <small class="text-muted">Pathology Diagnostic Rate</small>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-2 bg-success-subtle border border-success rounded text-center">
+                            <div class="fw-bold text-success">5%</div>
+                            <small class="text-muted">Pharmacy Purchase Rate</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sandbox Simulator -->
+                <div class="alert alert-warning py-2 mb-3 small">
+                    <i class="bi bi-beaker me-1"></i>
+                    <strong>Sandbox Mode Active.</strong> Use the simulator below to test payment outcomes without real UPI transactions.
+                    Set <code>PAYMENT_GATEWAY_MODE=live</code> and configure YouPI-PG when ready for production.
+                    <div class="mt-2 d-flex gap-2 align-items-center flex-wrap">
+                        <input type="text" id="simOrderIdAdmin" class="form-control form-control-sm" style="max-width:280px;" placeholder="Order ID (e.g. ORD-PC-…)">
+                        <select id="simEventAdmin" class="form-select form-select-sm" style="max-width:140px;">
+                            <option value="SUCCESS">SUCCESS</option>
+                            <option value="FAILED">FAILED</option>
+                            <option value="EXPIRED">EXPIRED</option>
+                            <option value="CANCELLED">CANCELLED</option>
+                        </select>
+                        <button class="btn btn-warning btn-sm" onclick="adminSandboxSimulate()">
+                            <i class="bi bi-play-fill me-1"></i>Simulate
+                        </button>
+                    </div>
+                    <div id="adminSimResult" class="mt-1"></div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover table-sm small">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Patient</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>Contribution (HPF)</th>
+                                <th>UTR</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="gatewayOrdersTableBody">
+                            <tr><td colspan="8" class="text-center text-muted">Click "Refresh Orders" to load.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Phase 10: Webhook Delivery Audit -->
+            <div class="card p-4 border shadow-sm mb-4 bg-white">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <h5 class="fw-bold text-dark mb-0">
+                            <i class="bi bi-shield-lock text-success me-2"></i> Webhook Delivery Audit Log
+                        </h5>
+                        <small class="text-muted">HMAC-SHA256 verified gateway notifications — duplicate, rejected, and processed events</small>
+                    </div>
+                    <button class="btn btn-outline-success btn-sm" onclick="loadWebhookDeliveries()">
+                        <i class="bi bi-arrow-clockwise me-1"></i> Refresh
+                    </button>
+                </div>
+                <div id="webhookDeliveryContainer">
+                    <p class="text-muted small text-center py-2">Click "Refresh" to load webhook audit records.</p>
+                </div>
+            </div>
+
             <!-- System Audit Log Table (Requirement 25 & 27) -->
             <div class="card p-4 border shadow-sm bg-white">
                 <div class="d-flex justify-content-between align-items-center mb-3">

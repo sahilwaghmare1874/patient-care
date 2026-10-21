@@ -27,14 +27,14 @@ from notifications.models import Notification
 DEFAULT_RULES = {
     'Doctor Consultation': Decimal('10.00'),
     'Pathology Diagnostic': Decimal('10.00'),
-    'Pharmacy Purchase': Decimal('10.00'),
+    'Pharmacy Purchase': Decimal('5.00'),
 }
 
 
 def ensure_default_allocation_rules():
-    """Ensure database-backed 10% rules exist for all core clinical services."""
+    """Ensure database-backed rules exist: Doctor 10%, Pathology 10%, Pharmacy 5%."""
     for category, pct in DEFAULT_RULES.items():
-        HealthProtectionAllocationRule.objects.get_or_create(
+        rule, created = HealthProtectionAllocationRule.objects.get_or_create(
             service_category=category,
             defaults={
                 'contribution_percentage': pct,
@@ -44,6 +44,10 @@ def ensure_default_allocation_rules():
                 'description': f'Automatic {pct}% contribution to patient healthcare protection fund from {category.lower()} payment.'
             }
         )
+        if not created and category == 'Pharmacy Purchase' and rule.contribution_percentage == Decimal('10.00'):
+            rule.contribution_percentage = Decimal('5.00')
+            rule.description = f'Automatic 5.00% contribution to patient healthcare protection fund from pharmacy purchase payment.'
+            rule.save(update_fields=['contribution_percentage', 'description', 'updated_at'])
 
 
 def get_or_create_protection_account(patient):
@@ -230,13 +234,28 @@ def credit_health_protection_fund(
 
 
 @transaction.atomic
-def reverse_health_protection_fund(payment, user=None, reason='Payment refund'):
+def reverse_health_protection_fund(source_payment=None, payment=None, patient=None, user=None, reason='Payment refund', idempotency_key=None):
     """
     Reverses the Health Protection Fund contribution associated with a payment upon refund.
     Ensures ledger consistency and prevents orphaned or duplicate balances.
+    Idempotent: if a reversal already exists for the idempotency_key, returns existing result.
     """
+    # Support both 'payment' and 'source_payment' for backward compatibility
+    payment = source_payment or payment
     if not payment:
         raise ValueError("Payment is required for reversal.")
+
+    # Idempotency check
+    if idempotency_key:
+        existing_rev = HealthProtectionTransaction.objects.filter(idempotency_key=idempotency_key).first()
+        if existing_rev:
+            return {
+                'reversed': True,
+                'duplicate': True,
+                'message': 'Reversal already processed (idempotent).',
+                'transaction_reference': existing_rev.transaction_reference,
+                'available_balance': existing_rev.balance_after,
+            }
 
     orig_txn = HealthProtectionTransaction.objects.filter(
         source_payment=payment,
@@ -269,7 +288,7 @@ def reverse_health_protection_fund(payment, user=None, reason='Payment refund'):
 
     rev_txn = HealthProtectionTransaction(
         transaction_reference=rev_ref,
-        idempotency_key=f"REV-{orig_txn.idempotency_key}",
+        idempotency_key=idempotency_key or f"REV-{orig_txn.idempotency_key}",
         patient=orig_txn.patient,
         protection_account=account,
         source_payment=payment,
@@ -304,6 +323,7 @@ def reverse_health_protection_fund(payment, user=None, reason='Payment refund'):
         'reversed': True,
         'message': f"₹{reversal_amount} successfully reversed from Health Protection Fund.",
         'reversal_transaction': rev_txn,
+        'transaction_reference': rev_txn.transaction_reference,
         'available_balance': balance_after,
     }
 

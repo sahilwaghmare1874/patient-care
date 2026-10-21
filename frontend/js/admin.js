@@ -217,3 +217,92 @@ async function loadDuplicateClaimAlerts() {
         container.innerHTML = `<div class="text-danger small">Scan unavailable: ${err.message}</div>`;
     }
 }
+
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Phase 10: YouPI-PG Payment Gateway Orders & Webhook Admin Functions
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function loadGatewayOrders() {
+    const tbody = document.getElementById('gatewayOrdersTableBody');
+    if (!tbody) return;
+    tbody.innerHTML = '<tr><td colspan="8" class="text-center text-muted"><span class="spinner-border spinner-border-sm me-1"></span> Loading...</td></tr>';
+
+    try {
+        const orders = await API.paymentAPI.listOrders();
+        if (!orders || orders.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="8" class="text-center text-muted">No payment orders yet.</td></tr>';
+            return;
+        }
+
+        const statusColor = {
+            SUCCESS: 'success', ACTIVE: 'primary', PENDING: 'secondary',
+            FAILED: 'danger', EXPIRED: 'warning', CANCELLED: 'secondary', REFUNDED: 'info'
+        };
+
+        tbody.innerHTML = orders.map(o => `
+            <tr>
+                <td><code class="small">${o.order_id}</code></td>
+                <td>${o.created_at?.split('T')[0] || '-'}</td>
+                <td>${o.patient_name || '-'}<br><small class="text-muted">${o.patient_id_display || ''}</small></td>
+                <td><span class="badge bg-secondary-subtle text-secondary">${o.provider_category || '-'}</span></td>
+                <td class="fw-bold">₹${parseFloat(o.amount || 0).toFixed(2)}</td>
+                <td class="text-success"><small>+₹${parseFloat(o.expected_contribution_amount || 0).toFixed(2)} <span class="text-muted">(${o.contribution_rate}%)</span></small></td>
+                <td><small class="text-muted">${o.utr || '—'}</small></td>
+                <td><span class="badge bg-${statusColor[o.status] || 'secondary'}">${o.status}</span></td>
+            </tr>`).join('');
+    } catch (err) {
+        if (tbody) tbody.innerHTML = `<tr><td colspan="8" class="text-danger text-center small">${err.message || 'Failed to load orders.'}</td></tr>`;
+    }
+}
+
+async function loadWebhookDeliveries() {
+    const container = document.getElementById('webhookDeliveryContainer');
+    if (!container) return;
+    container.innerHTML = '<p class="text-muted small text-center"><span class="spinner-border spinner-border-sm me-1"></span> Loading webhook log...</p>';
+
+    try {
+        // Webhook deliveries require Django Admin access for full audit.
+        container.innerHTML = `
+            <div class="alert alert-info py-2 small mb-0">
+                <i class="bi bi-info-circle me-1"></i>
+                Full webhook delivery audit (signatures, replay protection, IP, raw payloads) is available in the
+                <a href="/admin/payments/webhookdelivery/" target="_blank" class="fw-bold">Django Admin Panel → WebhookDelivery</a>.
+                <br>All HMAC-SHA256 verified webhooks are immutably recorded with delivery ID, event type, status, IP address, and raw body.
+            </div>`;
+    } catch (err) {
+        container.innerHTML = `<p class="text-danger small">Could not load: ${err.message}</p>`;
+    }
+}
+
+async function adminSandboxSimulate() {
+    const orderId = document.getElementById('simOrderIdAdmin')?.value?.trim();
+    const event = document.getElementById('simEventAdmin')?.value || 'SUCCESS';
+    const resultDiv = document.getElementById('adminSimResult');
+
+    if (!orderId) {
+        if (resultDiv) resultDiv.innerHTML = '<small class="text-danger">Please enter an Order ID.</small>';
+        return;
+    }
+
+    if (resultDiv) resultDiv.innerHTML = `<small class="text-muted"><span class="spinner-border spinner-border-sm me-1"></span> Simulating ${event}…</small>`;
+
+    try {
+        const res = await API.paymentAPI.sandboxSimulate(orderId, event);
+        const wh = res.webhook_result || {};
+        const contrib = wh.health_protection_contribution;
+
+        if (resultDiv) {
+            const contribLine = contrib
+                ? `<br>💚 HPF Credited: <strong>₹${contrib.amount.toFixed(2)}</strong> (${contrib.rate}%) | Wallet: <strong>₹${contrib.available_balance.toFixed(2)}</strong>`
+                : '';
+            resultDiv.innerHTML = `<div class="alert alert-${event === 'SUCCESS' ? 'success' : 'secondary'} py-1 mt-1 small">
+                <strong>${event}</strong> — Txn: <code>${wh.transaction_id || '—'}</code> | UTR: <code>${wh.utr || '—'}</code>${contribLine}
+            </div>`;
+        }
+        // Refresh orders table after simulate
+        loadGatewayOrders();
+    } catch (err) {
+        if (resultDiv) resultDiv.innerHTML = `<small class="text-danger">${err.message || 'Simulation failed.'}</small>`;
+    }
+}
