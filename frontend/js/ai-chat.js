@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Multilingual AI Patient Support & Intelligent Navigation Assistant (ai-chat.js)
  * Supports English, Hindi, and Marathi.
  */
@@ -9,7 +9,7 @@
 
     const UI_TRANSLATIONS = {
         en: {
-            title: 'PatientCare AI Assistant',
+            title: 'Health Insurance Assurance AI Assistant',
             subtitle: 'Multilingual Clinical & Scheme Guidance',
             placeholder: 'Ask about symptoms, schemes, 90% reserve, appointments...',
             send: 'Send',
@@ -159,7 +159,7 @@
                 <!-- Messages Stream -->
                 <div id="aiMessagesStream" class="flex-grow-1 p-3 d-flex flex-column" style="overflow-y: auto;">
                     <div class="ai-msg ai-msg-assistant">
-                        <strong class="d-block text-primary small mb-1">PatientCare Assistant</strong>
+                        <strong class="d-block text-primary small mb-1">Health Insurance Assurance Assistant</strong>
                         Hello! How can I assist you today? I can help with doctor appointments, symptoms, government schemes (MJPJAY, PM-JAY), or your 90% Healthcare Reserve.
                     </div>
                 </div>

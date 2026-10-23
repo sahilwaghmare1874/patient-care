@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Centralized Patient & Fund Distribution Report Controller (reports.js)
  */
 
@@ -88,7 +88,7 @@ function renderFullReport(data) {
         <div class="card p-4 border shadow-sm mb-4 bg-white">
             <div class="d-flex flex-wrap justify-content-between align-items-center border-bottom pb-3 mb-3 gap-2">
                 <div>
-                    <h3 class="text-primary fw-bold mb-0">PatientCare</h3>
+                    <h3 class="text-primary fw-bold mb-0">Health Insurance Assurance</h3>
                     <p class="text-muted small mb-0">Official Centralized Patient & Healthcare Fund Distribution Report</p>
                     <small class="text-muted">Generated: <strong>${data.generated_at}</strong></small>
                 </div>

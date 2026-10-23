@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Centralized API & State Management Layer (api.js)
  */
 

@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Pathology & Diagnostic Lab Controller (pathology.js)
  */
 

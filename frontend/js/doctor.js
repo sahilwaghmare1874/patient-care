@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Doctor Consultation Portal (doctor.js)
  */
 
@@ -97,22 +97,59 @@ async function initDoctorDashboard() {
                     console.warn('Reserve credit notice:', resErr);
                 }
 
-                // Phase 9: Create payment to auto-trigger 10% Health Protection Fund contribution
+                // Phase 10: Initiate YOUPI PG payment order and show gateway checkout.
+                // Replaces the legacy paymentAPI.create() (Phase 9) which bypassed the
+                // gateway entirely and pre-credited the HPF wallet without any real payment
+                // being verified. The wallet is now only credited after the backend verifies
+                // payment via HMAC-signed webhook (atomic, idempotent, server-authoritative).
                 try {
-                    const paymentRes = await API.paymentAPI.create({
-                        patient_id: activeDoctorPatient.patient_id,
-                        payment_type: 'Doctor Payment',
-                        service_description: `Doctor Consultation - ${res.consultation ? res.consultation.consultation_id : 'CON'}`,
-                        amount: fee,
-                        payment_method: 'Assurance Benefit Wallet',
-                        provider_id: document.getElementById('doctorId') ? document.getElementById('doctorId').value : ''
+                    const consultationId = res.consultation ? res.consultation.consultation_id : `CON-${Date.now()}`;
+                    const orderRes = await API.paymentAPI.createOrder({
+                        patient_id:          activeDoctorPatient.patient_id,
+                        payment_type:        'Doctor Payment',
+                        amount:              fee,
+                        service_description: `Doctor Consultation - ${consultationId}`,
+                        provider_id:         document.getElementById('doctorId')?.value?.trim() || '',
                     });
-                    if (paymentRes && paymentRes.health_protection_contribution) {
-                        const contrib = paymentRes.health_protection_contribution;
-                        API.UI.showToast(`✅ 10% Health Protection Fund contribution of ₹${contrib.amount} credited automatically.`, 'success', 'Health Protection Fund');
+
+                    // Reveal the payment checkout panel inserted below the consultation form
+                    const paymentPanel = document.getElementById('consultationPaymentPanel');
+                    if (paymentPanel) {
+                        paymentPanel.style.display = 'block';
+                        paymentPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
+
+                    // Render order summary (payment.js displayOrderInitiated is now loaded)
+                    if (typeof displayOrderInitiated === 'function') {
+                        displayOrderInitiated(orderRes);
+                    }
+
+                    if (orderRes.sandbox_mode) {
+                        // Sandbox: show inline simulator buttons (payment.js showSandboxCheckout)
+                        API.UI.showToast(
+                            `Payment order ₹${parseFloat(fee).toFixed(2)} created (Order: ${orderRes.order_id}). ` +
+                            `Use the Sandbox Checkout controls below to complete payment.`,
+                            'info', 'Payment Order Ready'
+                        );
+                        if (typeof showSandboxCheckout === 'function') {
+                            showSandboxCheckout(orderRes);
+                        }
+                    } else if (orderRes.checkout_url) {
+                        // Live mode: redirect to YouPI PG hosted checkout
+                        API.UI.showToast('Redirecting to payment gateway…', 'info', 'Checkout');
+                        window.location.href = orderRes.checkout_url;
+                    }
+
                 } catch (payErr) {
-                    console.warn('Health protection fund notice:', payErr);
+                    // Consultation record is already saved; only payment initiation failed.
+                    // The doctor can retry by creating a payment order from the Payment dashboard.
+                    const errMsg = payErr.message || 'Payment gateway unavailable.';
+                    console.warn('Payment order initiation failed after consultation save:', payErr);
+                    API.UI.showToast(
+                        `Consultation saved. Payment could not be initiated: ${errMsg}. ` +
+                        `Please use the Payment dashboard to create a payment order for this consultation.`,
+                        'warning', 'Payment Not Initiated'
+                    );
                 }
 
                 // If currently calling a token, mark it completed

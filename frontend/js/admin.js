@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Admin Dashboard & System Rule Configuration (admin.js)
  */
 

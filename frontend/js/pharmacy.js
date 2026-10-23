@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Pharmacy & Chemist Dispensary Controller (pharmacy.js)
  */
 

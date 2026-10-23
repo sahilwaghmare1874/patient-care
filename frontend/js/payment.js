@@ -1,5 +1,5 @@
 /**
- * PatientCare Healthcare Platform
+ * Health Insurance Assurance Healthcare Platform
  * Payment & Digital Receipt Controller (payment.js)
  * Phase 10: YouPI-PG Payment Gateway Integration
  * 
@@ -190,8 +190,8 @@ function displayOrderInitiated(order) {
                 <i class="bi bi-info-circle me-1 text-info"></i>
                 <strong>Health Protection Fund:</strong> After successful payment, 
                 <strong>₹${parseFloat(order.expected_contribution).toFixed(2)} (${order.contribution_rate}%)</strong>
-                will be automatically credited to the patient's PatientCare Wallet.
-                <br><small class="text-muted">This is not yet transferable to external insurance. It remains in the PatientCare Insurance Support Ledger until an authorized insurer is integrated.</small>
+                will be automatically credited to the patient's Health Insurance Assurance Wallet.
+                <br><small class="text-muted">This is not yet transferable to external insurance. It remains in the Health Insurance Assurance Support Ledger until an authorized insurer is integrated.</small>
             </div>
             <div id="orderStatusPoll_${order.order_id}" class="mt-3"></div>
         </div>`;
@@ -338,7 +338,7 @@ function displayOrderSuccess(data) {
             </div>
             <div class="alert alert-success mt-3 py-2">
                 <i class="bi bi-shield-check me-1"></i>
-                <strong>Insurance-Support Balance Updated.</strong> Contributions accumulate in your PatientCare Health Protection Wallet. 
+                <strong>Insurance-Support Balance Updated.</strong> Contributions accumulate in your Health Insurance Assurance Health Protection Wallet. 
                 Future integration with an authorized insurer will allow conversion to insurance premiums.
             </div>
             <div class="mt-2 text-end">
